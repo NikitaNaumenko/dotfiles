@@ -1,0 +1,154 @@
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
+"colorshemes
+Plug 'morhetz/gruvbox'
+
+Plug 'Valloric/YouCompleteMe'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'xolox/vim-session'
+Plug 'xolox/vim-misc'
+"Ruby group
+Plug  'tpope/vim-endwise'
+Plug 'slim-template/vim-slim'
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-bundler'
+Plug 'thoughtbot/vim-rspec'
+"js group
+Plug 'pangloss/vim-javascript'
+Plug 'kchmck/vim-coffee-script'
+"Programming
+Plug 'vim-syntastic/syntastic'
+Plug 'vim-airline/vim-airline'
+call plug#end()
+
+set t_Co=256
+let g:mapleader=',' "press ,+s for use easy-motion
+let g:ycm_server_python_interpreter = '/usr/bin/python2' "comment if ymc omplete natively
+let g:session_directory = "~/.vim/sessions"
+let g:session_autoload = 'no'
+let g:session_autosave = 'no'
+let g:session_command_aliases = 1
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#empty_message = ''
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_sep = '|'
+let g:airline#extensions#tabline#show_buffers = 0
+
+let g:syntastic_enable_signs = 1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_disabled_filetypes = ['html', 'slim', 'erb', 'md']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '|'
+
+"let g:syntastic_error_symbol = '✗'
+"let g:syntastic_warning_symbol = '⚠'
+"let g:syntastic_disabled_filetypes = ['html', 'slim', 'erb', 'md']
+
+
+
+
+
+
+
+
+
+autocmd FileType ruby compiler ruby
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+
+syntax on
+colorscheme gruvbox
+set background=dark
+set number
+set expandtab
+"set tabstop=2
+set ts=2
+set sw=2
+"set paste
+set hlsearch
+set incsearch
+set synmaxcol=200
+set nobackup
+set noswapfile
+scriptencoding utf-8
+set encoding=utf-8
+set fileencoding=utf-8
+set langmenu=en_US.UTF-8
+set wrap
+set ai
+"set listchars=tab:··
+"set lcs+=space:·
+"set listchars=,tab:▸␣
+"set list
+"set listchars=tab:>-,trail:-
+"set list
+"set guioptions-=T
+"set guioptions-=m
+set listchars=tab:▸\ ,trail:·,space:.,nbsp:☠
+set list
+
+
+
+
+set showbreak=↪\
+" check one time after 4s of inactivity in normal mode
+set autoread
+au CursorHold * checktime
+filetype plugin indent on
+"mappings
+
+map <C-n> :NERDTreeToggle<CR>
+map <Leader> <Plug>(easymotion-prefix)
+
+"NerdTree move map
+map <silent> <C-h> :call WinMove('h')<CR>
+map <silent> <C-j> :call WinMove('j')<CR>
+map <silent> <C-k> :call WinMove('k')<CR>
+map <silent> <C-l> :call WinMove('l')<CR>
+
+"nnoremap <leader> so :OpenSession
+"nnoremap <leader> ss :SaveSession
+"nnoremap <leader> sd :DeleteSession<CR>
+"nnoremap <leader> sc :CloseSession<CR>
+"map <silent><C-t> :call RunCurrentSpecFile()<CR>
+"map ilent><C-s> :call RunNearestSpec()<CR>
+"map <silent>l :call RunLastSpec()<CR>
+"map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+function! WinMove(key)
+  let t:curwin = winnr()
+  exec "wincmd ".a:key
+  if (t:curwin == winnr())
+    if (match(a:key,'[jk]'))
+      wincmd v
+    else
+      wincmd s
+    endif
+    exec "wincmd ".a:key
+  endif
+endfunction
