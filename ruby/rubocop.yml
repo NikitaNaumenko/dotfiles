@@ -1,0 +1,64 @@
+LineLength:
+  Enabled: false
+
+PercentLiteralDelimiters:
+  Enabled: false
+
+MethodLength:
+  Enabled: false
+
+AlignHash:
+  Enabled: false
+
+AlignParameters:
+  Enabled: false
+
+ClassAndModuleChildren:
+  Enabled: false
+
+ClassLength:
+  Enabled: false
+
+Encoding:
+  EnforcedStyle: when_needed
+
+RaiseArgs:
+  Enabled: false
+
+RescueException:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Lambda:
+  Enabled: false
+
+LambdaCall:
+  Enabled: false
+
+# Common configuration.
+AllCops:
+  # Include gemspec and Rakefile
+  Include:
+    - '**/*.gemspec'
+    - '**/*.podspec'
+    - '**/*.jbuilder'
+    - '**/*.rake'
+    - '**/Gemfile'
+    - '**/Rakefile'
+    - '**/Capfile'
+    - '**/Guardfile'
+    - '**/Podfile'
+    - '**/Thorfile'
+    - '**/Vagrantfile'
+  Exclude:
+
+Style/SpaceInsideBlockBraces:
+  Enabled: false
+
+Style/SpaceBeforeBlockBraces:
+  Enabled: false
+# Allow safe assignment in conditions.
+Style/ParenthesesAroundCondition:
+  AllowSafeAssignment: true
