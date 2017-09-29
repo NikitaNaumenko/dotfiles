@@ -53,6 +53,11 @@ AllCops:
     - '**/Thorfile'
     - '**/Vagrantfile'
   Exclude:
+    - 'db/schema.rb'
+Metrics/MethodLength:
+  Max: 20
+  Exclude: 
+    - 'spec/**/*'
 
 Style/SpaceInsideBlockBraces:
   Enabled: false
