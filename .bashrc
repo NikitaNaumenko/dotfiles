@@ -16,3 +16,5 @@ alias gpush='git push'
 alias gs='git status'
 alias glog='git log'
 
+export PATH="$PATH:$HOME/.rvm/bin"
+
