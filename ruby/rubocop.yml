@@ -40,6 +40,8 @@ LambdaCall:
 # Common configuration.
 AllCops:
   # Include gemspec and Rakefile
+  DisplayCopNames: true
+  ExtraDetails: true
   Include:
     - '**/*.gemspec'
     - '**/*.podspec'
@@ -67,3 +69,7 @@ Style/SpaceBeforeBlockBraces:
 # Allow safe assignment in conditions.
 Style/ParenthesesAroundCondition:
   AllowSafeAssignment: true
+
+Style/Documentation:
+  Enabled: false
+
