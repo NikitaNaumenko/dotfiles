@@ -71,7 +71,7 @@ Plug 'mtscout6/vim-cjsx'
 Plug 'flowtype/vim-flow'
 Plug 'moll/vim-node'
 Plug 'benjie/neomake-local-eslint.vim'
-
+Plug 'posva/vim-vue'
 " Ruby, Rails
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
@@ -83,7 +83,7 @@ Plug 'p0deje/vim-ruby-interpolation'
 Plug 'tpope/vim-rake'
 call plug#end()
 let base16colorspace=256
-set guifont=Droid\ Sans\ Mono\ 12
+set guifont=Droid\Sans\ Mono\ 12
 
 colorscheme base16-materia
 set t_Co=256
