@@ -1,8 +1,8 @@
-require "awesome_print"
+require 'awesome_print'
 AwesomePrint.pry!
 
 Pry.config.hooks.add_hook :after_session, :say_bye do
-  puts "bye-bye" if Pry.active_sessions == 1
+  puts 'bye-bye' if Pry.active_sessions == 1
 end
 
 if defined?(PryByebug)
