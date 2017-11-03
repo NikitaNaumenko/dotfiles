@@ -1,10 +1,53 @@
 source ~/.vim/plugins.vim
 
-let base16colorspace=256
-set guifont=Droid\Sans\ Mono\ 12
+" General
+set nocompatible          " Vim behavior, not Vi
+scriptencoding utf-8      " Use UTF-8 encoding
+set fileencoding=utf-8    " Use UTF-8 encoding
+set langmenu=en_US.UTF-8  " Use UTF-8 encoding
+set encoding=utf-8        " Use UTF-8 encoding
+set nobackup              " Don't backup
+set nowritebackup         " Write file inplace
+set noswapfile            " Don't use swap files
+set autoread              " Autoreload buffers
+set autowrite             "  Automatically save changes before switching buffers
+syntax enable             " Enable syntax highlight
+syntax on                 " Syntax on for wimwiki
 
-colorscheme base16-materia
+" History, Cursor, rules
+set history=50                                                                 " Just remeber last 50 commands
+set laststatus=2                                                               " Always display status line
+set ruler                                                                      " Show the cursor position all the time
+set number                                                                     " Show line numbers
+set showcmd                                                                    " Display incomplete commands
+set cursorline                                                                 " Highlight current cursor line
+set shell=$SHELL                                                               " Default shell is ZSH
+set statusline=%<%f\ %h%m%r%=\ %{devnotes#statusline()}\ %-14.(%l,%c%V%)\ %P   " Status line format
+
+" Tabs and whitespace
+set wrap                                    " Wrap lines
+set tabstop=2                               " Tabs are always 2 spaces
+set expandtab                               " Expand tabs into spaces
+set shiftwidth=2                            " Reindent with 2 spaces (using <<)
+set list                                    " Show invisible chars
+set listchars=""                            " Reset listchars
+set list listchars=tab:»·,trail:·, space:·  " Set listchars for tabs and trailing spaces
+set showbreak=↪\                            " Set breakline char
+
+" Search
+set hlsearch    " Highlight matches
+set incsearch   " Incremental searching
+set ignorecase  " Searches are case insensitive...
+set smartcase   " ... unless they contain at least one capital letter
+
+" Apparence
+let base16colorspace=256
+set guifont=InconsolataForPowerline\ Nerd\ Font\ Medium:h14
+set linespace=2
+set visualbell
+colorscheme base16-eighties
 set t_Co=256
+
 let g:mapleader=',' "press ,+s for use easy-motion
 let g:ycm_server_python_interpreter = '/usr/bin/python2' "comment if ymc omplete natively
 let g:session_directory = "~/.vim/sessions"
@@ -130,44 +173,15 @@ if !exists('g:neocomplete#force_omni_input_patterns')
  let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:NERDTreeShowHidden=1
-"set block
 
-" fold values
-set foldmethod=indent   
-set foldnestmax=10
-set nofoldenable
-set foldlevel=2
 
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 set fillchars=stl:\ ,stlnc:\ ,vert:│
-set hidden
-syntax on
 let g:airline_theme = "base16"
 
-set number
-set expandtab
-set tabstop=2
-set ts=2
-set sw=2
-""set paste
-set hlsearch
-set incsearch
-set synmaxcol=200
-set nobackup
-set noswapfile
-scriptencoding utf-8
-set encoding=utf-8
-set fileencoding=utf-8
-set langmenu=en_US.UTF-8
-set wrap
-set ai
-set listchars=tab:▸\ ,trail:·,space:.,nbsp:☠
-set list
-set showbreak=↪\
 "check one time after 4s of inactivity in normal mode
-set autoread
 au CursorHold * checktime
 filetype plugin indent on
