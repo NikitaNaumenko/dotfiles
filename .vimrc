@@ -31,7 +31,7 @@ set expandtab                               " Expand tabs into spaces
 set shiftwidth=2                            " Reindent with 2 spaces (using <<)
 set list                                    " Show invisible chars
 set listchars=""                            " Reset listchars
-set list listchars=tab:»·,trail:·, space:·  " Set listchars for tabs and trailing spaces
+set list listchars=tab:»·,trail:·,space:·  " Set listchars for tabs and trailing spaces
 set showbreak=↪\                            " Set breakline char
 
 " Search
@@ -48,15 +48,21 @@ set visualbell
 colorscheme base16-eighties
 set t_Co=256
 
+" ALE
+let g:ale_sign_warning = '☹'
+let g:ale_sign_error = '✗'
+let g:airline#extensions#ale#enabled = 1
+highlight link ALEWarningSign String
+highlight link ALEErrorSign Title
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" nmap <silent> <C-K> <Plug>(ale_previous_wrap)
+" nmap <silent> <C-J> <Plug>(ale_next_wrap)
+
 let g:mapleader=',' "press ,+s for use easy-motion
 let g:ycm_server_python_interpreter = '/usr/bin/python2' "comment if ymc omplete natively
-let g:session_directory = "~/.vim/sessions"
-let g:session_autoload = 'no'
-let g:session_autosave = 'no'
-let g:session_command_aliases = 1
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
 let g:airline#extensions#syntastic#enabled = 1
@@ -67,27 +73,13 @@ let g:airline#extensions#tabline#left_sep = '|'
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-let g:syntastic_enable_signs = 1
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_style_error_symbol = '☠ '
-let g:syntastic_style_warning_symbol = '☹'
-
-let g:syntastic_disabled_filetypes = ['html', 'slim', 'erb', 'md']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-let g:ruby_path = system('rvm current')
-
 autocmd FileType ruby compiler ruby
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 
-
+let g:ctrlp_working_path_mode = 'ra'
 " "mappings
 "
 map <C-n> :NERDTreeToggle<CR>
@@ -99,10 +91,6 @@ map <silent> <C-j> :call WinMove('j')<CR>
 map <silent> <C-k> :call WinMove('k')<CR>
 map <silent> <C-l> :call WinMove('l')<CR>
 
-nnoremap <leader> so :OpenSession
-nnoremap <leader> ss :SaveSession
-nnoremap <leader> sd :DeleteSession<CR>
-nnoremap <leader> sc :CloseSession<CR>
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
@@ -180,8 +168,32 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 set fillchars=stl:\ ,stlnc:\ ,vert:│
+syntax on
 let g:airline_theme = "base16"
 
 "check one time after 4s of inactivity in normal mode
 au CursorHold * checktime
 filetype plugin indent on
+
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+
+let g:ackprg = 'ag --vimgrep'
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
+

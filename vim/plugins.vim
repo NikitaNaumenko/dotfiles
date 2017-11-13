@@ -1,16 +1,13 @@
 call plug#begin('~/.vim/plugged')
 " General
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-git'
-Plug 'neomake/neomake'
+Plug 'tpope/vim-commentary'  " for commentary 
+Plug 'tpope/vim-endwise'     " for comlete duo symbols
+Plug 'tpope/vim-fugitive'    " work with git
+Plug 'tpope/vim-git'         " work with git
 Plug 'tpope/vim-surround'
 Plug 'janko-m/vim-test'
-Plug 'tomtom/tcomment_vim'
-"Plug 'scrooloose/nerdcommenter'
-Plug 'vim-scripts/tComment'
 Plug 'elzr/vim-json'
+
 "colorsheme
 "colorshemes
 "Plug 'morhetz/gruvbox'
@@ -26,7 +23,6 @@ Plug 'Valloric/YouCompleteMe'
 
 "Search and navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
-Plug 'dyng/ctrlsf.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jasoncodes/ctrlp-modified.vim'
@@ -37,10 +33,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
-Plug 'xolox/vim-session'
-Plug 'xolox/vim-misc'
-Plug 'vim-syntastic/syntastic'
-
+Plug 'w0rp/ale'
 ""Languages support
 Plug 'chase/vim-ansible-yaml'
 Plug 'kchmck/vim-coffee-script'
@@ -53,7 +46,7 @@ Plug 'tmux-plugins/vim-tmux'
 " Elixir
 Plug 'elixir-lang/vim-elixir'
 Plug 'thinca/vim-ref'
-"Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh'  }
+Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh'  }
 Plug 'slashmili/alchemist.vim'
 Plug 'c-brenn/phoenix.vim'
 "
