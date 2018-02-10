@@ -17,8 +17,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'easymotion/vim-easymotion'
-Plug 'rakr/vim-one'
-Plug 'liuchengxu/space-vim-dark'
+" Plug 'rakr/vim-one'
+" Plug 'liuchengxu/space-vim-dark'
+Plug 'nanotech/jellybeans.vim'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -30,12 +31,13 @@ endif
 "Search and navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 Plug 'jlanzarotta/bufexplorer'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'jasoncodes/ctrlp-modified.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'jasoncodes/ctrlp-modified.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 "Other
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
