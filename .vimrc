@@ -245,3 +245,14 @@ endfunction
 nmap ; :Buffers<CR>
 nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
+
+
+let g:ale_linters = {
+      \   'markdown': [],
+      \   'javascript': ['eslint', 'flow'],
+      \}
+let g:ale_fixers = {
+      \ 'javascript': ['eslint'],
+      \ 'ruby': ['rubocop', 'brakeman'],
+      \ 'elixir': ['mix_format'],
+      \ }
