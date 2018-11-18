@@ -43,20 +43,16 @@ set smartcase   " ... unless they contain at least one capital letter
 
 set noshowmode  " Doesnt show vim mode
 " Apparence
-let base16colorspace=256
-colorscheme jellybeans
+" colorscheme jellybeans
+colorscheme hybrid
 hi Comment cterm=italic
 " set default font
-set guifont=DejaVu\ Sans\ Mono\ 10
 set linespace=2
 set visualbell
-" colorscheme one
 set t_Co=256
-" set background=dark
 set termguicolors
-
-" colorscheme one
 set background=dark
+
 " ALE
 let g:ale_sign_warning = '☹'
 let g:ale_sign_error = '✗'
@@ -67,19 +63,28 @@ highlight link ALEErrorSign Title
 " let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " nmap <silent> <C-K> <Plug>(ale_previous_wrap)
 " nmap <silent> <C-J> <Plug>(ale_next_wrap)
+let g:ale_fix_on_save = 1
+
+let g:ale_completion_enabled = 1
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+
+let g:ale_linters = {
+      \   'markdown': [],
+      \   'javascript': ['eslint', 'stylelint', 'prettier'],
+      \   'ruby': ['rubocop'],
+      \   'vue': ['eslint']
+      \}
+let g:ale_fixers = {
+      \ 'javascript': ['eslint', 'prettier'],
+      \ 'ruby': ['rubocop', 'brakeman'],
+      \ 'vue': ['eslint'],
+      \ 'elixir': ['mix_format'],
+      \ }
 
 let mapleader="\<Space>" "press ,+s for use easy-motion
-" let g:ycm_server_python_interpreter = '/usr/bin/python3.6' "comment if ymc omplete natively
 
-autocmd FileType ruby compiler ruby
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-let g:ruby_path = system('rvm current')
-let g:ctrlp_working_path_mode = 'ra'
-" "mappings
-"
+"mappings
+
 map <C-n> :NERDTreeToggle<CR>
 map <Leader> <Plug>(easymotion-prefix)
 "
@@ -139,14 +144,12 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 let g:NERDTreeShowHidden=1
 
-
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 set fillchars=stl:\ ,stlnc:\ ,vert:│
 syntax on
-let g:airline_theme = "base16_spacemacs"
 
 "check one time after 4s of inactivity in normal mode
 au CursorHold * checktime
@@ -194,6 +197,7 @@ let g:LanguageClient_serverCommands = {
 inoremap jj <Esc>
 inoremap <Esc> <Nop>
 inoremap <Tab> <Esc>
+
 " Lightline
 let g:lightline = {
 \ 'colorscheme': 'wombat',
@@ -245,14 +249,3 @@ endfunction
 nmap ; :Buffers<CR>
 nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
-
-
-let g:ale_linters = {
-      \   'markdown': [],
-      \   'javascript': ['eslint', 'flow'],
-      \}
-let g:ale_fixers = {
-      \ 'javascript': ['eslint'],
-      \ 'ruby': ['rubocop', 'brakeman'],
-      \ 'elixir': ['mix_format'],
-      \ }
