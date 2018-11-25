@@ -249,3 +249,20 @@ endfunction
 nmap ; :Buffers<CR>
 nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
+
+let g:ale_fix_on_save = 1
+
+let g:ale_completion_enabled = 1
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+
+let g:ale_linters = {
+      \   'markdown': [],
+      \   'javascript': ['eslint', 'flow', 'stylelint', 'prettier'],
+      \   'ruby': ['rubocop'],
+      \   'vue': ['eslint']
+      \}
+let g:ale_fixers = {
+      \ 'javascript': ['eslint', 'prettier'],
+      \   'vue': ['eslint'],
+      \ 'ruby': ['rubocop'],
+      \ }

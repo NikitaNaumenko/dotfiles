@@ -7,8 +7,10 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="lambda-mod"
+
+#source "/home/user/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+ZSH_THEME="spaceship"
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -116,18 +118,8 @@ alias gcob="git checkout -b"
 alias deploy="bundle exec cap staging deploy"
 alias vim="nvim"
 alias v="nvim"
-#Base 16
-#BASE16_SHELL="$HOME/.config/base16-shell/base-16-google-dark.sh"  #choose youre favorite theme
-#[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-
-
-
-#source "/home/user/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
-
-
-#source "/home/user/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+alias vimplugins="vim ~/.vim/plugins.vim"
+alias diplom="cd Workspace/diplom_project/services/rails_app/"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
