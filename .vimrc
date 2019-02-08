@@ -1,4 +1,4 @@
-source ~/.vim/plugins.vim
+source ~/.vim/plugins
 
 " General
 set nocompatible          " Vim behavior, not Vi
@@ -85,14 +85,14 @@ let mapleader="\<Space>" "press ,+s for use easy-motion
 
 "mappings
 
-map <C-n> :NERDTreeToggle<CR>
+nmap <silent> <leader><leader> :NERDTreeToggle<CR>
 map <Leader> <Plug>(easymotion-prefix)
 "
-""NerdTree move map
-map <silent> <C-h> :call WinMove('h')<CR>
-map <silent> <C-j> :call WinMove('j')<CR>
-map <silent> <C-k> :call WinMove('k')<CR>
-map <silent> <C-l> :call WinMove('l')<CR>
+"NerdTree move map
+ map <silent> <C-h> :call WinMove('h')<CR>
+ map <silent> <C-j> :call WinMove('j')<CR>
+ map <silent> <C-k> :call WinMove('k')<CR>
+ map <silent> <C-l> :call WinMove('l')<CR>
 
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
@@ -194,10 +194,6 @@ let g:LanguageClient_serverCommands = {
       \ 'ruby': ['language_server-ruby'],
       \ }
 
-inoremap jj <Esc>
-inoremap <Esc> <Nop>
-inoremap <Tab> <Esc>
-
 " Lightline
 let g:lightline = {
 \ 'colorscheme': 'wombat',
@@ -246,9 +242,11 @@ function! s:MaybeUpdateLightline()
     call lightline#update()
   end
 endfunction
-nmap ; :Buffers<CR>
-nmap <Leader>t :Files<CR>
-nmap <Leader>r :Tags<CR>
+
+nnoremap <leader>b :Buffers<CR>
+nnoremap <Leader>o :GFiles .<CR>
+nnoremap <leader>fc :Commits<CR>
+nnoremap <leader>ff :Files<CR>
 
 let g:ale_fix_on_save = 1
 
