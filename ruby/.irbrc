@@ -1,5 +1,5 @@
 require 'rubygems'
-require "awesome_print"
+require 'awesome_print'
 AwesomePrint.irb!
 # encoding: utf-8
 

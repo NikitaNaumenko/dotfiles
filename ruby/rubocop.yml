@@ -1,58 +1,50 @@
-LineLength:
-  Enabled: false
+Rails:
+  Enabled: true
 
-PercentLiteralDelimiters:
-  Enabled: false
+Metrics/LineLength:
+  Max: 110
 
-MethodLength:
-  Enabled: false
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - 'test/**/*'
 
-AlignHash:
-  Enabled: false
+Metrics/BlockLength:
+  Max: 20
+  Exclude:
+    - 'test/**/*'
 
-AlignParameters:
-  Enabled: false
+Metrics/AbcSize:
+  Max: 20
 
-ClassAndModuleChildren:
-  Enabled: false
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "test/**/*"
 
-ClassLength:
-  Enabled: false
+Style/Documentation:
+  Exclude:
+    - 'app/controllers/**/*'
+    - 'app/models/**/*'
+    - 'app/helpers/**/*'
+    - 'test/**/*'
+    - 'db/migrate/*'
 
-Encoding:
-  EnforcedStyle: when_needed
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
 
-RaiseArgs:
-  Enabled: false
+Style/DotPosition:
+  EnforcedStyle: trailing
 
-RescueException:
-  Enabled: false
-
-Documentation:
-  Enabled: false
-
-Lambda:
-  Enabled: false
-
-LambdaCall:
-  Enabled: false
-
-# Common configuration.
 AllCops:
   # Include gemspec and Rakefile
   DisplayCopNames: true
   ExtraDetails: true
   Include:
     - '**/*.gemspec'
-    - '**/*.podspec'
     - '**/*.jbuilder'
     - '**/*.rake'
     - '**/Gemfile'
     - '**/Rakefile'
-    - '**/Capfile'
-    - '**/Guardfile'
-    - '**/Podfile'
-    - '**/Thorfile'
     - '**/Vagrantfile'
   Exclude:
     - 'db/schema.rb'
@@ -61,15 +53,6 @@ Metrics/MethodLength:
   Exclude: 
     - 'spec/**/*'
 
-Style/SpaceInsideBlockBraces:
-  Enabled: false
-
-Style/SpaceBeforeBlockBraces:
-  Enabled: false
 # Allow safe assignment in conditions.
 Style/ParenthesesAroundCondition:
   AllowSafeAssignment: true
-
-Style/Documentation:
-  Enabled: false
-

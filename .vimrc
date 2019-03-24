@@ -58,11 +58,6 @@ let g:ale_sign_warning = '☹'
 let g:ale_sign_error = '✗'
 highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
-" let g:ale_echo_msg_error_str = 'E'
-" let g:ale_echo_msg_warning_str = 'W'
-" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" nmap <silent> <C-K> <Plug>(ale_previous_wrap)
-" nmap <silent> <C-J> <Plug>(ale_next_wrap)
 let g:ale_fix_on_save = 1
 
 let g:ale_completion_enabled = 1
@@ -264,3 +259,11 @@ let g:ale_fixers = {
       \   'vue': ['eslint'],
       \ 'ruby': ['rubocop'],
       \ }
+
+augroup FileTypeTetect
+  autocmd!
+  autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+  autocmd BufNewFile,BufRead *.slime setlocal filetype=slim
+augroup END
+
+nnoremap <leader>gs :Gstatus<CR>
