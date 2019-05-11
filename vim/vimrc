@@ -1,0 +1,380 @@
+call plug#begin('~/.vim/plugged')
+" General
+Plug 'tpope/vim-commentary'  " for commentary 
+Plug 'tpope/vim-endwise'     " for comlete duo symbols
+Plug 'tpope/vim-fugitive'    " work with git
+Plug 'tpope/vim-git'         " work with git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-surround'
+Plug 'janko-m/vim-test'
+Plug 'elzr/vim-json'
+Plug 'tpope/vim-sensible'
+Plug 'ervandew/supertab'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-projectionist'
+" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+
+"Autocomplete
+Plug 'jiangmiao/auto-pairs'
+" Plug 'Shougo/neosnippet'
+" Plug 'Shougo/neosnippet-snippets'
+Plug 'easymotion/vim-easymotion'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'w0rp/ale'
+
+"Search and navigation
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'dyng/ctrlsf.vim'
+
+"Other
+Plug 'itchyny/lightline.vim'
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'w0ng/vim-hybrid'
+Plug 'Shougo/echodoc.vim'
+Plug 'fatih/vim-nginx', { 'for': 'nginx' }
+Plug 'lepture/vim-jinja', { 'for': 'jinja' }
+Plug 'wellle/targets.vim'
+" Plug 'w0rp/ale'
+" Plug 'ntpeters/vim-better-whitespace'
+
+""Languages support
+Plug 'othree/html5.vim'
+Plug 'slim-template/vim-slim', { 'for': ['slim', 'slime'] }
+Plug 'lmeijvogel/vim-yaml-helper'
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
+Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
+Plug 'c-brenn/phoenix.vim', { 'for': 'elixir' }
+PPlug 'vim-erlang/vim-erlang-runtime', { 'for': 'erlang' }
+Plug 'vim-erlang/vim-erlang-compiler', { 'for': 'erlang' }
+Plug 'cohama/lexima.vim'
+Plug 'tpope/vim-ragtag'
+Plug 'elzr/vim-json'
+Plug 'mhartington/vim-typings'
+
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'shime/vim-livedown', { 'for': 'markdown' }
+Plug 'tpope/vim-haml', { 'for': 'haml' }
+
+" JavaScript
+Plug 'pangloss/vim-javascript'
+Plug 'chemzqm/vim-jsx-improve', { 'for': 'javascript' }
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'reedes/vim-lexical'
+
+" Ruby, Rails
+Plug 'tpope/vim-bundler', { 'for': 'ruby' }
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'p0deje/vim-ruby-interpolation', { 'for': 'ruby' }
+
+Plug 'kovisoft/slimv', { 'for': ['clojure', 'scheme', 'racket'] }
+Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
+
+Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
+Plug 'chrisbra/csv.vim', { 'for': 'csv' }
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
+call plug#end()
+
+setglobal nocompatible
+setglobal pastetoggle=<F2>
+
+let g:python_host_skip_check=1
+let g:loaded_python3_provider=1
+
+set rtp+=/root/.fzf
+
+let mapleader = "\<Space>"
+
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
+set completeopt=noinsert,menuone,noselect
+
+if has('mouse')
+  set mouse=a
+endif
+
+set lazyredraw
+set ttyfast
+
+set shortmess+=c
+
+set cursorline
+set hidden
+set nofoldenable
+set wrap
+set linebreak
+set number
+set hlsearch
+set ignorecase
+set smartcase
+
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowritebackup
+set nowb
+set noswapfile
+
+set showcmd       " display incomplete commands
+set autowrite     " Automatically :write before running commands
+
+set expandtab
+" set noexpandtab
+set softtabstop=2
+set wrap
+set shiftwidth=2
+set listchars=""                            " Reset listchars
+set list listchars=tab:»·,trail:·,space:·  " Set listchars for tabs and trailing spaces
+set showbreak=↪\                            " Set breakline char
+
+set splitbelow
+set cmdheight=2
+set signcolumn=yes
+set scrolloff=3
+
+set linespace=2
+set visualbell
+set t_Co=256
+set termguicolors
+set background=dark
+
+colorscheme hybrid
+" ================ Persistent Undo ==================
+" Keep undo history across sessions, by storing in file.
+" Only works all the time.
+if has('persistent_undo')
+  silent !mkdir ~/.vim/backups > /dev/null 2>&1
+  set undodir=~/.vim/backups
+  set undofile
+endif
+
+""" Basics Keymaps
+
+" Turn off linewise keys. Normally, the `j' and `k' keys move the cursor down one entire line. with line wrapping on, this can cause the cursor to actually skip a few lines on the screen because it's moving from line N to line N+1 in the file. I want this to act more visually -- I want `down' to mean the next line on the screen
+nmap j gj
+nmap k gk
+
+" Map ctrl-movement keys to window switching
+map <C-k> <C-w><Up>
+map <C-j> <C-w><Down>
+map <C-l> <C-w><Right>
+map <C-h> <C-w><Left>
+
+nmap <silent> <leader>t :TestNearest<CR>
+
+" Edit .vimrc
+map <leader>vl :vsp $MYVIMRC<CR>
+map <leader>vr :source $MYVIMRC<CR>
+
+""" Plugins Keymaps
+
+nmap <C-m> :NERDTreeFind<CR>
+nmap <silent> <leader><leader> :NERDTreeToggle<CR>
+
+nnoremap <leader>b :Buffers<CR>
+
+inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
+
+vmap <leader>y :w! /tmp/.vbuf<CR>
+nmap <leader>y :.w! /tmp/.vbuf<CR>
+nmap <leader>p :r /tmp/.vbuf<CR>
+
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toc_autofit = 1
+let g:lexical#spelllang = ['en_us', 'ru_ru']
+
+let g:ale_sign_warning = '☹'
+let g:ale_sign_error = '✗'
+highlight link ALEWarningSign String
+highlight link ALEErrorSign Title
+let g:ale_fix_on_save = 1
+
+let g:ale_completion_enabled = 1
+
+let g:ale_elixir_elixir_ls_release = '/root/elixir-ls'
+let g:airline#extensions#ale#enabled = 1
+let g:ale_completion_enabled = 1
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+
+let g:ale_linters = {
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'javascript': ['eslint', 'tsserver'],
+      \   'ruby': ['rubocop'],
+      \   'vue': ['eslint'],
+      \   'elixir': ['elixir-ls', 'mix'],
+      \}
+
+      " \   'elixir': ['elixir-ls', 'mix', 'credo'],
+      " \   'python': ['flake8'],
+      " \   'ruby': ['rubocop', 'brakeman'],
+      " \   'markdown': [],
+      " \   'yaml': ['yamllint'],
+
+let g:ale_fixers = {
+      \ 'javascript': ['eslint'],
+      \ 'html': ['tidy'],
+      \ 'python': ['black'],
+      \ 'ruby': ['rubocop'],
+      \ 'vue': ['eslint'],
+      \ 'elixir': ['mix_format'],
+      \ }
+
+let g:ale_javascript_tsserver_use_global = 1
+let g:ale_javascript_eslint_use_global = 1
+
+let test#strategy = "neovim"
+
+
+let g:vim_markdown_folding_disabled = 1
+
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+
+nmap <F8> :TagbarToggle<CR>
+
+nnoremap ff :normal! gg=G``<CR>
+
+" set text wrapping toggles
+nmap <silent> <leader>tw :set invwrap<CR>:set wrap?<CR>
+
+" find merge conflict markers
+nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
+
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>o :GFiles .<CR>
+nnoremap <leader>fc :Commits<CR>
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fa :Ag<CR>
+
+let NERDTreeIgnore = ['\.pyc$', '\.retry$']
+
+nmap <silent> // :nohlsearch<CR>
+noremap ,hl :set hlsearch! hlsearch?<CR>
+
+" Allows you to enter sudo pass and save the file
+" " when you forgot to open your file with sudo
+cmap w!! %!sudo tee > /dev/null %
+
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+augroup FileTypeTetect
+  autocmd!
+  autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+  autocmd BufNewFile,BufRead *.slime setlocal filetype=slim
+augroup END
+
+map <Leader> <Plug>(easymotion-prefix)
+" This replaces :tabnew which I used to bind to this mapping
+nmap <leader>T :enew<cr>
+
+" Move to the next buffer
+nmap <leader>l :bnext<CR>
+
+" Move to the previous buffer
+nmap <leader>h :bprevious<CR>
+
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nmap <leader>bq :bp <BAR> bd #<CR>
+
+" Show all open buffers and their status
+nmap <leader>bl :ls<CR>
+function! WinMove(key)
+  let t:curwin = winnr()
+  exec "wincmd ".a:key
+    if (t:curwin == winnr())
+      if (match(a:key,'[jk]'))
+        wincmd v
+      else
+        wincmd s
+      endif
+   exec "wincmd ".a:key
+  endif
+endfunction
+
+let g:ackprg = 'ag --vimgrep'
+
+" Lightline
+let g:lightline = {
+\ 'colorscheme': 'wombat',
+\ 'active': {
+\   'left': [['mode', 'paste'], ['filename', 'modified']],
+\   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
+\ },
+\ 'component_expand': {
+\   'linter_warnings': 'LightlineLinterWarnings',
+\   'linter_errors': 'LightlineLinterErrors',
+\   'linter_ok': 'LightlineLinterOK'
+\ },
+\ 'component_type': {
+\   'readonly': 'error',
+\   'linter_warnings': 'warning',
+\   'linter_errors': 'error'
+\ },
+\ }
+
+function! LightlineLinterWarnings() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
+endfunction
+
+function! LightlineLinterErrors() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
+endfunction
+
+function! LightlineLinterOK() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '✓ ' : ''
+endfunction
+
+autocmd User ALELint call s:MaybeUpdateLightline()
+
+" Update and show lightline but only if it's visible (e.g., not in Goyo)
+function! s:MaybeUpdateLightline()
+  if exists('#lightline')
+    call lightline#update()
+  end
+endfunction
+
+
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
+
+let g:ctrlsf_default_root = 'project'
+let g:ctrlsf_case_sensitive = 'no'
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+filetype plugin indent on

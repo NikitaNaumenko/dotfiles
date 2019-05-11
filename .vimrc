@@ -44,7 +44,6 @@ set smartcase   " ... unless they contain at least one capital letter
 set noshowmode  " Doesnt show vim mode
 " Apparence
 " colorscheme jellybeans
-colorscheme hybrid
 hi Comment cterm=italic
 " set default font
 set linespace=2
