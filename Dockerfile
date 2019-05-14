@@ -67,8 +67,6 @@ RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 COPY vim/vimrc /root/.config/nvim/init.vim
 
-ENV VERSION 10052019
-
 RUN nvim -i NONE -c PlugInstall -c quitall
 
 ENV FZF_DEFAULT_COMMAND 'ag -g ""'
