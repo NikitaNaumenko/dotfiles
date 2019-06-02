@@ -6,41 +6,30 @@ Plug 'tpope/vim-fugitive'    " work with git
 Plug 'tpope/vim-git'         " work with git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
-Plug 'janko-m/vim-test'
 Plug 'elzr/vim-json'
 Plug 'tpope/vim-sensible'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-projectionist'
-" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 
 "Autocomplete
-Plug 'jiangmiao/auto-pairs'
-" Plug 'Shougo/neosnippet'
-" Plug 'Shougo/neosnippet-snippets'
 Plug 'easymotion/vim-easymotion'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'w0rp/ale'
 
 "Search and navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'dyng/ctrlsf.vim'
 
 "Other
 Plug 'itchyny/lightline.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
-" Plug 'w0ng/vim-hybrid'
 Plug 'NLKNguyen/papercolor-theme'
 
 Plug 'Shougo/echodoc.vim'
 Plug 'fatih/vim-nginx', { 'for': 'nginx' }
 Plug 'lepture/vim-jinja', { 'for': 'jinja' }
 Plug 'wellle/targets.vim'
-" Plug 'w0rp/ale'
-" Plug 'ntpeters/vim-better-whitespace'
 
 ""Languages support
 Plug 'othree/html5.vim'
@@ -144,9 +133,7 @@ set linespace=2
 set visualbell
 set t_Co=256
 set termguicolors
-" set background=dark
 
-" colorscheme hybrid
 set background=light
 colorscheme PaperColor
 " ================ Persistent Undo ==================
@@ -194,47 +181,7 @@ let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_toc_autofit = 1
 let g:lexical#spelllang = ['en_us', 'ru_ru']
 
-let g:ale_sign_warning = '☹'
-let g:ale_sign_error = '✗'
-highlight link ALEWarningSign String
-highlight link ALEErrorSign Title
-" let g:ale_fix_on_save = 1
-
-let g:ale_completion_enabled = 1
-
-let g:ale_elixir_elixir_ls_release = '/root/elixir-ls'
-let g:airline#extensions#ale#enabled = 1
-let g:ale_completion_enabled = 1
-let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-
-let g:ale_linters = {
-      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \   'javascript': ['eslint', 'tsserver'],
-      \   'ruby': ['rubocop'],
-      \   'vue': ['eslint'],
-      \   'elixir': ['elixir-ls', 'mix'],
-      \}
-
-      " \   'elixir': ['elixir-ls', 'mix', 'credo'],
-      " \   'python': ['flake8'],
-      " \   'ruby': ['rubocop', 'brakeman'],
-      " \   'markdown': [],
-      " \   'yaml': ['yamllint'],
-
-let g:ale_fixers = {
-      \ 'javascript': ['eslint'],
-      \ 'html': ['tidy'],
-      \ 'python': ['black'],
-      \ 'ruby': ['rubocop'],
-      \ 'vue': ['eslint'],
-      \ 'elixir': ['mix_format'],
-      \ }
-
-let g:ale_javascript_tsserver_use_global = 1
-let g:ale_javascript_eslint_use_global = 1
-
 let test#strategy = "neovim"
-
 
 let g:vim_markdown_folding_disabled = 1
 
@@ -277,15 +224,6 @@ augroup FileTypeTetect
 augroup END
 
 map <Leader> <Plug>(easymotion-prefix)
-" This replaces :tabnew which I used to bind to this mapping
-nmap <leader>T :enew<cr>
-
-" Move to the next buffer
-nmap <leader>l :bnext<CR>
-
-" Move to the previous buffer
-nmap <leader>h :bprevious<CR>
-
 " Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab
 nmap <leader>bq :bp <BAR> bd #<CR>
@@ -295,7 +233,6 @@ map <silent> <C-h> :call WinMove('h')<CR>
 map <silent> <C-j> :call WinMove('j')<CR>
 map <silent> <C-k> :call WinMove('k')<CR>
 map <silent> <C-l> :call WinMove('l')<CR>
-
 
 nmap <leader>bl :ls<CR>
 function! WinMove(key)
@@ -353,16 +290,12 @@ function! LightlineLinterOK() abort
   return l:counts.total == 0 ? '✓ ' : ''
 endfunction
 
-autocmd User ALELint call s:MaybeUpdateLightline()
-
 " Update and show lightline but only if it's visible (e.g., not in Goyo)
 function! s:MaybeUpdateLightline()
   if exists('#lightline')
     call lightline#update()
   end
 endfunction
-
-
 
 " The Silver Searcher
 if executable('ag')
@@ -382,9 +315,4 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
 
-let g:ctrlsf_default_root = 'project'
-let g:ctrlsf_case_sensitive = 'no'
-nnoremap <C-F>o :CtrlSFOpen<CR>
-nnoremap <C-F>t :CtrlSFToggle<CR>
-inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 filetype plugin indent on
