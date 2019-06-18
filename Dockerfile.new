@@ -1,0 +1,92 @@
+FROM alpine:latest as builder
+
+WORKDIR /mnt/build/ctags
+
+RUN apk --no-cache add \
+	git \
+	xfce4-dev-tools \
+	build-base
+
+RUN \
+	git clone https://github.com/universal-ctags/ctags \
+	&& cd ctags \
+	&& ./autogen.sh \
+	&& ./configure --prefix=/usr/local \
+	&& make \
+	&& make install
+
+
+FROM alpine:latest
+
+RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
+RUN apk update && apk upgrade
+
+ENV \
+	UID="1000" \
+	GID="1000" \
+	UNAME="neovim" \
+	GNAME="neovim" \
+	SHELL="/bin/sh" \
+	NVIM_PROVIDER_PYLIB="python3_neovim_provider"
+
+COPY --from=builder /usr/local/bin/ctags /usr/local/bin
+
+RUN \
+	# install packages
+	apk --no-cache add \
+		# needed by neovim :CheckHealth to fetch info
+	curl \
+		# needed to change uid and gid on running container
+	shadow \
+		# needed to install apk packages as neovim user on the container
+	sudo \
+		# needed to switch user
+  su-exec \
+		# needed for neovim python3 support
+	python3 \
+		# text editor
+  neovim \
+  neovim-doc \
+	git \
+  bash \
+	# install build packages
+	&& apk --no-cache add --virtual build-dependencies \
+	python3-dev \
+	gcc \
+	musl-dev \
+	# create user
+	&& addgroup "${GNAME}" \
+	&& adduser -D -G "${GNAME}" -g "" -s "${SHELL}" "${UNAME}" \
+        && echo "${UNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
+	# install neovim python3 provider
+	# && sudo -u neovim python3 -m venv "${ENV_DIR}/${NVIM_PROVIDER_PYLIB}" \
+	# && "${ENV_DIR}/${NVIM_PROVIDER_PYLIB}/bin/pip" install neovim \
+	# && sudo -u neovim \
+	# # install plugins
+	# && chown -R neovim:neovim /home/neovim/.local \
+	# # remove build packages
+	&& apk del build-dependencies
+
+COPY entrypoint.sh /usr/local/bin/
+
+# NVIM_CONFIG="/home/neovim/.config/nvim" \
+COPY vim/vimrc /root/.config/nvim/init.vim
+
+# VOLUME "${WORKSPACE}"
+# VOLUME "${NVIM_CONFIG}"
+
+RUN git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf \
+      && ~/.fzf/install --key-bindings --update-rc --completion \
+      && cp /root/.fzf/bin/fzf /usr/local/bin
+
+RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+
+RUN nvim -i NONE -c PlugInstall -c quitall
+
+ENV FZF_DEFAULT_COMMAND 'ag -g ""'
+
+
+
+ENTRYPOINT ["sh", "/usr/local/bin/entrypoint.sh"]

@@ -66,9 +66,11 @@ RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 COPY vim/vimrc /root/.config/nvim/init.vim
+COPY entrypoint.sh /usr/local/bin/
 
 RUN nvim -i NONE -c PlugInstall -c quitall
 
 ENV FZF_DEFAULT_COMMAND 'ag -g ""'
+ENV WORKSPACE /app
 
-CMD ["nvim"]
+ENTRYPOINT ["sh", "/usr/local/bin/entrypoint.sh"]
