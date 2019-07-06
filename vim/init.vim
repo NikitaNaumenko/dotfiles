@@ -1,3 +1,10 @@
+" Autoinstall vim-plug
+if empty(glob('~/.nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
+
 call plug#begin('~/.vim/plugged')
 " General
 Plug 'tpope/vim-commentary'  " for commentary 
@@ -15,6 +22,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'liuchengxu/vista.vim'
 
 let g:coc_global_extensions = [
       \ 'coc-tsserver',
@@ -54,6 +62,7 @@ set autoread              " Autoreload buffers
 set autowrite             "  Automatically save changes before switching buffers
 syntax enable             " Enable syntax highlight
 syntax on                 " Syntax on for wimwiki
+set updatetime=100        " You will have bad experience for diagnostic messages when it's default 4000. coc.nvim
 
 " History, Cursor, rules
 set history=50                                                                 " Just remeber last 50 commands
@@ -82,12 +91,8 @@ set ignorecase  " Searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
 
 set noshowmode  " Doesnt show vim mode
-" Apparence
-" colorscheme jellybeans
-" colorscheme hybrid
 set background=light
 colorscheme PaperColor
-hi Comment cterm=italic
 
 " set default font
 set linespace=2
@@ -110,17 +115,6 @@ map <Leader> <Plug>(easymotion-prefix)
  map <silent> <C-j> :call WinMove('j')<CR>
  map <silent> <C-k> :call WinMove('k')<CR>
  map <silent> <C-l> :call WinMove('l')<CR>
-
-" To open a new empty buffer
-" This replaces :tabnew which I used to bind to this mapping
-nmap <leader>T :enew<cr>
-" Move to the next buffer
-nmap <leader>l :bnext<CR>
-" Move to the previous buffer
-nmap <leader>h :bprevious<CR>
-" Close the current buffer and move to the previous one
-" This replicates the idea of closing a tab
-nmap <leader>bq :bp <BAR> bd #<CR>
 
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
@@ -153,10 +147,10 @@ if executable('ag')
 endif
 
 " bind K to grep word under cursor
-" nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-" " bind \ (backward slash) to grep shortcut
-" command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-" nnoremap \ :Ag<SPACE>
+nnoremap F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
 
 filetype plugin indent on
 
@@ -184,17 +178,42 @@ function! s:MaybeUpdateLightline()
   end
 endfunction
 
+" FZF {
 nnoremap <leader>b :Buffers<CR>
 nnoremap <Leader>o :GFiles .<CR>
 nnoremap <leader>fc :Commits<CR>
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>gs :Gstatus<CR>
 
+" Close the current buffer and move to the previous one
+nmap <leader>bq :bp <BAR> bd #<CR>
+
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+command! -bang -nargs=? -complete=dir GFiles
+      \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+command! -bang -nargs=? -complete=dir Files
+      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+" }
+
 augroup FileTypeTetect
   autocmd!
   autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
   autocmd BufNewFile,BufRead *.slime setlocal filetype=slim
 augroup END
+
+" Coc
+let g:vista_default_executive = 'coc'
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -224,5 +243,3 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-
