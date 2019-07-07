@@ -76,6 +76,7 @@ Vagrant.configure(VAGRANTFILE_VERSION) do |config|
     s.inline = <<-SHELL
       echo #{ssh_pub_key} >> /home/vagrant/.ssh/authorized_keys
       echo #{ssh_pub_key} >> /root/.ssh/authorized_keys
+      apt-get update && apt-get install ansible -y
     SHELL
   end
 end
