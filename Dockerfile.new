@@ -88,5 +88,4 @@ RUN nvim -i NONE -c PlugInstall -c quitall
 ENV FZF_DEFAULT_COMMAND 'ag -g ""'
 
 
-
 ENTRYPOINT ["sh", "/usr/local/bin/entrypoint.sh"]

@@ -1,9 +1,9 @@
 " Autoinstall vim-plug
-if empty(glob('~/.nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
-endif
+" if empty(glob('~/.nvim/autoload/plug.vim'))
+"   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+"   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"   autocmd VimEnter * PlugInstall
+" endif
 
 call plug#begin('~/.vim/plugged')
 " General
@@ -12,15 +12,17 @@ Plug 'tpope/vim-endwise'     " for comlete duo symbols
 Plug 'tpope/vim-fugitive'    " work with git
 Plug 'tpope/vim-git'         " work with git
 Plug 'tpope/vim-surround'
-Plug 'elzr/vim-json'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-projectionist'
 
-"Autocomplete
-Plug 'easymotion/vim-easymotion'
 "Search and navigation
+Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'NLKNguyen/papercolor-theme'
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'liuchengxu/vista.vim'
 
@@ -45,9 +47,36 @@ let g:coc_global_extensions = [
       \]
 
 "Other
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'itchyny/lightline.vim'
-Plug 'airblade/vim-gitgutter'
-call plug#end()" General
+Plug 'cohama/lexima.vim'
+
+Plug 'othree/html5.vim'
+Plug 'slim-template/vim-slim', { 'for': ['slim', 'slime'] }
+Plug 'lmeijvogel/vim-yaml-helper'
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
+Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
+Plug 'c-brenn/phoenix.vim', { 'for': 'elixir' }
+Plug 'vim-erlang/vim-erlang-runtime', { 'for': 'erlang' }
+Plug 'vim-erlang/vim-erlang-compiler', { 'for': 'erlang' }
+Plug 'tpope/vim-ragtag'
+Plug 'elzr/vim-json'
+Plug 'nathanaelkane/vim-indent-guides'
+
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'shime/vim-livedown', { 'for': 'markdown' }
+Plug 'tpope/vim-haml', { 'for': 'haml' }
+
+Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
+Plug 'p0deje/vim-ruby-interpolation', { 'for': 'ruby' }
+Plug 'chemzqm/vim-jsx-improve', { 'for': 'javascript' }
+
+Plug 'kovisoft/slimv', { 'for': ['clojure', 'scheme', 'racket'] }
+Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
+call plug#end()
+" General
 
 set nocompatible          " Vim behavior, not Vi
 scriptencoding utf-8      " Use UTF-8 encoding
@@ -105,8 +134,9 @@ set termguicolors
 
 let mapleader="\<Space>" "press ,+s for use easy-motion
 
+let g:indent_guides_start_level = 2
+set ts=2 sw=2 et
 "mappings
-
 nmap <silent> <leader><leader> :NERDTreeToggle<CR>
 map <Leader> <Plug>(easymotion-prefix)
 "
@@ -138,7 +168,6 @@ syntax on
 
 "check one time after 4s of inactivity in normal mode
 au CursorHold * checktime
-filetype plugin indent on
 
 " The Silver Searcher
 if executable('ag')
@@ -243,3 +272,5 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+
