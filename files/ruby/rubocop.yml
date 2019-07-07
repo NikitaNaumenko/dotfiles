@@ -13,6 +13,7 @@ Metrics/BlockLength:
   Max: 20
   Exclude:
     - 'test/**/*'
+    - 'spec/**/*'
 
 Metrics/AbcSize:
   Max: 20
@@ -48,10 +49,6 @@ AllCops:
     - '**/Vagrantfile'
   Exclude:
     - 'db/schema.rb'
-Metrics/MethodLength:
-  Max: 20
-  Exclude: 
-    - 'spec/**/*'
 
 # Allow safe assignment in conditions.
 Style/ParenthesesAroundCondition:
