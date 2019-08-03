@@ -1,7 +1,5 @@
 FROM alpine:latest
 
-MAINTAINER NaumenkoNikita <naumenkoniki@gmail.com>
-
 RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
 RUN apk update && apk upgrade
 

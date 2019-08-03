@@ -1,0 +1,9 @@
+---
+
+- hosts: localhost
+  tasks:
+    - name: Create symlink for zshrc
+      file:
+        src: "{{ lookup('env', 'PWD') }}/zshrc"
+        dest: ~/.zshrc
+        state: link

@@ -16,13 +16,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 #   Aliases   #
 # =========== #
 
-alias bi='bundle install'
-alias be='bundle exec ' # note the trailing space to trigger chaining
-alias bu='bundle update'
-alias bo='bundle open'
-alias rs='rails server'
-alias rc='rails console'
-
+alias gst="git status"
 alias gdiff="git diff"
 alias gadd="git add"
 alias gc="git commit -m"
@@ -32,12 +26,9 @@ alias gpush="git push origin"
 alias gstash="git stash"
 alias gpop="git stash pop"
 alias gsl="git stash list"
-alias gmerge="git merge --no-ff"
-alias gpick="git cherry-pick"
-alias gco="git checkout"
-alias gcm="git checkout master"
-alias gcs="git checkout staging"
-alias gcob="git checkout -b"
+alias go="git checkout"
+alias gom="git checkout master"
+alias gob="git checkout -b"
 alias vim="nvim"
 alias v="nvim"
 
