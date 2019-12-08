@@ -55,7 +55,6 @@ Plug 'othree/html5.vim'
 Plug 'slim-template/vim-slim', { 'for': ['slim', 'slime'] }
 Plug 'lmeijvogel/vim-yaml-helper'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
-Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
 Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
 Plug 'c-brenn/phoenix.vim', { 'for': 'elixir' }
 Plug 'vim-erlang/vim-erlang-runtime', { 'for': 'erlang' }
@@ -65,16 +64,22 @@ Plug 'elzr/vim-json'
 Plug 'nathanaelkane/vim-indent-guides'
 
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'shime/vim-livedown', { 'for': 'markdown' }
+" Plug 'shime/vim-livedown', { 'for': 'markdown' }
 Plug 'tpope/vim-haml', { 'for': 'haml' }
 
 Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 Plug 'p0deje/vim-ruby-interpolation', { 'for': 'ruby' }
 Plug 'chemzqm/vim-jsx-improve', { 'for': 'javascript' }
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'kovisoft/slimv', { 'for': ['clojure', 'scheme', 'racket'] }
 Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
+Plug 'chr4/nginx.vim'
+Plug 'luochen1990/rainbow'
 call plug#end()
 " General
 
@@ -128,9 +133,6 @@ set linespace=2
 set visualbell
 set t_Co=256
 set termguicolors
-
-" let g:ale_sign_warning = '☹'
-" let g:ale_sign_error = '✗'
 
 let mapleader="\<Space>" "press ,+s for use easy-motion
 
@@ -286,4 +288,4 @@ function! s:show_documentation()
   endif
 endfunction
 
-
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
