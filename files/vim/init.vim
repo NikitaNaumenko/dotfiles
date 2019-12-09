@@ -96,7 +96,6 @@ set autoread              " Autoreload buffers
 set autowrite             "  Automatically save changes before switching buffers
 syntax enable             " Enable syntax highlight
 syntax on                 " Syntax on for wimwiki
-set updatetime=100        " You will have bad experience for diagnostic messages when it's default 4000. coc.nvim
 
 " History, Cursor, rules
 set history=50                                                                 " Just remeber last 50 commands
@@ -257,6 +256,10 @@ augroup FileTypeTetect
 augroup END
 
 " Coc
+set cmdheight=2
+set updatetime=100        " You will have bad experience for diagnostic messages when it's default 4000. coc.nvim
+set shortmess+=c
+
 let g:vista_default_executive = 'coc'
 
 function! s:check_back_space() abort
