@@ -290,5 +290,12 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
 
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
