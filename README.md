@@ -1,9 +1,5 @@
 ### Requirements
 
-* Linux/Mac
-* [Nvim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
-* make
-* git
-* ansible
-* [Node.js](https://nodejs.org/en/download/package-manager/)
-    ```curl -sL install-node.now.sh | sh```
+[asdf](https://asdf-vm.com/#/core-manage-asdf-vtm)
+[Neovim][https://github.com/neovim/neovim/wiki/Installing-Neovim#macos--os-x]
+[ZSH](https://github.com/ohmyzsh/ohmyzsh)

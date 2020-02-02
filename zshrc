@@ -10,11 +10,15 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 # =========== #
 #   Aliases   #
 # =========== #
+alias bi='bundle install'
+alias be='bundle exec ' # note the trailing space to trigger chaining
+alias bu='bundle update'
+alias bo='bundle open'
+alias rs='rails server'
+alias rc='rails console'
 
 alias gst="git status"
 alias gdiff="git diff"
