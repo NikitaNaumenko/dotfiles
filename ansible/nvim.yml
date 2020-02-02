@@ -3,8 +3,8 @@
 - hosts: localhost
   tasks:
     - name: Install neovim
-      shell: "{{ lookup('env', 'PWD') }}/neovim-mac.sh"
-
+      homebrew:
+        name: neovim
     - name: Create config directory for nvim
       file:
         path: ~/.config/nvim
