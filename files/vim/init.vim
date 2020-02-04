@@ -71,6 +71,7 @@ Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 Plug 'p0deje/vim-ruby-interpolation', { 'for': 'ruby' }
 Plug 'chemzqm/vim-jsx-improve', { 'for': 'javascript' }
+Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
