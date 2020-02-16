@@ -44,7 +44,10 @@ let g:coc_global_extensions = [
       \ 'coc-pairs',
       \ 'coc-docker',
       \ 'coc-diagnostic',
+      \ 'coc-explorer',
       \]
+" CocCommand explorer --toggle --file-columns=diagnosticError:git:selection:clip:indent:icon:filename;filename;fullpath;size;modified;readonly;created;modified;accessed
+
 
 "Other
 Plug 'NLKNguyen/papercolor-theme'
@@ -139,7 +142,9 @@ let mapleader="\<Space>" "press ,+s for use easy-motion
 let g:indent_guides_start_level = 2
 set ts=2 sw=2 et
 "mappings
-nmap <silent> <leader><leader> :NERDTreeToggle<CR>
+" nmap <silent> <leader><leader> :NERDTreeToggle<CR>
+nmap <silent> <leader><leader> :CocCommand explorer --toggle --file-columns=diagnosticError:git:selection:clip:indent:icon:filename;filename;fullpath;size;modified;readonly;created;modified;accessed<CR>
+
 map <Leader> <Plug>(easymotion-prefix)
 "
 "NerdTree move map
