@@ -58,8 +58,8 @@ Plug 'othree/html5.vim'
 Plug 'slim-template/vim-slim', { 'for': ['slim', 'slime'] }
 Plug 'lmeijvogel/vim-yaml-helper'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
-Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
-Plug 'c-brenn/phoenix.vim', { 'for': 'elixir' }
+Plug 'elixir-editors/vim-elixir'
+Plug 'c-brenn/phoenix.vim'
 Plug 'vim-erlang/vim-erlang-runtime', { 'for': 'erlang' }
 Plug 'vim-erlang/vim-erlang-compiler', { 'for': 'erlang' }
 Plug 'tpope/vim-ragtag'
@@ -77,6 +77,7 @@ Plug 'chemzqm/vim-jsx-improve', { 'for': 'javascript' }
 Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'posva/vim-vue'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
@@ -231,6 +232,7 @@ endfunction
 nnoremap <leader>b :Buffers<CR>
 nnoremap <Leader>o :GFiles .<CR>
 nnoremap <leader>fc :Commits<CR>
+nnoremap <leader>aa :Ag<CR>
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>gs :Gstatus<CR>
 
