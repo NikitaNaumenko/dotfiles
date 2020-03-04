@@ -16,6 +16,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-projectionist'
+Plug 'mhinz/vim-mix-format'
 
 "Search and navigation
 Plug 'easymotion/vim-easymotion'
@@ -143,8 +144,8 @@ let mapleader="\<Space>" "press ,+s for use easy-motion
 let g:indent_guides_start_level = 2
 set ts=2 sw=2 et
 "mappings
-" nmap <silent> <leader><leader> :NERDTreeToggle<CR>
-nmap <silent> <leader><leader> :CocCommand explorer --toggle --file-columns=diagnosticError:git:selection:clip:indent:icon:filename;filename;fullpath;size;modified;readonly;created;modified;accessed<CR>
+nmap <silent> <leader><leader> :NERDTreeToggle<CR>
+" nmap <silent> <leader><leader> :CocCommand explorer --toggle --file-columns=diagnosticError:git:selection:clip:indent:icon:filename;filename;fullpath;size;modified;readonly;created;modified;accessed<CR>
 
 map <Leader> <Plug>(easymotion-prefix)
 "
