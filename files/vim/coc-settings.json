@@ -5,4 +5,8 @@
   "solargraph.autoformat": true,
   "solargraph.formatting": true,
   "solargraph.hover": true,
+  "diagnostic-languageserver.filetypes": {
+    "elixir": ["mix_credo"],
+    "eelixir": ["mix_credo"],
+  }
 }
