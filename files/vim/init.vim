@@ -17,6 +17,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-projectionist'
 Plug 'mhinz/vim-mix-format'
+Plug 'axvr/zepl.vim'
 
 "Search and navigation
 Plug 'easymotion/vim-easymotion'
@@ -308,3 +309,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+augroup zepl
+    autocmd!
+    autocmd FileType ruby let b:repl_config = { 'cmd': 'be rc' }
+augroup END
