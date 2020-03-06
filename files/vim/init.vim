@@ -312,5 +312,5 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 
 augroup zepl
     autocmd!
-    autocmd FileType ruby let b:repl_config = { 'cmd': 'be rc' }
+    autocmd FileType ruby let b:repl_config = { 'cmd': 'bundle exec rails console' }
 augroup END
