@@ -35,6 +35,7 @@ alias gom="git checkout master"
 alias gob="git checkout -b"
 alias vim="nvim"
 alias v="nvim"
+alias gup='git pull origin master --rebase'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
