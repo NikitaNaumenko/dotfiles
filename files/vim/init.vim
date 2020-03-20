@@ -12,7 +12,7 @@ Plug 'tpope/vim-endwise'     " for comlete duo symbols
 Plug 'tpope/vim-fugitive'    " work with git
 Plug 'tpope/vim-git'         " work with git
 Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-projectionist'
@@ -47,6 +47,7 @@ let g:coc_global_extensions = [
       \ 'coc-docker',
       \ 'coc-diagnostic',
       \ 'coc-explorer',
+      \ 'coc-git',
       \]
 " CocCommand explorer --toggle --file-columns=diagnosticError:git:selection:clip:indent:icon:filename;filename;fullpath;size;modified;readonly;created;modified;accessed
 
@@ -314,3 +315,17 @@ augroup zepl
     autocmd!
     autocmd FileType ruby let b:repl_config = { 'cmd': 'bundle exec rails console' }
 augroup END
+
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap gc <Plug>(coc-git-commit)
+" create text object for git chunks
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)
+nmap <silent> <leader>hu :CocCommand git.chunkUndo<CR>
