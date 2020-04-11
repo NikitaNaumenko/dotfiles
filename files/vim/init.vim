@@ -84,8 +84,15 @@ Plug 'posva/vim-vue'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+" Clojure
 Plug 'kovisoft/slimv', { 'for': ['clojure', 'scheme', 'racket'] }
 Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
+Plug 'tpope/vim-fireplace'
+Plug 'guns/vim-clojure-static'
+Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+Plug 'clojure-vim/vim-cider'
+Plug 'fbeline/kibit-vim'
+
 Plug 'chr4/nginx.vim'
 Plug 'luochen1990/rainbow'
 call plug#end()
@@ -314,6 +321,7 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 augroup zepl
     autocmd!
     autocmd FileType ruby let b:repl_config = { 'cmd': 'bundle exec rails console' }
+    autocmd FileType clojure let b:repl_config = { 'cmd': 'lein repl' }
 augroup END
 
 " navigate chunks of current buffer
@@ -328,3 +336,5 @@ xmap ig <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
 nmap <silent> <leader>hu :CocCommand git.chunkUndo<CR>
+map <leader>e :%Eval<cr>
+
