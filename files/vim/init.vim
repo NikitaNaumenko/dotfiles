@@ -336,5 +336,10 @@ xmap ig <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
 nmap <silent> <leader>hu :CocCommand git.chunkUndo<CR>
-map <leader>e :%Eval<cr>
+
+" Clojure
+map <leader>E :%Eval<cr>
+map <leader>e :Eval<cr>
+map <leader>r :Require<cr>
+map <leader>R :Require!<cr>
 
