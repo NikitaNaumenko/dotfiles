@@ -1,10 +1,3 @@
-" Autoinstall vim-plug
-" if empty(glob('~/.nvim/autoload/plug.vim'))
-"   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-"   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"   autocmd VimEnter * PlugInstall
-" endif
-
 call plug#begin('~/.vim/plugged')
 " General
 Plug 'tpope/vim-commentary'  " for commentary 
@@ -12,11 +5,9 @@ Plug 'tpope/vim-endwise'     " for comlete duo symbols
 Plug 'tpope/vim-fugitive'    " work with git
 Plug 'tpope/vim-git'         " work with git
 Plug 'tpope/vim-surround'
-" Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-projectionist'
-Plug 'mhinz/vim-mix-format'
 Plug 'axvr/zepl.vim'
 
 "Search and navigation
@@ -26,7 +17,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'liuchengxu/vista.vim'
 
 let g:coc_global_extensions = [
       \ 'coc-tsserver',
@@ -49,43 +39,42 @@ let g:coc_global_extensions = [
       \ 'coc-explorer',
       \ 'coc-git',
       \]
-" CocCommand explorer --toggle --file-columns=diagnosticError:git:selection:clip:indent:icon:filename;filename;fullpath;size;modified;readonly;created;modified;accessed
-
 
 "Other
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'itchyny/lightline.vim'
 Plug 'cohama/lexima.vim'
-
-Plug 'othree/html5.vim'
-Plug 'slim-template/vim-slim', { 'for': ['slim', 'slime'] }
-Plug 'lmeijvogel/vim-yaml-helper'
-Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
-Plug 'elixir-editors/vim-elixir'
-Plug 'c-brenn/phoenix.vim'
-Plug 'vim-erlang/vim-erlang-runtime', { 'for': 'erlang' }
-Plug 'vim-erlang/vim-erlang-compiler', { 'for': 'erlang' }
-Plug 'tpope/vim-ragtag'
-Plug 'elzr/vim-json'
 Plug 'nathanaelkane/vim-indent-guides'
 
+Plug 'lmeijvogel/vim-yaml-helper'
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+Plug 'tpope/vim-ragtag'
+Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-" Plug 'shime/vim-livedown', { 'for': 'markdown' }
-Plug 'tpope/vim-haml', { 'for': 'haml' }
-
+Plug 'shime/vim-livedown', { 'for': 'markdown' }
 Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
-Plug 'p0deje/vim-ruby-interpolation', { 'for': 'ruby' }
+Plug 'chr4/nginx.vim'
+
+" Templates
+Plug 'othree/html5.vim'
+Plug 'slim-template/vim-slim', { 'for': ['slim', 'slime'] }
+Plug 'tpope/vim-haml', { 'for': 'haml' }
+
+" Javascript && Coffeescript
 Plug 'chemzqm/vim-jsx-improve', { 'for': 'javascript' }
 Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'posva/vim-vue'
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Elixir
+Plug 'elixir-editors/vim-elixir'
+Plug 'c-brenn/phoenix.vim'
+Plug 'vim-erlang/vim-erlang-runtime', { 'for': 'erlang' }
+Plug 'vim-erlang/vim-erlang-compiler', { 'for': 'erlang' }
+Plug 'mhinz/vim-mix-format'
 
 " Clojure
-Plug 'kovisoft/slimv', { 'for': ['clojure', 'scheme', 'racket'] }
 Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 Plug 'tpope/vim-fireplace'
 Plug 'guns/vim-clojure-static'
@@ -93,7 +82,6 @@ Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 Plug 'clojure-vim/vim-cider'
 Plug 'fbeline/kibit-vim'
 
-Plug 'chr4/nginx.vim'
 Plug 'luochen1990/rainbow'
 call plug#end()
 " General
@@ -273,7 +261,7 @@ augroup FileTypeTetect
   autocmd BufNewFile,BufRead *.slime setlocal filetype=slim
 augroup END
 
-" Coc
+" ############# Coc ################
 set cmdheight=2
 set updatetime=100        " You will have bad experience for diagnostic messages when it's default 4000. coc.nvim
 set shortmess+=c
@@ -316,7 +304,6 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 
-let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 augroup zepl
     autocmd!
@@ -336,10 +323,13 @@ xmap ig <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
 nmap <silent> <leader>hu :CocCommand git.chunkUndo<CR>
-
-" Clojure
+" ############# Coc ################
+"
+" ############# Clojure ################
 map <leader>E :%Eval<cr>
 map <leader>e :Eval<cr>
 map <leader>r :Require<cr>
 map <leader>R :Require!<cr>
 
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+let g:indent_guides_enable_on_vim_startup = 1
