@@ -1,23 +1,66 @@
 call plug#begin('~/.vim/plugged')
-" General
-Plug 'tpope/vim-commentary'  " for commentary 
-Plug 'tpope/vim-endwise'     " for comlete duo symbols
-Plug 'tpope/vim-fugitive'    " work with git
-Plug 'tpope/vim-git'         " work with git
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-projectionist'
-Plug 'axvr/zepl.vim'
+"############# General #############
+Plug 'tpope/vim-commentary'        " Fast comment/uncomment lines (Keys - gcc)
+Plug 'tpope/vim-endwise'           " Complete duo symbols (if do etc...)
+Plug 'tpope/vim-fugitive'          " Git https://github.com/tpope/vim-fugitive :Git diff | :Git commit | :Git add | :GStatus
+Plug 'tpope/vim-git'               " Included are syntax, indent, and filetype plugin files for git, gitconfig etc.
+Plug 'tpope/vim-surround'          " Surrounding parentheses, brackets, quotes, XML tags, and more.
+Plug 'tpope/vim-repeat'            " Repeat.vim remaps . in a way that plugins can tap into it.
+Plug 'tpope/vim-unimpaired'        " ?????????????????
+Plug 'axvr/zepl.vim'               " Run REPL
+Plug 'NLKNguyen/papercolor-theme'  " Colorscheme 
+Plug 'itchyny/lightline.vim'       " Statusline
+Plug 'cohama/lexima.vim'           " Repeat.vim remaps . in a way that plugins can tap into it.
+Plug 'nathanaelkane/vim-indent-guides'  " Highlight indent lines
+Plug 'luochen1990/rainbow'         " Highlight brackets
 
-"Search and navigation
-Plug 'easymotion/vim-easymotion'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" ############# Search and navigation #############
+Plug 'easymotion/vim-easymotion'                                   " Fast navigation with <leader>s +letter
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}              " Project Tree TODO: Should change to coc-explorer
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }  " Search by project 
+Plug 'junegunn/fzf.vim'                                            " Search
 
+" ############# DevOps #############
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }    " Highlight and commands for terraform
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }  " Highlight Dockerfile
+Plug 'skanehira/docker.vim'                              " Provide docker commands to vim
+Plug 'chr4/nginx.vim'                                    " Syntax highlight nginx files
+
+" ############# JSON | Markdown | Yaml #############
+Plug 'elzr/vim-json'                                     " Highlighting of keywords vs values, JSON-specific
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }    " Syntax highlighting, matching rules etc. for Markdown
+Plug 'shime/vim-livedown', { 'for': 'markdown' }         " Vim Livedown plugin (need livedown from npm)
+Plug 'stephpy/vim-yaml', { 'for': 'yaml' }               " Highlight YAML
+
+" ############# Templates #############
+Plug 'tpope/vim-ragtag'                                      " Support differnt tags like <%= %>
+Plug 'othree/html5.vim'                                      " HTML5 + inline SVG omnicomplete function, indent and syntax
+Plug 'slim-template/vim-slim', { 'for': ['slim', 'slime'] }  " slim syntax highlighting for vim
+Plug 'tpope/vim-haml', { 'for': 'haml' }                     " haml syntax highlighting for vim
+
+" ############# Javascript && Coffeescript #############
+Plug 'chemzqm/vim-jsx-improve', { 'for': 'javascript' }  " Syntax and indent plugin for React jsx
+Plug 'kchmck/vim-coffee-script'                          " Support Coffeescript (I realy want to delete it, but I use CS)
+Plug 'leafgarland/typescript-vim'                        " Syntax file and other settings for TypeScript
+Plug 'peitalin/vim-jsx-typescript'                       " Syntax highlighting for JSX in Typescript.
+
+" ############# Elixir #############
+Plug 'elixir-editors/vim-elixir'                            " Support elixir
+Plug 'vim-erlang/vim-erlang-runtime', { 'for': 'erlang' }   " Erlang indentation and syntax for Vim
+Plug 'vim-erlang/vim-erlang-compiler', { 'for': 'erlang' }  " Erlang syntax checking and compiler plugin for Vim
+Plug 'mhinz/vim-mix-format'                                 " Formatting elixir files :MixFormat
+
+" ############# Clojure #############
+Plug 'wlangstroth/vim-racket', { 'for': 'racket' }       " Support Racket
+Plug 'tpope/vim-fireplace'                               " REPL for clojure (have not setup yet completely)
+Plug 'guns/vim-clojure-static'                           " ??????? for clojure
+Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }  " Syntax highlight for clojure
+Plug 'clojure-vim/vim-cider'                             " Have not setup completely yet
+Plug 'fbeline/kibit-vim'                                 " Static code analyzer for clojure
+
+
+" ############# CoC #############
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-html',
@@ -40,49 +83,6 @@ let g:coc_global_extensions = [
       \ 'coc-git',
       \]
 
-"Other
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'itchyny/lightline.vim'
-Plug 'cohama/lexima.vim'
-Plug 'nathanaelkane/vim-indent-guides'
-
-Plug 'lmeijvogel/vim-yaml-helper'
-Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
-Plug 'tpope/vim-ragtag'
-Plug 'elzr/vim-json'
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'shime/vim-livedown', { 'for': 'markdown' }
-Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
-Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
-Plug 'chr4/nginx.vim'
-
-" Templates
-Plug 'othree/html5.vim'
-Plug 'slim-template/vim-slim', { 'for': ['slim', 'slime'] }
-Plug 'tpope/vim-haml', { 'for': 'haml' }
-
-" Javascript && Coffeescript
-Plug 'chemzqm/vim-jsx-improve', { 'for': 'javascript' }
-Plug 'kchmck/vim-coffee-script'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-
-" Elixir
-Plug 'elixir-editors/vim-elixir'
-Plug 'c-brenn/phoenix.vim'
-Plug 'vim-erlang/vim-erlang-runtime', { 'for': 'erlang' }
-Plug 'vim-erlang/vim-erlang-compiler', { 'for': 'erlang' }
-Plug 'mhinz/vim-mix-format'
-
-" Clojure
-Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
-Plug 'tpope/vim-fireplace'
-Plug 'guns/vim-clojure-static'
-Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
-Plug 'clojure-vim/vim-cider'
-Plug 'fbeline/kibit-vim'
-
-Plug 'luochen1990/rainbow'
 call plug#end()
 " General
 
