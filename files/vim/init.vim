@@ -23,7 +23,6 @@ Plug 'junegunn/fzf.vim'                                            " Search
 " ############# DevOps #############
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }    " Highlight and commands for terraform
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }  " Highlight Dockerfile
-Plug 'skanehira/docker.vim'                              " Provide docker commands to vim
 Plug 'chr4/nginx.vim'                                    " Syntax highlight nginx files
 
 " ############# JSON | Markdown | Yaml #############
@@ -129,6 +128,19 @@ set smartcase   " ... unless they contain at least one capital letter
 set noshowmode  " Doesnt show vim mode
 set background=light
 colorscheme PaperColor
+
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default': {
+  \       'override' : {
+  \         'color00' : ['#ffffff', '15'],
+  \         'color01' : ['#ff1400', '196'],
+  \         'color03' : ['#0f9d58', '34'],
+  \         'color07' : ['#000000', '0'],
+  \       }
+  \     }
+  \   }
+  \ }
 
 " set default font
 set linespace=2
