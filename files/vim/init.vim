@@ -137,6 +137,7 @@ let g:PaperColor_Theme_Options = {
   \         'color01' : ['#ff1400', '196'],
   \         'color03' : ['#0f9d58', '34'],
   \         'color07' : ['#000000', '0'],
+  \         'color06' : ['#3374ff', '27'],
   \       }
   \     }
   \   }
