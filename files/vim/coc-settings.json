@@ -12,7 +12,7 @@
     }
   },
   "suggest.snippetIndicator": "►",
-
+  "coc.source.iced.enable": true,
   "solargraph.diagnostics": true,
   "solargraph.autoformat": true,
   "solargraph.formatting": true,

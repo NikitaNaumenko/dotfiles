@@ -13,6 +13,7 @@ Plug 'itchyny/lightline.vim'       " Statusline
 Plug 'cohama/lexima.vim'           " Repeat.vim remaps . in a way that plugins can tap into it.
 Plug 'nathanaelkane/vim-indent-guides'  " Highlight indent lines
 Plug 'luochen1990/rainbow'         " Highlight brackets
+Plug 'jpalardy/vim-slime'
 
 " ############# Search and navigation #############
 Plug 'easymotion/vim-easymotion'                                   " Fast navigation with <leader>s +letter
@@ -56,7 +57,10 @@ Plug 'guns/vim-clojure-static'                           " ??????? for clojure
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }  " Syntax highlight for clojure
 Plug 'clojure-vim/vim-cider'                             " Have not setup completely yet
 Plug 'fbeline/kibit-vim'                                 " Static code analyzer for clojure
-
+Plug 'liquidz/vim-iced', {'for': 'clojure'}
+Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}
+Plug 'guns/vim-sexp',    {'for': 'clojure'}
+Plug 'kovisoft/slimv', { 'for': ['clojure', 'scheme', 'racket'] }
 
 " ############# CoC #############
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -345,4 +349,7 @@ map <leader>r :Require<cr>
 map <leader>R :Require!<cr>
 
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+let g:iced_enable_default_key_mappings = v:true
+
+
 let g:indent_guides_enable_on_vim_startup = 1
