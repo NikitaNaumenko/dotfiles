@@ -13,7 +13,6 @@ Plug 'itchyny/lightline.vim'       " Statusline
 Plug 'cohama/lexima.vim'           " Repeat.vim remaps . in a way that plugins can tap into it.
 Plug 'nathanaelkane/vim-indent-guides'  " Highlight indent lines
 Plug 'luochen1990/rainbow'         " Highlight brackets
-Plug 'jpalardy/vim-slime'
 
 " ############# Search and navigation #############
 Plug 'easymotion/vim-easymotion'                                   " Fast navigation with <leader>s +letter
@@ -52,13 +51,11 @@ Plug 'mhinz/vim-mix-format'                                 " Formatting elixir 
 
 " ############# Clojure #############
 Plug 'wlangstroth/vim-racket', { 'for': 'racket' }       " Support Racket
-Plug 'tpope/vim-fireplace'                               " REPL for clojure (have not setup yet completely)
 Plug 'guns/vim-clojure-static'                           " ??????? for clojure
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }  " Syntax highlight for clojure
-Plug 'clojure-vim/vim-cider'                             " Have not setup completely yet
 Plug 'fbeline/kibit-vim'                                 " Static code analyzer for clojure
-Plug 'liquidz/vim-iced', {'for': 'clojure'}
-Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}
+Plug 'liquidz/vim-iced', {'for': 'clojure'}              " REPL
+Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}   " LSP for clojure
 Plug 'guns/vim-sexp',    {'for': 'clojure'}
 Plug 'kovisoft/slimv', { 'for': ['clojure', 'scheme', 'racket'] }
 
@@ -84,8 +81,8 @@ let g:coc_global_extensions = [
       \ 'coc-diagnostic',
       \ 'coc-explorer',
       \ 'coc-git',
+      \ 'coc-sql',
       \]
-
 call plug#end()
 " General
 
@@ -137,11 +134,7 @@ let g:PaperColor_Theme_Options = {
   \   'theme': {
   \     'default': {
   \       'override' : {
-  \         'color00' : ['#ffffff', '15'],
-  \         'color01' : ['#ff1400', '196'],
-  \         'color03' : ['#0f9d58', '34'],
   \         'color07' : ['#000000', '0'],
-  \         'color06' : ['#3374ff', '27'],
   \       }
   \     }
   \   }

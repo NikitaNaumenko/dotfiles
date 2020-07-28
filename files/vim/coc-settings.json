@@ -19,6 +19,6 @@
   "solargraph.hover": true,
   "diagnostic-languageserver.filetypes": {
     "elixir": ["mix_credo"],
-    "eelixir": ["mix_credo"],
+    "eelixir": ["mix_credo"]
   }
 }
