@@ -34,6 +34,7 @@ Plug 'stephpy/vim-yaml', { 'for': 'yaml' }               " Highlight YAML
 " ############# Templates #############
 Plug 'tpope/vim-ragtag'                                      " Support differnt tags like <%= %>
 Plug 'othree/html5.vim'                                      " HTML5 + inline SVG omnicomplete function, indent and syntax
+Plug 'mattn/emmet-vim'                                       " Write fast html tags
 Plug 'slim-template/vim-slim', { 'for': ['slim', 'slime'] }  " slim syntax highlighting for vim
 Plug 'tpope/vim-haml', { 'for': 'haml' }                     " haml syntax highlighting for vim
 
