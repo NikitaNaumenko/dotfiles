@@ -26,6 +26,7 @@ ssh-keygen -t rsa -b 4096 -C "naumenkoniki@gmail.com"
 asdf plugin-add ruby
 asdf install ruby latest
 gem install bundler
+gem install awesome_print
 
 asdf plugin-add erlang
 asdf install erlang latest
