@@ -1,13 +1,10 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:~/.vim/plugged/vim-iced/bin
-# Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
+export EDITOR=nvim
+export BAT_THEME="GitHub"
 
 ZSH_THEME="spaceship"
-
 plugins=(git)
-
 source $ZSH/oh-my-zsh.sh
 
 # =========== #
@@ -35,13 +32,10 @@ alias gom="git checkout master"
 alias gob="git checkout -b"
 alias vim="nvim"
 alias v="nvim"
+alias top="htop"
 alias gup='git pull origin master --rebase'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export EDITOR=nvim
-export BAT_THEME="GitHub"
-
 . /usr/local/opt/asdf/asdf.sh
-
 . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash

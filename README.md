@@ -1,21 +1,26 @@
-### Requirements
-bat
-htop
-diff-so-fancy
-zsh(oh-my-zsh)
-[asdf](https://asdf-vm.com/#/core-manage-asdf-vtm)
-[Neovim][https://github.com/neovim/neovim/wiki/Installing-Neovim#macos--os-x]
-[ZSH](https://github.com/ohmyzsh/ohmyzsh)
+# dotfiles
+## Packages
+* git
+* github CLI
+* asdf (Ruby, node.js, Elixir, Erlang, Java, Clojure, Golang)
+* fzf
+* neovim
+* brew
 
-### ASDF
-Ruby
-Node
-Elixir
-Erlang
-Java
-Clojure
+## Need to install manually
+* Notion
+* 1password
+* iTerm2
+* Telegram
+* Slack
+* NordVPN
+* Alfred (Github)
+* Magnet
+* iStatMenus
+* Endel
+* Any.do
+* Zoom
+* Docker for Mac
+* Flow
+* Postman
 
-
-#### Clojure
-clojure tools
-lein
