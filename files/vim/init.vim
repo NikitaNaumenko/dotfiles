@@ -60,6 +60,9 @@ Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}   " LSP for clojure
 Plug 'guns/vim-sexp',    {'for': 'clojure'}
 Plug 'kovisoft/slimv', { 'for': ['clojure', 'scheme', 'racket'] }
 
+" ############# Golang #############
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " ############# CoC #############
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
@@ -83,6 +86,7 @@ let g:coc_global_extensions = [
       \ 'coc-explorer',
       \ 'coc-git',
       \ 'coc-sql',
+      \ 'coc-go',
       \]
 call plug#end()
 " General
