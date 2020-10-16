@@ -1,4 +1,6 @@
 # dotfiles
+## Colorcheme
+* (Papercolor)[https://github.com/NLKNguyen/papercolor-theme]
 ## Packages
 * git
 * github CLI
@@ -18,7 +20,6 @@
 * Magnet
 * iStatMenus
 * Endel
-* Any.do
 * Zoom
 * Docker for Mac
 * Flow
