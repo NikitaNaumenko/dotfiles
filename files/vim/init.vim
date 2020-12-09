@@ -7,12 +7,16 @@ Plug 'tpope/vim-git'               " Included are syntax, indent, and filetype p
 Plug 'tpope/vim-surround'          " Surrounding parentheses, brackets, quotes, XML tags, and more.
 Plug 'tpope/vim-repeat'            " Repeat.vim remaps . in a way that plugins can tap into it.
 Plug 'tpope/vim-unimpaired'        " ?????????????????
+Plug 'tpope/vim-dispatch'
 Plug 'axvr/zepl.vim'               " Run REPL
+Plug 'arcticicestudio/nord-vim'
 Plug 'NLKNguyen/papercolor-theme'  " Colorscheme 
+Plug 'nanotech/jellybeans.vim'
 Plug 'itchyny/lightline.vim'       " Statusline
 Plug 'cohama/lexima.vim'           " Repeat.vim remaps . in a way that plugins can tap into it.
 Plug 'nathanaelkane/vim-indent-guides'  " Highlight indent lines
 Plug 'luochen1990/rainbow'         " Highlight brackets
+Plug 'vim-test/vim-test'
 
 " ############# Search and navigation #############
 Plug 'easymotion/vim-easymotion'                                   " Fast navigation with <leader>s +letter
@@ -37,10 +41,11 @@ Plug 'othree/html5.vim'                                      " HTML5 + inline SV
 Plug 'mattn/emmet-vim'                                       " Write fast html tags
 Plug 'slim-template/vim-slim', { 'for': ['slim', 'slime'] }  " slim syntax highlighting for vim
 Plug 'tpope/vim-haml', { 'for': 'haml' }                     " haml syntax highlighting for vim
+Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
+Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
 
 " ############# Javascript && Coffeescript #############
 Plug 'chemzqm/vim-jsx-improve', { 'for': 'javascript' }  " Syntax and indent plugin for React jsx
-Plug 'kchmck/vim-coffee-script'                          " Support Coffeescript (I realy want to delete it, but I use CS)
 Plug 'leafgarland/typescript-vim'                        " Syntax file and other settings for TypeScript
 Plug 'peitalin/vim-jsx-typescript'                       " Syntax highlighting for JSX in Typescript.
 
@@ -87,7 +92,10 @@ let g:coc_global_extensions = [
       \ 'coc-git',
       \ 'coc-sql',
       \ 'coc-go',
+      \ 'coc-grammarly',
       \]
+" ############# LUA PLUGINS #############
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 " General
 
@@ -132,18 +140,8 @@ set ignorecase  " Searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
 
 set noshowmode  " Doesnt show vim mode
-set background=light
-colorscheme PaperColor
-
-let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default': {
-  \       'override' : {
-  \         'color07' : ['#000000', '0'],
-  \       }
-  \     }
-  \   }
-  \ }
+colorscheme nord
+" set background=dark
 
 " set default font
 set linespace=2
@@ -157,7 +155,8 @@ let g:indent_guides_start_level = 2
 set ts=2 sw=2 et
 "mappings
 nmap <silent> <leader><leader> :NERDTreeToggle<CR>
-" nmap <silent> <leader><leader> :CocCommand explorer --toggle --file-columns=diagnosticError:git:selection:clip:indent:icon:filename;filename;fullpath;size;modified;readonly;created;modified;accessed<CR>
+"  
+" nmap <silent> <leader><leader> :CocCommand explorer<CR>
 
 map <Leader> <Plug>(easymotion-prefix)
 "
@@ -210,7 +209,7 @@ endfunction
 
 " Lightline
 let g:lightline = {
-\ 'colorscheme': 'PaperColor',
+\ 'colorscheme': 'nord',
 \ 'active': {
 \   'left': [['mode', 'paste'], ['filename', 'modified']],
 \   'right': [['lineinfo'], ['percent'], ['readonly'], ['cocstatus'], ['currentfunction']]
@@ -351,3 +350,31 @@ let g:iced_enable_default_key_mappings = v:true
 
 
 let g:indent_guides_enable_on_vim_startup = 1
+
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
+" let test#strategy = "neovim"
+let test#neovim#term_position = "vert botright"
+" let test#strategy = "dispatch"
+let test#strategy = {
+  \ 'nearest': 'neovim', 
+  \ 'file': 'dispatch',
+  \ 'suite': 'dispatch',
+  \ 'visit': 'dispatch',
+  \}
+if has('nvim')
+  tmap <C-o> <C-\><C-n>
+endif
+
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+  },
+}
+EOF
