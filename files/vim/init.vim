@@ -8,14 +8,12 @@ Plug 'tpope/vim-surround'          " Surrounding parentheses, brackets, quotes, 
 Plug 'tpope/vim-repeat'            " Repeat.vim remaps . in a way that plugins can tap into it.
 Plug 'tpope/vim-unimpaired'        " ?????????????????
 Plug 'tpope/vim-dispatch'
-Plug 'axvr/zepl.vim'               " Run REPL
 Plug 'arcticicestudio/nord-vim'
-Plug 'NLKNguyen/papercolor-theme'  " Colorscheme 
-Plug 'nanotech/jellybeans.vim'
 Plug 'itchyny/lightline.vim'       " Statusline
 Plug 'cohama/lexima.vim'           " Repeat.vim remaps . in a way that plugins can tap into it.
 Plug 'nathanaelkane/vim-indent-guides'  " Highlight indent lines
-Plug 'luochen1990/rainbow'         " Highlight brackets
+" Plug 'luochen1990/rainbow'         " Highlight brackets
+" Plug 'p00f/nvim-ts-rainbow'
 Plug 'vim-test/vim-test'
 
 " ############# Search and navigation #############
@@ -94,6 +92,7 @@ let g:coc_global_extensions = [
       \ 'coc-go',
       \ 'coc-grammarly',
       \]
+
 " ############# LUA PLUGINS #############
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
@@ -345,7 +344,7 @@ map <leader>e :Eval<cr>
 map <leader>r :Require<cr>
 map <leader>R :Require!<cr>
 
-let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+" let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 let g:iced_enable_default_key_mappings = v:true
 
 
@@ -368,6 +367,7 @@ let test#strategy = {
 if has('nvim')
   tmap <C-o> <C-\><C-n>
 endif
+let test#ruby#rspec#executable = "bin/rspec"
 
 
 lua <<EOF
@@ -375,6 +375,9 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
     enable = true,              -- false will disable the whole extension
-  },
+  }
 }
 EOF
+lua require("settings")
+
+" hi rainbowcol1 guifg=#123456
