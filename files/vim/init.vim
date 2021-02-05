@@ -1,3 +1,5 @@
+lua require("settings")
+
 call plug#begin('~/.vim/plugged')
 "############# General #############
 Plug 'tpope/vim-commentary'        " Fast comment/uncomment lines (Keys - gcc)
@@ -98,17 +100,16 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 " General
 
-set nocompatible          " Vim behavior, not Vi
-scriptencoding utf-8      " Use UTF-8 encoding
-set encoding=utf8
-set fileencoding=utf-8    " Use UTF-8 encoding
-set langmenu=en_US.UTF-8  " Use UTF-8 encoding
-set encoding=utf-8        " Use UTF-8 encoding
-set nobackup              " Don't backup
-set nowritebackup         " Write file inplace
-set noswapfile            " Don't use swap files
-set autoread              " Autoreload buffers
-set autowrite             "  Automatically save changes before switching buffers
+" set nocompatible          " Vim behavior, not Vi
+" scriptencoding utf-8      " Use UTF-8 encoding
+" set fileencoding=utf-8    " Use UTF-8 encoding
+" set langmenu=en_US.UTF-8  " Use UTF-8 encoding
+" set encoding=utf-8        " Use UTF-8 encoding
+" set nobackup              " Don't backup
+" set nowritebackup         " Write file inplace
+" set noswapfile            " Don't use swap files
+" set autoread              " Autoreload buffers
+" set autowrite             "  Automatically save changes before switching buffers
 syntax enable             " Enable syntax highlight
 syntax on                 " Syntax on for wimwiki
 
@@ -148,7 +149,7 @@ set visualbell
 set t_Co=256
 set termguicolors
 
-let mapleader="\<Space>" "press ,+s for use easy-motion
+" let mapleader="\<Space>" "press ,+s for use easy-motion
 
 let g:indent_guides_start_level = 2
 set ts=2 sw=2 et
@@ -378,6 +379,5 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 EOF
-lua require("settings")
 
 " hi rainbowcol1 guifg=#123456
