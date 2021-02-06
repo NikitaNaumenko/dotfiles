@@ -1,4 +1,3 @@
-lua require("settings")
 
 call plug#begin('~/.vim/plugged')
 "############# General #############
@@ -98,6 +97,8 @@ let g:coc_global_extensions = [
 " ############# LUA PLUGINS #############
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
+
+lua require("settings")
 " General
 
 " set nocompatible          " Vim behavior, not Vi
@@ -110,49 +111,46 @@ call plug#end()
 " set noswapfile            " Don't use swap files
 " set autoread              " Autoreload buffers
 " set autowrite             "  Automatically save changes before switching buffers
-syntax enable             " Enable syntax highlight
-syntax on                 " Syntax on for wimwiki
+" syntax enable             " Enable syntax highlight
+" syntax on                 " Syntax on for wimwiki
+" set number                                                                     " Show line numbers
 
 " History, Cursor, rules
-set history=50                                                                 " Just remeber last 50 commands
-set laststatus=2                                                               " Always display status line
-set ruler                                                                      " Show the cursor position all the time
-set number                                                                     " Show line numbers
-set showcmd                                                                    " Display incomplete commands
-set cursorline                                                                 " Highlight current cursor line
-set shell=$SHELL                                                               " Default shell is ZSH
-set statusline=%<%f\ %h%m%r%=\ %{devnotes#statusline()}\ %-14.(%l,%c%V%)\ %P   " Status line format
+" set history=50                                                                 " Just remeber last 50 commands
+" set laststatus=2                                                               " Always display status line
+" set ruler                                                                      " Show the cursor position all the time
+" set showcmd                                                                    " Display incomplete commands
+" set cursorline                                                                 " Highlight current cursor line
+" set shell=$SHELL                                                               " Default shell is ZSH
+" set statusline=%<%f\ %h%m%r%=\ %{devnotes#statusline()}\ %-14.(%l,%c%V%)\ %P   " Status line format
 
 " Tabs and whitespace
-set wrap                                    " Wrap lines
-set tabstop=2                               " Tabs are always 2 spaces
-set expandtab                               " Expand tabs into spaces
-set shiftwidth=2                            " Reindent with 2 spaces (using <<)
-set list                                    " Show invisible chars
-set listchars=""                            " Reset listchars
-set list listchars=tab:»·,trail:·,space:·  " Set listchars for tabs and trailing spaces
-set showbreak=↪\                            " Set breakline char
+" set wrap                                    " Wrap lines
+" set tabstop=2                               " Tabs are always 2 spaces
+" set expandtab                               " Expand tabs into spaces
+" set shiftwidth=2                            " Reindent with 2 spaces (using <<)
+" set list listchars=tab:»·,trail:·,space:·  " Set listchars for tabs and trailing spaces
+" set showbreak=↪\                            " Set breakline char
 
 " Search
-set hlsearch    " Highlight matches
-set incsearch   " Incremental searching
-set ignorecase  " Searches are case insensitive...
-set smartcase   " ... unless they contain at least one capital letter
+" set hlsearch    " Highlight matches
+" set incsearch   " Incremental searching
+" set ignorecase  " Searches are case insensitive...
+" set smartcase   " ... unless they contain at least one capital letter
 
-set noshowmode  " Doesnt show vim mode
-colorscheme nord
+" set noshowmode  " Doesnt show vim mode
+" colorscheme nord
 " set background=dark
 
 " set default font
-set linespace=2
-set visualbell
-set t_Co=256
-set termguicolors
+" set linespace=2
+" set visualbell
+" set t_Co=256
+" set termguicolors
 
 " let mapleader="\<Space>" "press ,+s for use easy-motion
 
 let g:indent_guides_start_level = 2
-set ts=2 sw=2 et
 "mappings
 nmap <silent> <leader><leader> :NERDTreeToggle<CR>
 "  
@@ -184,7 +182,6 @@ endfunction
 let g:NERDTreeShowHidden=1
 
 set fillchars=stl:\ ,stlnc:\ ,vert:│
-syntax on
 
 "check one time after 4s of inactivity in normal mode
 au CursorHold * checktime
@@ -276,9 +273,9 @@ augroup FileTypeTetect
 augroup END
 
 " ############# Coc ################
-set cmdheight=2
-set updatetime=100        " You will have bad experience for diagnostic messages when it's default 4000. coc.nvim
-set shortmess+=c
+" set cmdheight=2
+" set updatetime=100        " You will have bad experience for diagnostic messages when it's default 4000. coc.nvim
+" set shortmess+=c
 
 let g:vista_default_executive = 'coc'
 
