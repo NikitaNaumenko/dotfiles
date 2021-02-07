@@ -99,57 +99,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 lua require("settings")
-" General
-
-" set nocompatible          " Vim behavior, not Vi
-" scriptencoding utf-8      " Use UTF-8 encoding
-" set fileencoding=utf-8    " Use UTF-8 encoding
-" set langmenu=en_US.UTF-8  " Use UTF-8 encoding
-" set encoding=utf-8        " Use UTF-8 encoding
-" set nobackup              " Don't backup
-" set nowritebackup         " Write file inplace
-" set noswapfile            " Don't use swap files
-" set autoread              " Autoreload buffers
-" set autowrite             "  Automatically save changes before switching buffers
-" syntax enable             " Enable syntax highlight
-" syntax on                 " Syntax on for wimwiki
-" set number                                                                     " Show line numbers
-
-" History, Cursor, rules
-" set history=50                                                                 " Just remeber last 50 commands
-" set laststatus=2                                                               " Always display status line
-" set ruler                                                                      " Show the cursor position all the time
-" set showcmd                                                                    " Display incomplete commands
-" set cursorline                                                                 " Highlight current cursor line
-" set shell=$SHELL                                                               " Default shell is ZSH
-" set statusline=%<%f\ %h%m%r%=\ %{devnotes#statusline()}\ %-14.(%l,%c%V%)\ %P   " Status line format
-
-" Tabs and whitespace
-" set wrap                                    " Wrap lines
-" set tabstop=2                               " Tabs are always 2 spaces
-" set expandtab                               " Expand tabs into spaces
-" set shiftwidth=2                            " Reindent with 2 spaces (using <<)
-" set list listchars=tab:»·,trail:·,space:·  " Set listchars for tabs and trailing spaces
-" set showbreak=↪\                            " Set breakline char
-
-" Search
-" set hlsearch    " Highlight matches
-" set incsearch   " Incremental searching
-" set ignorecase  " Searches are case insensitive...
-" set smartcase   " ... unless they contain at least one capital letter
-
-" set noshowmode  " Doesnt show vim mode
-" colorscheme nord
-" set background=dark
-
-" set default font
-" set linespace=2
-" set visualbell
-" set t_Co=256
-" set termguicolors
-
-" let mapleader="\<Space>" "press ,+s for use easy-motion
-
 let g:indent_guides_start_level = 2
 "mappings
 nmap <silent> <leader><leader> :NERDTreeToggle<CR>
@@ -180,8 +129,6 @@ function! WinMove(key)
 endfunction
 
 let g:NERDTreeShowHidden=1
-
-set fillchars=stl:\ ,stlnc:\ ,vert:│
 
 "check one time after 4s of inactivity in normal mode
 au CursorHold * checktime
@@ -272,11 +219,6 @@ augroup FileTypeTetect
   autocmd BufNewFile,BufRead *.slime setlocal filetype=slim
 augroup END
 
-" ############# Coc ################
-" set cmdheight=2
-" set updatetime=100        " You will have bad experience for diagnostic messages when it's default 4000. coc.nvim
-" set shortmess+=c
-
 let g:vista_default_executive = 'coc'
 
 function! s:check_back_space() abort
@@ -315,13 +257,6 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 
-
-augroup zepl
-    autocmd!
-    autocmd FileType ruby let b:repl_config = { 'cmd': 'bundle exec rails console' }
-    autocmd FileType clojure let b:repl_config = { 'cmd': 'lein repl' }
-augroup END
-
 " navigate chunks of current buffer
 nmap [g <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
@@ -344,7 +279,6 @@ map <leader>R :Require!<cr>
 
 " let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 let g:iced_enable_default_key_mappings = v:true
-
 
 let g:indent_guides_enable_on_vim_startup = 1
 
