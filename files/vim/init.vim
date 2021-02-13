@@ -1,4 +1,3 @@
-
 call plug#begin('~/.vim/plugged')
 "############# General #############
 Plug 'tpope/vim-commentary'        " Fast comment/uncomment lines (Keys - gcc)
@@ -99,9 +98,12 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 lua require("settings")
+lua require("mappings")
+
 let g:indent_guides_start_level = 2
+
 "mappings
-nmap <silent> <leader><leader> :NERDTreeToggle<CR>
+" nmap <silent> <leader><leader> :NERDTreeToggle<CR>
 "  
 " nmap <silent> <leader><leader> :CocCommand explorer<CR>
 
@@ -271,12 +273,6 @@ xmap ag <Plug>(coc-git-chunk-outer)
 nmap <silent> <leader>hu :CocCommand git.chunkUndo<CR>
 " ############# Coc ################
 "
-" ############# Clojure ################
-map <leader>E :%Eval<cr>
-map <leader>e :Eval<cr>
-map <leader>r :Require<cr>
-map <leader>R :Require!<cr>
-
 " let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 let g:iced_enable_default_key_mappings = v:true
 

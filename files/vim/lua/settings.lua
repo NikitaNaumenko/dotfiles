@@ -45,7 +45,6 @@ window_options = {
   cursorline = true,
   wrap = true,
   list = true,
-  -- listchars ="tab:»·,trail:·,space:·  ",
 }
 for key, val in pairs(window_options) do
   vim.wo[key] = val
