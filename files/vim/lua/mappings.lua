@@ -12,8 +12,7 @@ vim.api.nvim_set_keymap('n', '<leader>b', ':Buffers<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>o', ':GFiles<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fc', ':Commits<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>aa', ':Ag<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>ff', ':Ag<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gs', ':Gstatus<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>ff', ':Files <CR>', { noremap = true })
 
 -- Close the current buffer and move to the previous one
 vim.api.nvim_set_keymap('n', '<leader>bq', ':bp <BAR> bd #<CR>', {})
@@ -27,5 +26,3 @@ vim.api.nvim_set_keymap('i', '<c-x><c-k>', '<plug>(fzf-complete-word)', {})
 vim.api.nvim_set_keymap('i', '<c-x><c-f>', '<plug>(fzf-complete-path)', {})
 vim.api.nvim_set_keymap('i', '<c-x><c-j>', '<plug>(fzf-complete-file-ag)', {})
 vim.api.nvim_set_keymap('i', '<c-x><c-l>', '<plug>(fzf-complete-line)', {})
-
-
