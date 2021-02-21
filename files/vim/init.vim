@@ -100,23 +100,15 @@ call plug#end()
 lua require("settings")
 lua require("mappings")
 
-let g:indent_guides_start_level = 2
+" filetype plugin indent on
+let g:NERDTreeShowHidden=1
+" bind K to grep word under cursor
+nnoremap F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
 
-"mappings
-" nmap <silent> <leader><leader> :NERDTreeToggle<CR>
-"  
-" nmap <silent> <leader><leader> :CocCommand explorer<CR>
 
-map <Leader> <Plug>(easymotion-prefix)
-"
-"NerdTree move map
- map <silent> <C-h> :call WinMove('h')<CR>
- map <silent> <C-j> :call WinMove('j')<CR>
- map <silent> <C-k> :call WinMove('k')<CR>
- map <silent> <C-l> :call WinMove('l')<CR>
-
-" Show all open buffers and their status
-nmap <leader>bl :ls<CR>
 function! WinMove(key)
   let t:curwin = winnr()
   exec "wincmd ".a:key
@@ -130,10 +122,6 @@ function! WinMove(key)
   endif
 endfunction
 
-let g:NERDTreeShowHidden=1
-
-"check one time after 4s of inactivity in normal mode
-au CursorHold * checktime
 
 " The Silver Searcher
 if executable('ag')
@@ -141,13 +129,6 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-" bind K to grep word under cursor
-nnoremap F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-" bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
-
-filetype plugin indent on
 
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
@@ -186,28 +167,6 @@ function! StatusDiagnostic() abort
   return join(msgs, ' '). ' ' . get(g:, 'coc_status', '')
 endfunction
 
-" FZF {
-nnoremap <leader>b :Buffers<CR>
-nnoremap <Leader>o :GFiles .<CR>
-nnoremap <leader>fc :Commits<CR>
-nnoremap <leader>aa :Ag<CR>
-nnoremap <leader>ff :Files<CR>
-nnoremap <leader>gs :Gstatus<CR>
-
-" Close the current buffer and move to the previous one
-nmap <leader>bq :bp <BAR> bd #<CR>
-
-" Mapping selecting mappings
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
-
-" Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-
 command! -bang -nargs=? -complete=dir GFiles
       \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
 
@@ -221,7 +180,6 @@ augroup FileTypeTetect
   autocmd BufNewFile,BufRead *.slime setlocal filetype=slim
 augroup END
 
-let g:vista_default_executive = 'coc'
 
 function! s:check_back_space() abort
   let col = col('.') - 1
