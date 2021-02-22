@@ -1,4 +1,5 @@
 lua require("plugins")
+lua require("lsp")
 lua require("settings")
 lua require("mappings")
 
@@ -17,14 +18,6 @@ function! WinMove(key)
    exec "wincmd ".a:key
   endif
 endfunction
-
-
-command! -bang -nargs=? -complete=dir GFiles
-      \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-command! -bang -nargs=? -complete=dir Files
-      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-" }
 
 augroup FileTypeTetect
   autocmd!
