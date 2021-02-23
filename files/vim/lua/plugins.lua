@@ -53,12 +53,13 @@ return require('packer').startup(function()
   use { "neovim/nvim-lspconfig" }
   use {
     "nvim-telescope/telescope.nvim",
+
     requires = {"nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"}
   }
   use {
   'glepnir/galaxyline.nvim',
     branch = 'main',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    config = function() require('statusline') end,
+    requires = {'kyazdani42/nvim-web-devicons'}
   }
-
 end)

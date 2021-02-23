@@ -1,3 +1,4 @@
+require("nvim-web-devicons").setup()
 vim.g.mapleader = " "
 vim.g.nvcode_termcolors = 256
 vim.cmd("colorscheme nord")
