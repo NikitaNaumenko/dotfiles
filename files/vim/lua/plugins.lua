@@ -51,13 +51,10 @@ return require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   use { "neovim/nvim-lspconfig" }
-  use {
-    "nvim-telescope/telescope.nvim",
-
-    requires = {"nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"},
-    config = function() require("telescope-nvim") end,
-
-  }
+  -- use {
+  --   "RishabhRD/nvim-lsputils",
+  --   requires = { "RishabhRD/popfix" },
+  -- }
   use {
   'glepnir/galaxyline.nvim',
     branch = 'main',
