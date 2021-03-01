@@ -31,8 +31,7 @@ return require('packer').startup(function()
 
   use { 'easymotion/vim-easymotion' }
   use { 'scrooloose/nerdtree', cmd = 'NERDTreeToggle' }
-  -- use { 'junegunn/fzf.vim', requires = {{"junegunn/fzf", run = "-> fzf#install()"}}, }
-      use {
+  use {
         "junegunn/fzf.vim",
         requires = {{"junegunn/fzf", run = "./install --all"}}
     }
@@ -51,10 +50,6 @@ return require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   use { "neovim/nvim-lspconfig" }
-  -- use {
-  --   "RishabhRD/nvim-lsputils",
-  --   requires = { "RishabhRD/popfix" },
-  -- }
   use {
   'glepnir/galaxyline.nvim',
     branch = 'main',
