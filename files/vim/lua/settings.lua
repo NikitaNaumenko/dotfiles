@@ -30,13 +30,11 @@ editor_options = {
       hlsearch = true,
       incsearch = true,
       ignorecase = true,
-      -- smartcase = true,
       showmode = false,
       linespace = 2,
       termguicolors = true,
       cmdheight = 2,
       updatetime = 100,
-      -- fillchars=stl:\ ,stlnc:\ ,vert:│
     }
 for key, val in pairs(editor_options) do
     vim.o[key] = val
@@ -51,15 +49,18 @@ window_options = {
 for key, val in pairs(window_options) do
   vim.wo[key] = val
 end
-    vim.lsp.handlers["textDocument/publishDiagnostics"] =
-        vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics,
-        {
-            underline = true,
-            virtual_text = false,
-            signs = true,
-            update_in_insert = true
-        }
-    )
+
+ -- LSP
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+  vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics,
+    {
+        underline = true,
+        virtual_text = false,
+        signs = true,
+        update_in_insert = true
+    }
+)
+
 local saga = require 'lspsaga'
 saga.init_lsp_saga()
