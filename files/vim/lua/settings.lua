@@ -61,6 +61,18 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
         update_in_insert = true
     }
 )
-
-local saga = require 'lspsaga'
+require('gitsigns').setup({
+  signs = {
+    add          = {hl = 'GitGutterAdd'   , text = '+'},
+    change       = {hl = 'GitGutterChange', text = '~'},
+    delete       = {hl = 'GitGutterDelete', text = '_'},
+    topdelete    = {hl = 'GitGutterDelete', text = '‾'},
+    changedelete = {hl = 'GitGutterChange', text = '~'},
+  }
+})
+local saga = require('lspsaga')
 saga.init_lsp_saga()
+
+local lualine = require('lualine')
+lualine.status()
+lualine.options.theme = 'oceanicnext'
