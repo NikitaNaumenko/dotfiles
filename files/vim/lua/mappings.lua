@@ -24,3 +24,5 @@ vim.api.nvim_set_keymap('n', '<leader>gf', ':GFiles<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fc', ':Commits<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>aa', ':Ag<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Files <CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>cd', ':Lspsaga show_line_diagnostics<CR>', { noremap = true, silent = true })
+

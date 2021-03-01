@@ -50,6 +50,8 @@ return require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   use { "neovim/nvim-lspconfig" }
+  use { "glepnir/lspsaga.nvim" }
+
   use {
   'glepnir/galaxyline.nvim',
     branch = 'main',
