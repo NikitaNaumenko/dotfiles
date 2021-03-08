@@ -47,26 +47,6 @@ if has('nvim')
 endif
 let test#ruby#rspec#executable = "bin/rspec"
 
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-  }
-}
-EOF
-
-" lua <<EOF
-" vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
-" vim.lsp.handlers['textDocument/references'] = require'lsputil.locations'.references_handler
-" vim.lsp.handlers['textDocument/definition'] = require'lsputil.locations'.definition_handler
-" vim.lsp.handlers['textDocument/declaration'] = require'lsputil.locations'.declaration_handler
-" vim.lsp.handlers['textDocument/typeDefinition'] = require'lsputil.locations'.typeDefinition_handler
-" vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
-" vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
-" vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
-" EOF
-
 lua << EOF
 local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
