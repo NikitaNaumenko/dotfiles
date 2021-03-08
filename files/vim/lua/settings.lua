@@ -2,7 +2,8 @@ require("nvim-web-devicons").setup()
 
 vim.g.mapleader = " "
 vim.g.nvcode_termcolors = 256
-vim.cmd("colorscheme nord")
+vim.cmd("colorscheme sonokai")
+-- vim.cmd("colorscheme nord")
 vim.bo.matchpairs = "(:),{:},[:],<:>"
 
 -- more info :h vim.o

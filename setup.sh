@@ -6,7 +6,6 @@ echo -e "\n--------------Setup ASDF--------------\n"
 brew install asdf
 
 echo -e "\n. $(brew --prefix asdf)/asdf.sh" >> ~/.zshrc
-echo -e "\n. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash" >> ~/.zshrc
 
 echo -e "\n--------------Setup Utils--------------\n"
 # Setup utils
@@ -30,24 +29,6 @@ echo -e "\n--------------Setup Languages--------------\n"
 # Setup languages
 asdf plugin-add ruby
 asdf install ruby latest
-gem install bundler
-gem install awesome_print
-
-asdf plugin-add erlang
-asdf install erlang latest
-
-asdf plugin-add elixir
-asdf install elixir latest
-
-asdf plugin-add golang
-asdf install golang latest
-
-asdf plugin-add java
-asdf install java latest
-
-asdf plugin-add clojure
-asdf install clojure latest
-brew install leiningen
 
 asdf plugin-add nodejs
 bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
@@ -59,9 +40,6 @@ brew install gh
 echo -e "\n--------------Setup Neovim--------------\n"
 # Install Neovim
 brew install neovim
-
-# sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-#        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 sh -c 'git clone https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/opt/packer.nvim'

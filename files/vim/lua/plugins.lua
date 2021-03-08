@@ -23,6 +23,7 @@ return require('packer').startup(function()
   use { 'tpope/vim-repeat' }
   use { 'tpope/vim-unimpaired' }
   use { 'tpope/vim-dispatch' }
+  use { 'sainnhe/sonokai' }
   use { 'arcticicestudio/nord-vim' }
   use { 'cohama/lexima.vim' }
   use { 'nathanaelkane/vim-indent-guides' }
@@ -52,16 +53,9 @@ return require('packer').startup(function()
   use { "neovim/nvim-lspconfig" }
   use { "glepnir/lspsaga.nvim" }
 
-  -- use {
-  --   'glepnir/galaxyline.nvim',
-  --     branch = 'main',
-  --     config = function() require('statusline') end,
-  --     requires = {'kyazdani42/nvim-web-devicons'}
-  -- }
-
   use {
     'hoob3rt/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+   requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
   use {
     'lewis6991/gitsigns.nvim',
