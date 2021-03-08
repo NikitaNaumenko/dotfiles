@@ -49,7 +49,7 @@ return require('packer').startup(function()
   use { 'digitaltoad/vim-pug', ft =  { 'jade', 'pug' } }
   use { 'chemzqm/vim-jsx-improve', ft =  'javascript' }
   use { 'nvim-treesitter/nvim-treesitter',
-        run = ":TSUpdate all",
+        run = ":TSUpdate",
         config = require("plugins.treesitter")
        }
 
