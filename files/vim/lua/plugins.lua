@@ -48,10 +48,10 @@ return require('packer').startup(function()
   use { 'tpope/vim-haml', ft = 'haml' }
   use { 'digitaltoad/vim-pug', ft =  { 'jade', 'pug' } }
   use { 'chemzqm/vim-jsx-improve', ft =  'javascript' }
-  use { 'nvim-treesitter/nvim-treesitter',
-        run = ":TSUpdate",
-        config = require("plugins.treesitter")
-       }
+  -- use { 'nvim-treesitter/nvim-treesitter',
+  --       run = ":TSUpdate",
+  --       config = require("plugins.treesitter")
+  --      }
 
   use { "neovim/nvim-lspconfig" }
   use { "glepnir/lspsaga.nvim" }
