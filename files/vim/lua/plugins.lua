@@ -27,7 +27,7 @@ return require('packer').startup(function()
   use { 'arcticicestudio/nord-vim' }
   use { 'cohama/lexima.vim' }
   use { 'nathanaelkane/vim-indent-guides' }
-  use { 'vim-test/vim-test' }
+  -- use { 'vim-test/vim-test' }
 
 
   use { 'easymotion/vim-easymotion' }

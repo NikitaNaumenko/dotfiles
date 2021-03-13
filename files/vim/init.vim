@@ -3,9 +3,6 @@ lua require("lsp")
 lua require("settings")
 lua require("mappings")
 
-" filetype plugin indent on
-let g:NERDTreeShowHidden=1
-
 function! WinMove(key)
   let t:curwin = winnr()
   exec "wincmd ".a:key
@@ -24,28 +21,6 @@ augroup FileTypeTetect
   autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
   autocmd BufNewFile,BufRead *.slime setlocal filetype=slim
 augroup END
-
-
-let g:iced_enable_default_key_mappings = v:true
-
-nmap <silent> t<C-n> :TestNearest<CR>
-nmap <silent> t<C-f> :TestFile<CR>
-nmap <silent> t<C-s> :TestSuite<CR>
-nmap <silent> t<C-l> :TestLast<CR>
-nmap <silent> t<C-g> :TestVisit<CR>
-" let test#strategy = "neovim"
-let test#neovim#term_position = "vert botright"
-" let test#strategy = "dispatch"
-let test#strategy = {
-  \ 'nearest': 'neovim', 
-  \ 'file': 'dispatch',
-  \ 'suite': 'dispatch',
-  \ 'visit': 'dispatch',
-  \}
-if has('nvim')
-  tmap <C-o> <C-\><C-n>
-endif
-let test#ruby#rspec#executable = "bin/rspec"
 
 lua << EOF
 local nvim_lsp = require('lspconfig')

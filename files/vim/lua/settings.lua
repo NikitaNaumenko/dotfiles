@@ -71,6 +71,8 @@ require('gitsigns').setup({
     changedelete = {hl = 'GitGutterChange', text = '~'},
   }
 })
+
+vim.g.NERDTreeShowHidden = 1
 local saga = require('lspsaga')
 saga.init_lsp_saga()
 
