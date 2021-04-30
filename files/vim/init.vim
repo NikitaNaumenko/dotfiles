@@ -21,3 +21,6 @@ augroup FileTypeTetect
   autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
   autocmd BufNewFile,BufRead *.slime setlocal filetype=slim
 augroup END
+
+nnoremap <silent><leader>ca :Lspsaga code_action<CR>
+
