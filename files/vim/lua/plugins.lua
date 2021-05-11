@@ -42,6 +42,7 @@ return require('packer').startup(function()
 
   use { 'plasticboy/vim-markdown', ft = 'markdown' }
   use { 'shime/vim-livedown', ft = 'markdown' }
+  use { 'fatih/vim-go', run = ":GoUpdateBinaries" }
 
   use { 'tpope/vim-ragtag' }
   use { 'slim-template/vim-slim', ft = { 'slim', 'slime' } }

@@ -23,4 +23,3 @@ augroup FileTypeTetect
 augroup END
 
 nnoremap <silent><leader>ca :Lspsaga code_action<CR>
-

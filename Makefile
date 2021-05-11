@@ -15,4 +15,5 @@ nvim-setup:
 	ln -s $(PWD)/files/vim/lua/lsp/settings.lua ~/.config/nvim/lua/lsp/settings.lua | true
 	ln -s $(PWD)/files/vim/lua/lsp/servers/solargraph.lua ~/.config/nvim/lua/lsp/servers/solargraph.lua | true
 	ln -s $(PWD)/files/vim/lua/lsp/servers/tsserver.lua ~/.config/nvim/lua/lsp/servers/tsserver.lua | true
+	ln -s $(PWD)/files/vim/lua/lsp/servers/gopls.lua ~/.config/nvim/lua/lsp/servers/gopls.lua | true
 	# nvim -i NONE -c PackerInstall -c quitall
