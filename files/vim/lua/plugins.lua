@@ -24,31 +24,17 @@ return require('packer').startup(function()
   use { 'tpope/vim-unimpaired' }
   use { 'tpope/vim-dispatch' }
   use { 'sainnhe/sonokai' }
-  use { 'arcticicestudio/nord-vim' }
-  use { 'cohama/lexima.vim' }
+  use { "steelsojka/pears.nvim" }
   use { 'nathanaelkane/vim-indent-guides' }
   -- use { 'vim-test/vim-test' }
 
 
   use { 'easymotion/vim-easymotion' }
   use { 'scrooloose/nerdtree', cmd = 'NERDTreeToggle' }
-  use {
-        "junegunn/fzf.vim",
+  use { "junegunn/fzf.vim",
         requires = {{"junegunn/fzf", run = "./install --all"}}
-    }
-  use { 'hashivim/vim-terraform', ft = 'terraform' }
-  use { 'ekalinin/Dockerfile.vim', ft = 'Dockerfile' }
-  use { 'chr4/nginx.vim' }
+      }
 
-  use { 'plasticboy/vim-markdown', ft = 'markdown' }
-  use { 'shime/vim-livedown', ft = 'markdown' }
-  use { 'fatih/vim-go', run = ":GoUpdateBinaries" }
-
-  use { 'tpope/vim-ragtag' }
-  use { 'slim-template/vim-slim', ft = { 'slim', 'slime' } }
-  use { 'tpope/vim-haml', ft = 'haml' }
-  use { 'digitaltoad/vim-pug', ft =  { 'jade', 'pug' } }
-  use { 'chemzqm/vim-jsx-improve', ft =  'javascript' }
   use { 'nvim-treesitter/nvim-treesitter',
         run = ":TSUpdate",
         config = require("plugins.treesitter")
