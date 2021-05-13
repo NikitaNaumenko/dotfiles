@@ -75,7 +75,6 @@ require('gitsigns').setup({
 vim.g.NERDTreeShowHidden = 1
 local saga = require('lspsaga')
 saga.init_lsp_saga()
-
 -- local lualine = require('lualine')
 -- lualine.status()
 -- lualine.options.theme = 'oceanicnext'

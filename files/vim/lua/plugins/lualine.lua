@@ -3,7 +3,7 @@ return function()
     options = {
       theme = 'oceanicnext',
       section_separators = {'', ''},
-      component_separators = {'', ''},
+      component_separators = {'|', '|'},
       icons_enabled = true,
     },
     sections = {

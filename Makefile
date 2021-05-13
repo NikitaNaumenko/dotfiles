@@ -4,7 +4,7 @@ nvim-setup:
 	mkdir -p ~/.config/nvim/lua/plugins
 	mkdir -p ~/.config/nvim/lua/lsp
 	mkdir -p ~/.config/nvim/lua/lsp/servers
-	ln -s $(PWD)/files/vim/init.vim ~/.config/nvim/init.vim | true
+	ln -s $(PWD)/files/vim/init.lua ~/.config/nvim/init.lua | true
 	ln -s $(PWD)/files/vim/lua/settings.lua ~/.config/nvim/lua/settings.lua | true
 	ln -s $(PWD)/files/vim/lua/mappings.lua ~/.config/nvim/lua/mappings.lua | true
 	ln -s $(PWD)/files/vim/lua/plugins.lua ~/.config/nvim/lua/plugins.lua | true
