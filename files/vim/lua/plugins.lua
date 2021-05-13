@@ -28,7 +28,6 @@ return require('packer').startup(function()
   use { 'nathanaelkane/vim-indent-guides' }
   -- use { 'vim-test/vim-test' }
 
-
   use { 'easymotion/vim-easymotion' }
   use { 'scrooloose/nerdtree', cmd = 'NERDTreeToggle' }
   use { "junegunn/fzf.vim",
@@ -43,43 +42,11 @@ return require('packer').startup(function()
   use { "neovim/nvim-lspconfig" }
   use { "glepnir/lspsaga.nvim" }
 
-  use {
-    'hoob3rt/lualine.nvim',
-   requires = {'kyazdani42/nvim-web-devicons', opt = true},
-   config = function()
-      require('lualine').setup{
-        options = {
-          theme = 'oceanicnext',
-          section_separators = {'', ''},
-          component_separators = {'', ''},
-          icons_enabled = true,
-        },
-        sections = {
-          lualine_a = { {'mode', upper = true} },
-          lualine_b = { {'branch', icon = ''} },
-          lualine_c = { {'filename', file_status = true} },
-          lualine_x = { 'encoding', 'fileformat', 'filetype' },
-          lualine_y = { 'progress' },
-          lualine_z = { 'location'  },
-        },
-        inactive_sections = {
-          lualine_a = {  },
-          lualine_b = {  },
-          lualine_c = { 'filename' },
-          lualine_x = { 'location' },
-          lualine_y = {  },
-          lualine_z = {   }
-        },
-        extensions = { 'fzf' }
-      }
-    end
+  use { 'hoob3rt/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        config = require("plugins.lualine")
   }
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = { 'nvim-lua/plenary.nvim' }
-  }
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-  }
+  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use { 'nvim-telescope/telescope.nvim',
+         requires = { {'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'} }}
 end)
