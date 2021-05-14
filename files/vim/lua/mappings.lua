@@ -47,4 +47,3 @@ vim.api.nvim_set_keymap('n', '<leader>gf', '<cmd>Telescope git_files<CR>', { nor
 vim.api.nvim_set_keymap('n', '<leader>aa', '<cmd>Telescope live_grep<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>cd', '<cmd>Telescope lsp_document_diagnostics<CR>', { noremap = true })
 
-

@@ -5,5 +5,5 @@ return function(client, bufnr)
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', options)
-  -- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', options)
+  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', options)
 end

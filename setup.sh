@@ -34,9 +34,6 @@ asdf plugin-add nodejs
 bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
 asdf install nodejs latest
 
-# Install GithubCLI
-brew install gh
-
 echo -e "\n--------------Setup Neovim--------------\n"
 # Install Neovim
 brew install neovim

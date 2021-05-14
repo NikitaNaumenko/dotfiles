@@ -3,6 +3,5 @@ return function(config, on_attach)
     cmd = { "gopls" },
     filetypes = { "go", "gomod" },
     on_attach = on_attach,
-
   }
 end

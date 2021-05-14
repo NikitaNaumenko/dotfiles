@@ -3,7 +3,6 @@ require("nvim-web-devicons").setup()
 vim.g.mapleader = " "
 vim.g.nvcode_termcolors = 256
 vim.cmd("colorscheme sonokai")
--- vim.cmd("colorscheme nord")
 vim.bo.matchpairs = "(:),{:},[:],<:>"
 
 -- more info :h vim.o
@@ -75,6 +74,3 @@ require('gitsigns').setup({
 vim.g.NERDTreeShowHidden = 1
 local saga = require('lspsaga')
 saga.init_lsp_saga()
--- local lualine = require('lualine')
--- lualine.status()
--- lualine.options.theme = 'oceanicnext'

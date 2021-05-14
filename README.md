@@ -1,17 +1,22 @@
 # dotfiles
-## Colorcheme
-* (Papercolor)[https://github.com/NLKNguyen/papercolor-theme]
+## Colorscheme
+* (Sonokai)[https://github.com/sainnhe/sonokai]
+## Fonts
+* JetBrainsMono Regular(NerdFont)
+* NerdFonts
+
 ## Packages
 * git
-* github CLI
-* asdf (Ruby, node.js, Elixir, Erlang, Java, Clojure, Golang)
+* asdf (Ruby, node.js, Golang)
 * fzf
-* neovim
+* neovim(nightly)
 * brew
 
 ## Need to install manually
-* Notion
 * 1password
+* Grammarli
+* Bear
+* Redict
 * iTerm2
 * Telegram
 * Slack
@@ -20,8 +25,4 @@
 * Magnet
 * iStatMenus
 * Endel
-* Zoom
 * Docker for Mac
-* Flow
-* Postman
-
