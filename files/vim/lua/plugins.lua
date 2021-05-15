@@ -41,6 +41,7 @@ return require('packer').startup(function()
 
   use { "neovim/nvim-lspconfig" }
   use { "glepnir/lspsaga.nvim" }
+  use { "nvim-lua/completion-nvim" }
 
   use { 'hoob3rt/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },

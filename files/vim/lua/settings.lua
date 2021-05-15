@@ -3,6 +3,11 @@ require("nvim-web-devicons").setup()
 vim.g.mapleader = " "
 vim.g.nvcode_termcolors = 256
 vim.cmd("colorscheme sonokai")
+
+vim.o.shortmess = vim.o.shortmess .. "c"
+vim.o.completeopt="menuone,noinsert,noselect"
+
+-- vim.api.nvim_set_option('completeopt', 'menuone,noinsert,noselect')
 vim.bo.matchpairs = "(:),{:},[:],<:>"
 
 -- more info :h vim.o

@@ -34,16 +34,14 @@ vim.api.nvim_set_keymap('i', '<c-x><c-f>', '<plug>(fzf-complete-path)', {})
 vim.api.nvim_set_keymap('i', '<c-x><c-j>', '<plug>(fzf-complete-file-ag)', {})
 vim.api.nvim_set_keymap('i', '<c-x><c-l>', '<plug>(fzf-complete-line)', {})
 
--- vim.api.nvim_set_keymap('n', '<leader>bb', ':Buffers<CR>', { noremap = true })
--- vim.api.nvim_set_keymap('n', '<leader>gf', ':GFiles<CR>', { noremap = true })
--- vim.api.nvim_set_keymap('n', '<leader>fc', ':Commits<CR>', { noremap = true })
--- vim.api.nvim_set_keymap('n', '<leader>aa', ':Ag<CR>', { noremap = true })
--- vim.api.nvim_set_keymap('n', '<leader>ff', ':Files <CR>', { noremap = true })
--- vim.api.nvim_set_keymap('n', '<leader>cd', ':Lspsaga show_line_diagnostics<CR>', { noremap = true, silent = true })
---
+-- LSP
+vim.api.nvim_set_keymap('n', '<leader>cd', ':Lspsaga show_line_diagnostics<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
+vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
+
+-- FZF
 vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Telescope buffers show_all_buffers=true<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>gf', '<cmd>Telescope git_files<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>aa', '<cmd>Telescope live_grep<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>cd', '<cmd>Telescope lsp_document_diagnostics<CR>', { noremap = true })
 
