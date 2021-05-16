@@ -36,6 +36,8 @@ vim.api.nvim_set_keymap('i', '<c-x><c-l>', '<plug>(fzf-complete-line)', {})
 
 -- LSP
 vim.api.nvim_set_keymap('n', '<leader>cd', ':Lspsaga show_line_diagnostics<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'K', ":lua require('lspsaga.hover').render_hover_doc()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'gr', ":lua require('lspsaga.rename').rename()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
 vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
 
@@ -44,4 +46,3 @@ vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Telescope buffers show_all_buff
 vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>gf', '<cmd>Telescope git_files<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>aa', '<cmd>Telescope live_grep<CR>', { noremap = true })
-
