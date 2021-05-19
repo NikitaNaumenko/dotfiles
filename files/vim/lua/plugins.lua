@@ -24,7 +24,7 @@ return require('packer').startup(function()
   use { 'tpope/vim-unimpaired' }
   use { 'tpope/vim-dispatch' }
   use { 'sainnhe/sonokai' }
-  use { "steelsojka/pears.nvim" }
+  use { "cohama/lexima.vim" }
   use { 'nathanaelkane/vim-indent-guides' }
   -- use { 'vim-test/vim-test' }
 
@@ -34,6 +34,7 @@ return require('packer').startup(function()
         requires = {{"junegunn/fzf", run = "./install --all"}}
       }
 
+  use { 'sheerun/vim-polyglot' }
   use { 'nvim-treesitter/nvim-treesitter',
         run = ":TSUpdate",
         config = require("plugins.treesitter")
