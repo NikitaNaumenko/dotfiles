@@ -1,13 +1,13 @@
 # dotfiles
+
 ## Colorscheme
-* (Sonokai)[https://github.com/sainnhe/sonokai]
+* [Sonokai](https://github.com/sainnhe/sonokai)
 ## Fonts
-* JetBrainsMono Regular(NerdFont)
-* NerdFonts
+* [JetBrainsMono Regular(NerdFont)](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono/Ligatures/Regular)
 
 ## Packages
 * git
-* asdf (Ruby, node.js, Golang)
+* asdf
 * fzf
 * neovim(nightly)
 * brew
