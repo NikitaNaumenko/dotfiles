@@ -2,7 +2,8 @@ require("nvim-web-devicons").setup()
 
 vim.g.mapleader = " "
 vim.g.nvcode_termcolors = 256
-vim.cmd("colorscheme sonokai")
+-- vim.cmd("colorscheme xcodedarkhc")
+vim.cmd("colorscheme dracula")
 
 vim.o.shortmess = vim.o.shortmess .. "c"
 vim.o.completeopt="menuone,noinsert,noselect"
@@ -77,5 +78,3 @@ require('gitsigns').setup({
 })
 
 vim.g.NERDTreeShowHidden = 1
-local saga = require('lspsaga')
-saga.init_lsp_saga()

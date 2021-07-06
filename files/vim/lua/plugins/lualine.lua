@@ -1,17 +1,18 @@
 return function()
   require('lualine').setup{
     options = {
-      theme = 'oceanicnext',
-      section_separators = {'', ''},
-      component_separators = {'|', '|'},
+      theme = 'dracula',
+      section_separators = {'', ''},
+      component_separators = {'⎰', '⎱'},
       icons_enabled = true,
     },
     sections = {
-      lualine_a = { {'mode', upper = true} },
+      -- ﳟ
+      lualine_a = { {'mode', upper = true, icon = 'ﲵ' } },
       lualine_b = { {'branch', icon = ''} },
-      lualine_c = { {'filename', file_status = true} },
-      lualine_x = { 'encoding', 'fileformat', 'filetype' },
-      lualine_y = { 'progress' },
+      lualine_c = { {'filename', file_status = true, path = 1} },
+      lualine_x = { 'encoding', 'fileformat', { 'filetype', colored = false } },
+      lualine_y = { { 'diagnostics', sources = { 'nvim_lsp' } } },
       lualine_z = { 'location'  },
     },
     inactive_sections = {
@@ -22,6 +23,6 @@ return function()
       lualine_y = {  },
       lualine_z = {   }
     },
-    extensions = { 'fzf' }
+    extensions = { 'fzf', 'nerdtree', 'fugitive' }
   }
 end

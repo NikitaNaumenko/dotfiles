@@ -34,6 +34,8 @@ return require('packer').startup(function()
         requires = {{"junegunn/fzf", run = "./install --all"}}
       }
 
+  use {'arzg/vim-colors-xcode' }
+  use { 'dracula/vim' }
   use { 'sheerun/vim-polyglot' }
   use { 'nvim-treesitter/nvim-treesitter',
         run = ":TSUpdate",
@@ -41,7 +43,6 @@ return require('packer').startup(function()
        }
 
   use { "neovim/nvim-lspconfig" }
-  use { "glepnir/lspsaga.nvim" }
   use { "nvim-lua/completion-nvim" }
 
   use { 'hoob3rt/lualine.nvim',
