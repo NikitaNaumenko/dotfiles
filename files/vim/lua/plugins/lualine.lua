@@ -20,7 +20,7 @@ return function()
       lualine_b = {  },
       lualine_c = { 'filename' },
       lualine_x = { 'location' },
-      lualine_y = {  },
+      lualine_y = {   },
       lualine_z = {   }
     },
     extensions = { 'fzf', 'nerdtree', 'fugitive' }
