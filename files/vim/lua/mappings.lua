@@ -35,11 +35,20 @@ vim.api.nvim_set_keymap('i', '<c-x><c-j>', '<plug>(fzf-complete-file-ag)', {})
 vim.api.nvim_set_keymap('i', '<c-x><c-l>', '<plug>(fzf-complete-line)', {})
 
 -- LSP
-vim.api.nvim_set_keymap('n', '<leader>cd', ':Lspsaga show_line_diagnostics<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'K', ":lua require('lspsaga.hover').render_hover_doc()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'gr', ":lua require('lspsaga.rename').rename()<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap(
+--   'n',
+--   '<leader>cd',
+  -- ":lua require'telescope.builtin'.lsp_document_diagnostics(require'telescope.themes'.get_ivy({ layout_config = { height = 10 } }))<CR>",
+  -- { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', 'K', ":lua require('lspsaga.hover').render_hover_doc()<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', 'gr', ":lua require('lspsaga.rename').rename()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
 vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
+vim.api.nvim_set_keymap('i', '<CR>', "compe#confirm()", {expr = true})
+vim.api.nvim_set_keymap('i', '<C-e>', "compe#close('<C-e>')", {expr = true})
+
+
+-- inoremap <silent><expr> <C-Space> compe#complete()
 
 -- FZF
 vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Telescope buffers show_all_buffers=true<CR>', { noremap = true })
