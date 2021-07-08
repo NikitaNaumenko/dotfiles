@@ -24,7 +24,7 @@ return require('packer').startup(function()
   use { 'tpope/vim-unimpaired' }
   use { 'tpope/vim-dispatch' }
   use { 'sainnhe/sonokai' }
-  -- use { "cohama/lexima.vim" }
+  use { "cohama/lexima.vim" }
   use { 'nathanaelkane/vim-indent-guides' }
   -- use { 'vim-test/vim-test' }
 
@@ -44,7 +44,7 @@ return require('packer').startup(function()
   use { "neovim/nvim-lspconfig" }
   use { "hrsh7th/nvim-compe" }
   use { 'hrsh7th/vim-vsnip' }
-  -- use { "nvim-lua/completion-nvim" }
+  use { 'glepnir/lspsaga.nvim' }
 
   use { 'hoob3rt/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },

@@ -109,3 +109,7 @@ require'compe'.setup {
     vsnip = true;
   };
 }
+local saga = require 'lspsaga'
+
+saga.init_lsp_saga()
+
