@@ -45,6 +45,7 @@ return require('packer').startup(function()
   use { "hrsh7th/nvim-compe" }
   use { 'hrsh7th/vim-vsnip' }
   use { 'glepnir/lspsaga.nvim' }
+  use { 'kabouzeid/nvim-lspinstall' }
 
   use { 'hoob3rt/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
