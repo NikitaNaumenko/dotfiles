@@ -13,7 +13,7 @@ return function()
       lualine_c = { {'filename', file_status = true, path = 1} },
       lualine_x = { 'encoding', 'fileformat', { 'filetype', colored = false } },
       lualine_y = { { 'diagnostics', sources = { 'nvim_lsp' } } },
-      lualine_z = { 'location'  },
+      lualine_z = { 'location', icon = 'ﬦ' },
     },
     inactive_sections = {
       lualine_a = {  },

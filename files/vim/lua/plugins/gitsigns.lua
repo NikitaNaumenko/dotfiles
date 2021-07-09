@@ -5,7 +5,7 @@ return function()
       change       = {hl = 'GitGutterChange', text = '~'},
       delete       = {hl = 'GitGutterDelete', text = '_'},
       topdelete    = {hl = 'GitGutterDelete', text = '‾'},
-      changedelete = {hl = 'GitGutterChange', text = '~'},
+      changedelete = {hl = 'GitGutterChange', text = '~-'},
     }
   })
 end

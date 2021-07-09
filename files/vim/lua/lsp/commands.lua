@@ -3,12 +3,12 @@ return function()
         vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics,
         {
-            underline = false,
+            underline = true
             virtual_text = {
-                prefix = "<"
+                prefix = "﮿"
             },
             signs = true,
-            update_in_insert = true
+            update_in_insert = false
         }
     )
     -- write only if diffs there
