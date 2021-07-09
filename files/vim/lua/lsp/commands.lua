@@ -3,7 +3,7 @@ return function()
         vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics,
         {
-            underline = true
+            underline = true,
             virtual_text = {
                 prefix = "﮿"
             },

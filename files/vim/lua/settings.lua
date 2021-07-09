@@ -1,4 +1,6 @@
 require("nvim-web-devicons").setup()
+-- TODO: candidate for refactoring
+require('nvim-autopairs').setup()
 
 vim.g.mapleader = " "
 vim.g.nvcode_termcolors = 256

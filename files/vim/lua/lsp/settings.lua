@@ -7,31 +7,31 @@ return function()
   end
 
 
-    require "vim.lsp.protocol".CompletionItemKind = {
-      "ﮜ [text]",
-      " [method]",
-      " [function]",
-      " [constructor]",
-      "ﰠ [field]",
-      " [variable]",
-      " [class]",
-      " [interface]",
-      " [module]",
-      " [property]",
-      " [unit]",
-      " [value]",
-      " [enum]",
-      " [key]",
-      " [snippet]",
-      " [color]",
-      " [file]",
-      " [reference]",
-      " [folder]",
-      " [enum member]",
-      " [constant]",
-      " [struct]",
-      "⌘ [event]",
-      " [operator]",
-      "⌂ [type]"
-    }
+  require "vim.lsp.protocol".CompletionItemKind = {
+    "ﮜ [text]",
+    " [method]",
+    " [function]",
+    " [constructor]",
+    "ﰠ [field]",
+    " [variable]",
+    " [class]",
+    " [interface]",
+    " [module]",
+    " [property]",
+    " [unit]",
+    " [value]",
+    " [enum]",
+    " [key]",
+    " [snippet]",
+    " [color]",
+    " [file]",
+    " [reference]",
+    " [folder]",
+    " [enum member]",
+    " [constant]",
+    " [struct]",
+    "⌘ [event]",
+    " [operator]",
+    "⌂ [type]"
+  }
 end

@@ -1,7 +1,6 @@
-export PATH=$PATH:~/.vim/plugged/vim-iced/bin
 export ZSH=~/.oh-my-zsh
 export EDITOR=nvim
-export BAT_THEME="TwoDark"
+export BAT_THEME="Dracula"
 
 ZSH_THEME="spaceship"
 plugins=(git)

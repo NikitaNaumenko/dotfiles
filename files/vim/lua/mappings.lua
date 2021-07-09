@@ -37,11 +37,12 @@ vim.api.nvim_set_keymap('i', '<c-x><c-l>', '<plug>(fzf-complete-line)', {})
 -- LSP
 vim.api.nvim_set_keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
 vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
-vim.api.nvim_set_keymap('i', '<CR>', "compe#confirm()", {expr = true})
-vim.api.nvim_set_keymap('i', '<C-e>', "compe#close('<C-e>')", {expr = true})
 
-
--- inoremap <silent><expr> <C-Space> compe#complete()
+vim.api.nvim_set_keymap('i', '<C-Space>', "compe#complete()", { expr = true })
+vim.api.nvim_set_keymap('i', '<CR>', 'compe#confirm(luaeval("require "nvim-autopairs".autopairs_cr()"))', { expr = true })
+vim.api.nvim_set_keymap('i', '<C-e>', "compe#close('<C-e>')", { expr = true })
+vim.api.nvim_set_keymap('i', '<C-f>', "compe#scroll({ 'delta': +4 })", { expr = true })
+vim.api.nvim_set_keymap('i', '<C-d>', "compe#scroll({ 'delta': -4 })", { expr = true })
 
 -- FZF
 vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Telescope buffers show_all_buffers=true<CR>', { noremap = true })

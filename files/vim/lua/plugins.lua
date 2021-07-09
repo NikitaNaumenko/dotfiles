@@ -16,6 +16,7 @@ return require('packer').startup(function()
   use {'wbthomason/packer.nvim', opt = true}
 
   use { 'tpope/vim-commentary' }
+  use { 'windwp/nvim-autopairs' }
   use { 'tpope/vim-endwise' }
   use { 'tpope/vim-fugitive' }
   use { 'tpope/vim-git' }
@@ -23,9 +24,8 @@ return require('packer').startup(function()
   use { 'tpope/vim-repeat' }
   use { 'tpope/vim-unimpaired' }
   use { 'tpope/vim-dispatch' }
-  use { 'sainnhe/sonokai' }
-  use { "cohama/lexima.vim" }
   use { 'nathanaelkane/vim-indent-guides' }
+  -- use { 'tpope/vim-dadbod' }
   -- use { 'vim-test/vim-test' }
 
   use { 'easymotion/vim-easymotion' }
@@ -42,8 +42,9 @@ return require('packer').startup(function()
        }
 
   use { "neovim/nvim-lspconfig" }
-  use { "hrsh7th/nvim-compe" }
+  use { "hrsh7th/nvim-compe", config = require("plugins.compe") }
   use { 'hrsh7th/vim-vsnip' }
+  use { 'hrsh7th/vim-vsnip-integ' }
   use { 'glepnir/lspsaga.nvim' }
   use { 'kabouzeid/nvim-lspinstall' }
 
@@ -51,7 +52,7 @@ return require('packer').startup(function()
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = require("plugins.lualine")
   }
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }, config = require("plugins.gitsigns") }
   use { 'nvim-telescope/telescope.nvim',
          requires = { {'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'} }}
 end)
