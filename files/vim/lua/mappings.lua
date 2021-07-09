@@ -35,8 +35,13 @@ vim.api.nvim_set_keymap('i', '<c-x><c-j>', '<plug>(fzf-complete-file-ag)', {})
 vim.api.nvim_set_keymap('i', '<c-x><c-l>', '<plug>(fzf-complete-line)', {})
 
 -- LSP
-vim.api.nvim_set_keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
-vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
+--
+vim.cmd("imap <expr> <tab> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<tab>'")
+--  vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<tab>'
+-- vim.api.nvim_set_keymap('i', '<Tab>', 'vsnip#expandable() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
+-- vim.api.nvim_set_keymap('i', '<Tab>', 'vsnip#available(1) ? "\\<Plug>(vsnip-expand-or-jump)" : "\\<Tab>"', {expr = true})
+-- vim.api.nvim_set_keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
+-- vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
 
 vim.api.nvim_set_keymap('i', '<C-Space>', "compe#complete()", { expr = true })
 vim.api.nvim_set_keymap('i', '<CR>', 'compe#confirm(luaeval("require "nvim-autopairs".autopairs_cr()"))', { expr = true })

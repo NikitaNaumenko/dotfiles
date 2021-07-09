@@ -43,8 +43,9 @@ return require('packer').startup(function()
 
   use { "neovim/nvim-lspconfig" }
   use { "hrsh7th/nvim-compe", config = require("plugins.compe") }
-  use { 'hrsh7th/vim-vsnip' }
-  use { 'hrsh7th/vim-vsnip-integ' }
+  use { 'hrsh7th/vim-vsnip',  requires = "hrsh7th/vim-vsnip-integ", config = require("plugins.vsnip") }
+  -- use { 'hrsh7th/vim-vsnip-integ' }
+  use { "rafamadriz/friendly-snippets" }
   use { 'glepnir/lspsaga.nvim' }
   use { 'kabouzeid/nvim-lspinstall' }
 

@@ -59,3 +59,5 @@ for key, val in pairs(window_options) do
 end
 
 vim.g.NERDTreeShowHidden = 1
+    -- vim.g.vsnip_extra_mapping = false
+    -- vim.g.vsnip_snippet_dir = "~/.config/nvim/vsnip"
