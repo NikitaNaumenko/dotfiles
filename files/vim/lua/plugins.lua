@@ -40,6 +40,7 @@ return require('packer').startup(function()
         run = ":TSUpdate",
         config = require("plugins.treesitter")
        }
+  use { 'Olical/conjure' }
 
   use { "neovim/nvim-lspconfig" }
   use { "hrsh7th/nvim-compe", config = require("plugins.compe") }

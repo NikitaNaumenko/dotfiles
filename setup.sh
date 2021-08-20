@@ -1,5 +1,8 @@
 # Setup brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+ 
+# clojure tools
+brew install clojure/tools/clojure
 
 # Setup ASDF
 echo -e "\n--------------Setup ASDF--------------\n"
