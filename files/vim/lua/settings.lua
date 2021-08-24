@@ -3,7 +3,7 @@ require("nvim-web-devicons").setup()
 require('nvim-autopairs').setup()
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = "  "
+vim.g.maplocalleader = " "
 vim.g.nvcode_termcolors = 256
 vim.cmd("colorscheme dracula")
 
@@ -59,6 +59,6 @@ for key, val in pairs(window_options) do
   vim.wo[key] = val
 end
 
-vim.g.NERDTreeShowHidden = 1
+-- vim.g.NERDTreeShowHidden = 1
     -- vim.g.vsnip_extra_mapping = false
     -- vim.g.vsnip_snippet_dir = "~/.config/nvim/vsnip"

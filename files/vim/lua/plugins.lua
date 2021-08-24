@@ -28,8 +28,11 @@ return require('packer').startup(function()
   -- use { 'tpope/vim-dadbod' }
   -- use { 'vim-test/vim-test' }
 
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons' }
   use { 'easymotion/vim-easymotion' }
-  use { 'scrooloose/nerdtree', cmd = 'NERDTreeToggle' }
+  -- use { 'scrooloose/nerdtree', cmd = 'NERDTreeToggle' }
   use { "junegunn/fzf.vim",
         requires = {{"junegunn/fzf", run = "./install --all"}}
       }
