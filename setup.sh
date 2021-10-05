@@ -43,5 +43,7 @@ brew install neovim
 
 sh -c 'git clone https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/opt/packer.nvim'
+brew install clojure-lsp/brew/clojure-lsp-native
+
 
 make nvim-setup

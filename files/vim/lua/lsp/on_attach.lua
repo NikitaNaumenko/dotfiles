@@ -3,6 +3,7 @@ return function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
+  print("JOPA!")
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Show diagnostic(linter) info --

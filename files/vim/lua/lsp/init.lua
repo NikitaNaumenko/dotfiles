@@ -10,7 +10,7 @@ for _, server in pairs(servers) do
 end
 
 -- for _, server in pairs({"bashls","efm", "jsonls", "sumneko_lua", "typescript-language-server", "yamlls", }) do
-for _, server in pairs({ "solargraph", "gopls", "tsserver" }) do
+for _, server in pairs({ "solargraph", "gopls", "tsserver", "clojure_lsp" }) do
   require("lsp.servers." .. server)(lsp_config, general_on_attach)
 end
 
