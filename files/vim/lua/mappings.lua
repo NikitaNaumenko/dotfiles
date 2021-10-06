@@ -14,7 +14,6 @@ function WinMove(key)
 end
 
 
--- vim.api.nvim_set_keymap('n', '<leader><leader>', ':NERDTreeToggle <CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { silent = true })
 
 vim.api.nvim_set_keymap('n', '<leader>', '<Plug>(easymotion-prefix)', {})
