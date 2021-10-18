@@ -25,8 +25,8 @@ return require('packer').startup(function()
   use { 'tpope/vim-unimpaired' }
   use { 'tpope/vim-dispatch' }
   use { 'nathanaelkane/vim-indent-guides' }
-  -- use { 'tpope/vim-dadbod' }
-  -- use { 'vim-test/vim-test' }
+  use { 'fatih/vim-go' }
+  use { 'vim-test/vim-test' }
 
   use {
     'kyazdani42/nvim-tree.lua',
@@ -48,7 +48,6 @@ return require('packer').startup(function()
   use { "neovim/nvim-lspconfig" }
   use { "hrsh7th/nvim-compe", config = require("plugins.compe") }
   use { 'hrsh7th/vim-vsnip',  requires = "hrsh7th/vim-vsnip-integ", config = require("plugins.vsnip") }
-  -- use { 'hrsh7th/vim-vsnip-integ' }
   use { "rafamadriz/friendly-snippets" }
   use { 'glepnir/lspsaga.nvim' }
   use { 'kabouzeid/nvim-lspinstall' }
