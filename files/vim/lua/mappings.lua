@@ -23,6 +23,11 @@ vim.api.nvim_set_keymap('n', '<C-j>', ':lua WinMove("j")<CR>', { silent = true }
 vim.api.nvim_set_keymap('n', '<C-k>', ':lua WinMove("k")<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-l>', ':lua WinMove("l")<CR>', { silent = true })
 
+vim.api.nvim_set_keymap('n', 't<C-n>', ':TestNearest<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', 't<C-f>', ':TestFile<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', 't<C-s>', ':TestSuite<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', 't<C-l>', ':TestLast<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', 't<C-g>', ':TestVisit<CR>', { silent = true })
 -- Close the current buffer and move to the previous one
 vim.api.nvim_set_keymap('n', '<leader>bq', ':bp <BAR> bd #<CR>', {})
 
