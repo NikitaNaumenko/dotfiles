@@ -58,7 +58,5 @@ window_options = {
 for key, val in pairs(window_options) do
   vim.wo[key] = val
 end
-
--- vim.g.NERDTreeShowHidden = 1
-    -- vim.g.vsnip_extra_mapping = false
-    -- vim.g.vsnip_snippet_dir = "~/.config/nvim/vsnip"
+-- vim.g["test#ruby#use_spring_binstub"] = 1
+vim.g["test#strategy"] = "dispatch"
