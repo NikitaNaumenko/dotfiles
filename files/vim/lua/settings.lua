@@ -59,4 +59,4 @@ for key, val in pairs(window_options) do
   vim.wo[key] = val
 end
 -- vim.g["test#ruby#use_spring_binstub"] = 1
-vim.g["test#strategy"] = "dispatch"
+-- vim.g["test#strategy"] = "dispatch"
