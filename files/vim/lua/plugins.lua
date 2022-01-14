@@ -46,11 +46,12 @@ return require('packer').startup(function()
   use { 'Olical/conjure' }
 
   use { "neovim/nvim-lspconfig" }
+  use { 'williamboman/nvim-lsp-installer' }
+
   use { "hrsh7th/nvim-compe", config = require("plugins.compe") }
   use { 'hrsh7th/vim-vsnip',  requires = "hrsh7th/vim-vsnip-integ", config = require("plugins.vsnip") }
   use { "rafamadriz/friendly-snippets" }
 
-  use { 'williamboman/nvim-lsp-installer' }
   use { 'hoob3rt/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = require("plugins.lualine")
