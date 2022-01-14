@@ -16,18 +16,13 @@ end
 
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { silent = true })
 
--- vim.api.nvim_set_keymap('n', '<leader>', '<Plug>(easymotion-prefix)', {})
+vim.api.nvim_set_keymap('n', '<leader>', '<Plug>(easymotion-prefix)', {})
 
 vim.api.nvim_set_keymap('n', '<C-h>', ':lua WinMove("h")<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-j>', ':lua WinMove("j")<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-k>', ':lua WinMove("k")<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-l>', ':lua WinMove("l")<CR>', { silent = true })
 
-vim.api.nvim_set_keymap('n', '<leader>tt', ':TestNearest<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<leader>tf', ':TestFile<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ts', ':TestSuite<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<leader>tl', ':TestLast<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<leader>tg', ':TestVisit<CR>', { silent = true })
 -- Close the current buffer and move to the previous one
 vim.api.nvim_set_keymap('n', '<leader>bq', ':bp <BAR> bd #<CR>', {})
 
@@ -61,8 +56,6 @@ vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Telescope buffers show_all_buff
 vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>gf', '<cmd>Telescope git_files<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>aa', '<cmd>Telescope live_grep<CR>', { noremap = true })
-
-
 
 -- Clojure
 -- ee - evaluate inner

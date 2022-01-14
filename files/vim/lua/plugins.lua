@@ -19,25 +19,27 @@ return require('packer').startup(function()
   use { 'windwp/nvim-autopairs' }
   use { 'tpope/vim-endwise' }
   use { 'tpope/vim-fugitive' }
-  use { 'tpope/vim-git' }
   use { 'tpope/vim-surround' }
   use { 'tpope/vim-repeat' }
   use { 'tpope/vim-unimpaired' }
   use { 'tpope/vim-dispatch' }
   use { 'nathanaelkane/vim-indent-guides' }
-  use { 'fatih/vim-go' }
-  use { 'vim-test/vim-test' }
-
   use {
     'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons' }
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function() require'nvim-tree'.setup {} end
+  }
+
+  -- Navigation
   use { 'easymotion/vim-easymotion' }
-  -- use { 'scrooloose/nerdtree', cmd = 'NERDTreeToggle' }
   use { "junegunn/fzf.vim",
         requires = {{"junegunn/fzf", run = "./install --all"}}
       }
 
+  -- langs
+  use { 'fatih/vim-go' }
   use { 'dracula/vim' }
+  use { 'tpope/vim-git' }
   use { 'sheerun/vim-polyglot' }
   use { 'nvim-treesitter/nvim-treesitter',
         run = ":TSUpdate",
@@ -45,9 +47,9 @@ return require('packer').startup(function()
        }
   use { 'Olical/conjure' }
 
+  -- lsp
   use { "neovim/nvim-lspconfig" }
   use { 'williamboman/nvim-lsp-installer' }
-
   use { "hrsh7th/nvim-compe", config = require("plugins.compe") }
   use { 'hrsh7th/vim-vsnip',  requires = "hrsh7th/vim-vsnip-integ", config = require("plugins.vsnip") }
   use { "rafamadriz/friendly-snippets" }
