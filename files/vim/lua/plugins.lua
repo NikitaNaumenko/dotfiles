@@ -50,8 +50,19 @@ return require('packer').startup(function()
   -- lsp
   use { "neovim/nvim-lspconfig" }
   use { 'williamboman/nvim-lsp-installer' }
-  use { "hrsh7th/nvim-compe", config = require("plugins.compe") }
-  use { 'hrsh7th/vim-vsnip',  requires = "hrsh7th/vim-vsnip-integ", config = require("plugins.vsnip") }
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'neovim/nvim-lspconfig',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+    },
+    config = require('plugins.cmp')
+  }
   use { "rafamadriz/friendly-snippets" }
 
   use { 'hoob3rt/lualine.nvim',

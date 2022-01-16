@@ -38,7 +38,7 @@ vim.api.nvim_set_keymap('i', '<c-x><c-l>', '<plug>(fzf-complete-line)', {})
 
 -- LSP
 --
-vim.cmd("imap <expr> <tab> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<tab>'")
+-- vim.cmd("imap <expr> <tab> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<tab>'")
 --  vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<tab>'
 -- vim.api.nvim_set_keymap('i', '<Tab>', 'vsnip#expandable() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
 -- vim.api.nvim_set_keymap('i', '<Tab>', 'vsnip#available(1) ? "\\<Plug>(vsnip-expand-or-jump)" : "\\<Tab>"', {expr = true})
