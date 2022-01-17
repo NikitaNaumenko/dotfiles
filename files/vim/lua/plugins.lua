@@ -31,7 +31,7 @@ return require('packer').startup(function()
   }
 
   -- Navigation
-  use { 'easymotion/vim-easymotion' }
+  -- use { 'easymotion/vim-easymotion' }
   use { "junegunn/fzf.vim",
         requires = {{"junegunn/fzf", run = "./install --all"}}
       }
@@ -48,8 +48,8 @@ return require('packer').startup(function()
   use { 'Olical/conjure' }
 
   -- lsp
-  use { "neovim/nvim-lspconfig" }
-  use { 'williamboman/nvim-lsp-installer' }
+  use { "neovim/nvim-lspconfig",
+  'williamboman/nvim-lsp-installer' }
   use {
     'hrsh7th/nvim-cmp',
     requires = {
