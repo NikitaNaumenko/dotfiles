@@ -2,6 +2,11 @@ export ZSH=~/.oh-my-zsh
 export EDITOR=nvim
 export BAT_THEME="Dracula"
 
+NPM_PACKAGES="${HOME}/.npm"
+
+export PATH="$PATH:$NPM_PACKAGES/bin"
+export PATH="$HOME/go/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 ZSH_THEME="spaceship"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
