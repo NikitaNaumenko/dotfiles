@@ -45,7 +45,6 @@ return require('packer').startup(function()
         run = ":TSUpdate",
         config = require("plugins.treesitter")
        }
-  use { 'Olical/conjure' }
 
   -- lsp
   use { "neovim/nvim-lspconfig",

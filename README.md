@@ -6,7 +6,6 @@
 * Ruby
 * Javascript
 * Golang
-* Clojure(fennel)
 ### Tools
 * nvim (100% lua)
 * Alfred
