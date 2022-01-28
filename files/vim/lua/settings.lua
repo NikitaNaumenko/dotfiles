@@ -8,10 +8,8 @@ vim.g.nvcode_termcolors = 256
 vim.cmd("colorscheme dracula")
 
 vim.o.shortmess = vim.o.shortmess .. "c"
--- vim.o.completeopt="menuone,noinsert,noselect"
 vim.o.completeopt="menuone,noselect"
 
--- vim.api.nvim_set_option('completeopt', 'menuone,noinsert,noselect')
 vim.bo.matchpairs = "(:),{:},[:],<:>"
 
 -- more info :h vim.o
@@ -58,5 +56,3 @@ window_options = {
 for key, val in pairs(window_options) do
   vim.wo[key] = val
 end
--- vim.g["test#ruby#use_spring_binstub"] = 1
--- vim.g["test#strategy"] = "dispatch"

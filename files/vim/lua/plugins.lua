@@ -22,7 +22,6 @@ return require('packer').startup(function()
   use { 'tpope/vim-surround' }
   use { 'tpope/vim-repeat' }
   use { 'tpope/vim-unimpaired' }
-  use { 'tpope/vim-dispatch' }
   use { 'nathanaelkane/vim-indent-guides' }
   use {
     'kyazdani42/nvim-tree.lua',
