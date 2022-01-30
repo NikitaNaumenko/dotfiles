@@ -13,9 +13,8 @@ vim.o.completeopt="menuone,noselect"
 vim.bo.matchpairs = "(:),{:},[:],<:>"
 
 -- more info :h vim.o
-editor_options = {
+local editor_options = {
       compatible = false,
-      termguicolors = true,
       background = "dark",
 
       encoding = "UTF-8",
@@ -47,7 +46,7 @@ for key, val in pairs(editor_options) do
     vim.o[key] = val
 end
 
-window_options = {
+local window_options = {
   number = true,
   cursorline = true,
   wrap = true,

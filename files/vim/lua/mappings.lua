@@ -37,3 +37,4 @@ vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Telescope buffers show_all_buff
 vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>gf', '<cmd>Telescope git_files<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>aa', '<cmd>Telescope live_grep<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'K', '<cmd>Telescope grep_string', { noremap = true })
