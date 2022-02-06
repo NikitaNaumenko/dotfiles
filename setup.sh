@@ -1,9 +1,6 @@
 # Setup brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
  
-# clojure tools
-brew install clojure/tools/clojure
-
 # Setup ASDF
 echo -e "\n--------------Setup ASDF--------------\n"
 brew install asdf
@@ -43,7 +40,7 @@ brew install neovim
 
 sh -c 'git clone https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/opt/packer.nvim'
-brew install clojure-lsp/brew/clojure-lsp-native
 
+luarocks install --server=https://luarocks.org/dev luaformatter
 
 make nvim-setup
