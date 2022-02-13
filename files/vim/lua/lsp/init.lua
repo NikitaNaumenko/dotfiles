@@ -1,7 +1,7 @@
 local general_on_attach = require("lsp.on_attach")
 local lsp_installer = require "nvim-lsp-installer"
 
-local servers = {'sumneko_lua', 'tsserver', 'sqls'}
+local servers = {'sumneko_lua', 'tsserver', 'sqls', 'grammarly'}
 
 for _, name in pairs(servers) do
     local server_is_found, server = lsp_installer.get_server(name)

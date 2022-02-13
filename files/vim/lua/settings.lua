@@ -1,6 +1,8 @@
 require("nvim-web-devicons").setup()
 -- TODO: candidate for refactoring
 require('nvim-autopairs').setup()
+require'hop'.setup()
+
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
