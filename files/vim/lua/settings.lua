@@ -13,6 +13,7 @@ vim.o.shortmess = vim.o.shortmess .. "c"
 vim.o.completeopt = "menuone,noselect"
 
 vim.bo.matchpairs = "(:),{:},[:],<:>"
+-- vim.g.coq_settings = { keymap = { jump_to_mark = '<c-n>'} }
 
 -- more info :h vim.o
 local editor_options = {

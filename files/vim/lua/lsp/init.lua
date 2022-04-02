@@ -1,7 +1,9 @@
 local general_on_attach = require("lsp.on_attach")
 local lsp_installer = require "nvim-lsp-installer"
+local coq = require "coq"
 
 local servers = {'sumneko_lua', 'tsserver', 'sqls', 'grammarly'}
+
 
 for _, name in pairs(servers) do
     local server_is_found, server = lsp_installer.get_server(name)
@@ -18,7 +20,9 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
     properties = {"documentation", "detail", "additionalTextEdits"}
 }
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+-- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+capabilities = coq.lsp_ensure_capabilities(capabilities)
 
 lsp_installer.on_server_ready(function(server)
     local serverConfig = require("lsp.servers." .. server.name)(
