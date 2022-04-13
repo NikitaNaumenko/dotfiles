@@ -47,7 +47,7 @@ return require('packer').startup(function()
 
     -- langs
     use {'fatih/vim-go'}
-    use {'dracula/vim'}
+    use {'Mofiqul/dracula.nvim'}
     use {'tpope/vim-git'}
     use {'sheerun/vim-polyglot'}
     use {
@@ -60,16 +60,6 @@ return require('packer').startup(function()
     use {"neovim/nvim-lspconfig", 'williamboman/nvim-lsp-installer'}
     use { 'ms-jpq/coq_nvim', branch = 'coq' }
     use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
-    -- use {
-    --     'hrsh7th/nvim-cmp',
-    --     requires = {
-    --         'hrsh7th/cmp-nvim-lsp', 'neovim/nvim-lspconfig',
-    --         'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline',
-    --         'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip'
-    --     },
-    --     config = require('plugins.cmp')
-    -- }
-    -- use {"rafamadriz/friendly-snippets"}
 
     use {
         'hoob3rt/lualine.nvim',
@@ -90,11 +80,7 @@ return require('packer').startup(function()
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
         config = function()
-            require("trouble").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
+            require("trouble").setup { }
         end
     }
 

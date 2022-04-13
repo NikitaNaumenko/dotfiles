@@ -1,0 +1,22 @@
+[user]
+	name = Nikita Naumenko
+	email = naumenkoniki@icloud.com
+[core]
+	editor = nvim
+	pager = delta
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+	navigate = true
+	line-numbers = true
+	side-by-side = true
+	syntax-theme = Dracula
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default

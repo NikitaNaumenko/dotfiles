@@ -1,6 +1,6 @@
 export ZSH=~/.oh-my-zsh
 export EDITOR=nvim
-export BAT_THEME="Dracula"
+# export BAT_THEME="Dracula"
 
 NPM_PACKAGES="${HOME}/.npm"
 
@@ -21,23 +21,24 @@ alias bo='bundle open'
 alias rs='rails server'
 alias rc='rails console'
 
-alias gst="git status"
-alias gdiff="git diff"
-alias gadd="git add"
-alias gc="git commit -m"
-alias grebase="git rebase -i"
-alias gpull="git pull"
-alias gpush="git push origin"
-alias gstash="git stash"
-alias gpop="git stash pop"
-alias gsl="git stash list"
-alias gco="git checkout"
-alias gom="git checkout master"
-alias gob="git checkout -b"
+# alias gst="git status"
+# alias gdiff="git diff"
+# alias gadd="git add"
+# alias gc="git commit -m"
+# alias grebase="git rebase -i"
+# alias gpull="git pull"
+# alias gpush="git push origin"
+# alias gstash="git stash"
+# alias gpop="git stash pop"
+# alias gsl="git stash list"
+# alias gco="git checkout"
+# alias gom="git checkout master"
+# alias gob="git checkout -b"
 alias vim="nvim"
 alias v="nvim"
 alias top="htop"
-alias gup='git pull origin master --rebase'
+# alias gup='git pull origin master --rebase'
+alias cat="bat"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
