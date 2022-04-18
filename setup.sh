@@ -12,7 +12,10 @@ echo -e "\n--------------Setup Utils--------------\n"
 brew install \
   coreutils automake autoconf openssl \
   libyaml readline libxslt libtool unixodbc \
-  unzip curl gpg git bat htop fzf diff-so-fancy
+  unzip curl gpg git bat htop fzf diff-so-fancy tmux
+
+echo -e "\n--------------Configure Tmux--------------\n"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo -e "\n--------------Configure Git--------------\n"
 git config --global user.name "Nikita Naumenko"
