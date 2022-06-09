@@ -12,8 +12,8 @@ export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
-plugins=(git)
-plugins=(asdf)
+# plugins=(git)
+plugins=(asdf git)
 source $ZSH/oh-my-zsh.sh
 
 # =========== #
