@@ -19,7 +19,6 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
     properties = {"documentation", "detail", "additionalTextEdits"}
 }
--- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 capabilities = coq.lsp_ensure_capabilities(capabilities)
 

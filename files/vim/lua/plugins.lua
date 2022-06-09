@@ -37,12 +37,12 @@ return require('packer').startup(function()
         requires = {{"junegunn/fzf", run = "./install --all"}}
     }
     use {
-      'phaazon/hop.nvim',
-      branch = 'v1', -- optional but strongly recommended
-      config = function()
-        -- you can configure Hop the way you like here; see :h hop-config
-        require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-      end
+        'phaazon/hop.nvim',
+        branch = 'v1', -- optional but strongly recommended
+        config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            require'hop'.setup {keys = 'etovxqpdygfblzhckisuran'}
+        end
     }
 
     -- langs
@@ -56,10 +56,18 @@ return require('packer').startup(function()
         config = require("plugins.treesitter")
     }
 
+    use {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        'windwp/nvim-ts-autotag',
+        'andymass/vim-matchup',
+        'JoosepAlviste/nvim-ts-context-commentstring',
+        requires = {'nvim-treesitter/nvim-treesitter'}
+    }
+
     -- lsp
     use {"neovim/nvim-lspconfig", 'williamboman/nvim-lsp-installer'}
-    use { 'ms-jpq/coq_nvim', branch = 'coq' }
-    use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
+    use {'ms-jpq/coq_nvim', branch = 'coq'}
+    use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
 
     use {
         'hoob3rt/lualine.nvim',
@@ -79,9 +87,7 @@ return require('packer').startup(function()
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
-        config = function()
-            require("trouble").setup { }
-        end
+        config = function() require("trouble").setup {} end
     }
 
     use 'nanotee/sqls.nvim'

@@ -7,3 +7,4 @@ term-setup:
 	ln -s $(PWD)/files/term/dracula.yml ~/.config/alacritty/dracula.yml | true
 	ln -s $(PWD)/files/term/.tmux.conf ~/.tmux.conf | true
 	ln -s $(PWD)/files/term/.gitconfig ~/.gitconfig | true
+	ln -s $(PWD)/files/term/.zshrc ~/.zshrc | true
