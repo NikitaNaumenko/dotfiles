@@ -91,7 +91,5 @@ return require('packer').startup(function()
     }
 
     use 'nanotee/sqls.nvim'
-
     use {"jose-elias-alvarez/null-ls.nvim"}
-
 end)

@@ -2,6 +2,7 @@ local general_on_attach = require("lsp.on_attach")
 local lsp_installer = require "nvim-lsp-installer"
 local coq = require "coq"
 
+vim.g.coq_settings = { auto_start = 'shut-up' }
 local servers = {'sumneko_lua', 'tsserver', 'sqls', 'grammarly', 'solargraph'}
 
 for _, name in pairs(servers) do

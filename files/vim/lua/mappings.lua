@@ -1,26 +1,26 @@
-function WinMove(key)
-    local curwin = vim.fn.winnr();
+-- function WinMove(key)
+--     local curwin = vim.fn.winnr();
 
-    local winCmd = string.format("wincmd %s", key)
-    vim.cmd(winCmd)
-    if curwin == vim.fn.winnr() then
-        if (string.match(key, "[hl]")) then
-            vim.cmd("wincmd v")
-        else
-            vim.cmd("wincmd s")
-        end
-        vim.cmd(winCmd)
-    end
-end
+--     local winCmd = string.format("wincmd %s", key)
+--     vim.cmd(winCmd)
+--     if curwin == vim.fn.winnr() then
+--         if (string.match(key, "[hl]")) then
+--             vim.cmd("wincmd v")
+--         else
+--             vim.cmd("wincmd s")
+--         end
+--         vim.cmd(winCmd)
+--     end
+-- end
 
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {silent = true})
 
 vim.api.nvim_set_keymap('n', '<leader>', '<Plug>(easymotion-prefix)', {})
 
-vim.api.nvim_set_keymap('n', '<C-h>', ':lua WinMove("h")<CR>', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-j>', ':lua WinMove("j")<CR>', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-k>', ':lua WinMove("k")<CR>', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-l>', ':lua WinMove("l")<CR>', {silent = true})
+-- vim.api.nvim_set_keymap('n', '<C-h>', ':lua WinMove("h")<CR>', {silent = true})
+-- vim.api.nvim_set_keymap('n', '<C-j>', ':lua WinMove("j")<CR>', {silent = true})
+-- vim.api.nvim_set_keymap('n', '<C-k>', ':lua WinMove("k")<CR>', {silent = true})
+-- vim.api.nvim_set_keymap('n', '<C-l>', ':lua WinMove("l")<CR>', {silent = true})
 -- Close the current buffer and move to the previous one
 vim.api.nvim_set_keymap('n', '<leader>bq', ':bp <BAR> bd #<CR>', {})
 
