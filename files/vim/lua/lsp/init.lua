@@ -3,7 +3,7 @@ local lsp_installer = require "nvim-lsp-installer"
 local coq = require "coq"
 
 vim.g.coq_settings = { auto_start = 'shut-up' }
-local servers = {'sumneko_lua', 'tsserver', 'sqls', 'grammarly', 'solargraph'}
+local servers = {'sumneko_lua', 'tsserver', 'sqls', 'grammarly', 'solargraph', 'elixirls'}
 
 for _, name in pairs(servers) do
     local server_is_found, server = lsp_installer.get_server(name)
@@ -41,7 +41,8 @@ null_ls.setup({
         null_ls.builtins.diagnostics.eslint,
         null_ls.builtins.code_actions.eslint,
         null_ls.builtins.formatting.prettier,
-        null_ls.builtins.formatting.lua_format
+        null_ls.builtins.formatting.lua_format,
+        null_ls.builtins.diagnostics.credo
     },
     on_attach = general_on_attach
 })
