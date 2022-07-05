@@ -1,26 +1,6 @@
--- function WinMove(key)
---     local curwin = vim.fn.winnr();
-
---     local winCmd = string.format("wincmd %s", key)
---     vim.cmd(winCmd)
---     if curwin == vim.fn.winnr() then
---         if (string.match(key, "[hl]")) then
---             vim.cmd("wincmd v")
---         else
---             vim.cmd("wincmd s")
---         end
---         vim.cmd(winCmd)
---     end
--- end
-
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {silent = true})
 
 vim.api.nvim_set_keymap('n', '<leader>', '<Plug>(easymotion-prefix)', {})
-
--- vim.api.nvim_set_keymap('n', '<C-h>', ':lua WinMove("h")<CR>', {silent = true})
--- vim.api.nvim_set_keymap('n', '<C-j>', ':lua WinMove("j")<CR>', {silent = true})
--- vim.api.nvim_set_keymap('n', '<C-k>', ':lua WinMove("k")<CR>', {silent = true})
--- vim.api.nvim_set_keymap('n', '<C-l>', ':lua WinMove("l")<CR>', {silent = true})
 -- Close the current buffer and move to the previous one
 vim.api.nvim_set_keymap('n', '<leader>bq', ':bp <BAR> bd #<CR>', {})
 
@@ -42,8 +22,7 @@ vim.api.nvim_set_keymap('n', '<leader>gf', '<cmd>Telescope git_files<CR>',
                         {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>aa', '<cmd>Telescope live_grep<CR>',
                         {noremap = true})
-vim.api
-    .nvim_set_keymap('n', 'K', '<cmd>Telescope grep_string', {noremap = true})
+-- vim.api -- .nvim_set_keymap('n', 'K', '<cmd>Telescope grep_string', {noremap = true})
 
 
 vim.api.nvim_set_keymap('n', '<leader>s', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = false })<cr>", {})

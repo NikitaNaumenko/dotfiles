@@ -3,7 +3,7 @@ local lsp_installer = require "nvim-lsp-installer"
 local coq = require "coq"
 
 vim.g.coq_settings = { auto_start = 'shut-up' }
-local servers = {'sumneko_lua', 'tsserver', 'sqls', 'grammarly', 'solargraph', 'elixirls'}
+local servers = {'sumneko_lua', 'tsserver', 'sqls', 'grammarly', 'solargraph', 'elixirls', 'lemminx'}
 
 for _, name in pairs(servers) do
     local server_is_found, server = lsp_installer.get_server(name)
