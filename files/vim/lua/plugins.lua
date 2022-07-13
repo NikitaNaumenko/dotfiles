@@ -30,17 +30,14 @@ return require('packer').startup(function()
         config = function() require'nvim-tree'.setup {} end
     }
 
-    -- Navigation
-    -- use { 'easymotion/vim-easymotion' }
     use {
         "junegunn/fzf.vim",
         requires = {{"junegunn/fzf", run = "./install --all"}}
     }
     use {
         'phaazon/hop.nvim',
-        branch = 'v1', -- optional but strongly recommended
+        branch = 'v1',
         config = function()
-            -- you can configure Hop the way you like here; see :h hop-config
             require'hop'.setup {keys = 'etovxqpdygfblzhckisuran'}
         end
     }
