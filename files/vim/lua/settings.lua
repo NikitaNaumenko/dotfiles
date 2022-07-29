@@ -3,7 +3,6 @@ require("nvim-web-devicons").setup()
 require('nvim-autopairs').setup()
 require'hop'.setup()
 
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.nvcode_termcolors = 256

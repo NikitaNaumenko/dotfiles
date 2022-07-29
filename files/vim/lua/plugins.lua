@@ -43,7 +43,6 @@ return require('packer').startup(function()
     }
 
     -- langs
-    use {'fatih/vim-go'}
     use {'Mofiqul/dracula.nvim'}
     use {'tpope/vim-git'}
     use {'sheerun/vim-polyglot'}
@@ -62,7 +61,8 @@ return require('packer').startup(function()
     }
 
     -- lsp
-    use {"neovim/nvim-lspconfig", 'williamboman/nvim-lsp-installer'}
+    use {"neovim/nvim-lspconfig"}
+    use {"williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim"}
     use {'ms-jpq/coq_nvim', branch = 'coq'}
     use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
 
@@ -89,14 +89,4 @@ return require('packer').startup(function()
 
     use 'nanotee/sqls.nvim'
     use {"jose-elias-alvarez/null-ls.nvim"}
-    use {
-        "folke/which-key.nvim",
-        config = function()
-            require("which-key").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
-    }
 end)

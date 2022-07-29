@@ -1,36 +1,32 @@
 local general_on_attach = require("lsp.on_attach")
-local lsp_installer = require "nvim-lsp-installer"
-local coq = require "coq"
+local util = require "lspconfig.util"
+local lspconfig = require "lspconfig"
 
-vim.g.coq_settings = { auto_start = 'shut-up' }
-local servers = {'sumneko_lua', 'tsserver', 'sqls', 'grammarly', 'solargraph', 'elixirls', 'lemminx'}
+local servers = {'sumneko_lua', 'tsserver', 'sqls', 'solargraph', 'elixirls'}
+vim.g.coq_settings = {auto_start = 'shut-up'}
 
-for _, name in pairs(servers) do
-    local server_is_found, server = lsp_installer.get_server(name)
-    if server_is_found then
-        if not server:is_installed() then
-            print("Installing " .. name)
-            server:install()
-        end
-    end
-end
-
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = servers,
+    automatic_installation = true
+})
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
     properties = {"documentation", "detail", "additionalTextEdits"}
 }
 
+local coq = require "coq"
 capabilities = coq.lsp_ensure_capabilities(capabilities)
 
-lsp_installer.on_server_ready(function(server)
-    local serverConfig = require("lsp.servers." .. server.name)(
-                             general_on_attach)
-    serverConfig.capabilities = capabilities
-
-    server:setup(serverConfig)
-    vim.cmd [[ do User LspAttachBuffers ]]
-end)
+util.default_config = vim.tbl_extend("force", util.default_config, {
+    autostart = false,
+    capabilities = capabilities
+})
+lspconfig.elixirls.setup(require("lsp.servers.elixirls")(general_on_attach))
+lspconfig.tsserver.setup(require("lsp.servers.tsserver")(general_on_attach))
+lspconfig.sumneko_lua.setup(
+    require("lsp.servers.sumneko_lua")(general_on_attach))
 
 require("lsp.settings")()
 
