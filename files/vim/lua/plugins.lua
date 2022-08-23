@@ -23,7 +23,6 @@ return require('packer').startup(function()
     use {'tpope/vim-surround'}
     use {'tpope/vim-repeat'}
     use {'tpope/vim-unimpaired'}
-    use {'nathanaelkane/vim-indent-guides'}
     use {
         'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons',
@@ -44,7 +43,6 @@ return require('packer').startup(function()
 
     -- langs
     use {'Mofiqul/dracula.nvim'}
-    use {'tpope/vim-git'}
     use {'sheerun/vim-polyglot'}
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -53,16 +51,14 @@ return require('packer').startup(function()
     }
 
     use {
-        'nvim-treesitter/nvim-treesitter-textobjects',
-        'windwp/nvim-ts-autotag',
         'andymass/vim-matchup',
-        'JoosepAlviste/nvim-ts-context-commentstring',
         requires = {'nvim-treesitter/nvim-treesitter'}
     }
 
     -- lsp
     use {"neovim/nvim-lspconfig"}
     use {"williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim"}
+    use {"jose-elias-alvarez/null-ls.nvim"}
     use {'ms-jpq/coq_nvim', branch = 'coq'}
     use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
 
@@ -80,13 +76,4 @@ return require('packer').startup(function()
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
-
-    use {
-        "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
-        config = function() require("trouble").setup {} end
-    }
-
-    use 'nanotee/sqls.nvim'
-    use {"jose-elias-alvarez/null-ls.nvim"}
 end)

@@ -7,7 +7,7 @@ BAT_THEME="Dracula"
 
 export PATH="$PATH:$NPM_PACKAGES/bin"
 export PATH="$HOME/go/bin:$PATH"
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+export PATH="/Users/nikitanaumenko/.asdf/installs/nodejs/16.6.2/.npm/bin:$PATH"
 # Preserve MANPATH if you already defined it somewhere in your config.
 # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"

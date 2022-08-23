@@ -4,7 +4,6 @@ return function()
         highlight = {
             enable = true, -- false will disable the whole extension
         },
-        autotag = { enable = true },
         indent = {
           enable = true,
         },
