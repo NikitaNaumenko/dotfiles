@@ -2,6 +2,13 @@
 # Preview
 ![screen](nvim.png)
 
+### Languages
+* Ruby
+* Javascript
+* Elixir
+* Erlang
+* Lua
+
 ### Tools
 * [nvim](https://neovim.io)
 * [Alfred](https://www.alfredapp.com)
