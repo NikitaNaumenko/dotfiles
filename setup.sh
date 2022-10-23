@@ -37,6 +37,12 @@ asdf plugin-add nodejs
 bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
 asdf install nodejs latest
 
+asdf plugin-add erlang
+asdf install erlang latest
+
+asdf plugin-add elixir
+asdf install elixir latest
+
 echo -e "\n--------------Setup Neovim--------------\n"
 # Install Neovim
 brew install neovim
