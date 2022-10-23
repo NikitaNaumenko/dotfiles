@@ -6,7 +6,6 @@ return function()
     end
 
     vim.diagnostic.config({
-        -- signs = true,
         underline = true,
         virtual_text = {prefix = '<'},
         float = {scope = 'line', border = 'rounded', focusable = false},
