@@ -53,3 +53,5 @@ local window_options = {
     list = true
 }
 for key, val in pairs(window_options) do vim.wo[key] = val end
+
+vim.api.nvim_set_hl(0, "@symbol", { link = "Identifier" })

@@ -1,49 +1,35 @@
-local general_on_attach = require("lsp.on_attach")
-local util = require "lspconfig.util"
-local lspconfig = require "lspconfig"
+local servers = { 'sumneko_lua', 'tsserver', 'solargraph', 'elixirls' }
 
-local servers = {'sumneko_lua', 'tsserver', 'solargraph', 'elixirls'}
-vim.g.coq_settings = {auto_start = 'shut-up'}
+local lsp = require('lsp-zero')
+lsp.preset('recommended')
 
-require("mason").setup()
-require("mason-lspconfig").setup({
-    ensure_installed = servers,
-    automatic_installation = true
-})
+lsp.ensure_installed(servers)
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-    properties = {"documentation", "detail", "additionalTextEdits"}
-}
+lsp.on_attach(function(client, bufnr)
+    local opts = {noremap = true, silent = true}
+    local function buf_set_keymap(...)
+        vim.api.nvim_buf_set_keymap(bufnr, ...)
+    end
+    local function buf_set_option(...)
+        vim.api.nvim_buf_set_option(bufnr, ...)
+    end
 
-local coq = require "coq"
-capabilities = coq.lsp_ensure_capabilities(capabilities)
--- lspconfig["elixirls"].setup{pizda = pizda, flags = {debounce_text_changes = 150}}
+    buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+    buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+end)
 
-lspconfig.tsserver.setup(require("lsp.servers.tsserver")(general_on_attach))
-lspconfig.sumneko_lua.setup(
-    require("lsp.servers.sumneko_lua")(general_on_attach))
-
-lspconfig.elixirls.setup { cmd = { "/path/to/elixir-ls/language_server.sh" }}
-util.default_config = vim.tbl_extend("force", util.default_config, {
-    autostart = true,
-    capabilities = capabilities
-})
-
-
-require("lsp.settings")()
-
-local null_ls = require("null-ls")
+local null_ls = require('null-ls')
+local null_opts = lsp.build_options('null-ls', {})
 
 null_ls.setup({
-    sources = {
+  on_attach = null_opts.on_attach,
+  sources = {
         null_ls.builtins.diagnostics.eslint,
         null_ls.builtins.code_actions.eslint,
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.fixjson,
         null_ls.builtins.formatting.lua_format,
         null_ls.builtins.diagnostics.credo
-    },
-    on_attach = general_on_attach
-})
+}})
+
+lsp.setup()
