@@ -1,6 +1,6 @@
 [user]
 	name = Nikita Naumenko
-	email = naumenkoniki@icloud.com
+	email = naumenkoniki@gmail.com
 [core]
 	editor = nvim
 	pager = delta
@@ -15,7 +15,7 @@
 	navigate = true
 	line-numbers = true
 	side-by-side = true
-	syntax-theme = Dracula
+	syntax-theme = GitHub
 [merge]
     conflictstyle = diff3
 [diff]

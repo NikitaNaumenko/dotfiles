@@ -23,12 +23,6 @@ return require('packer').startup(function()
     use { 'tpope/vim-repeat' }
     use { 'tpope/vim-unimpaired' }
     use {
-        'kyazdani42/nvim-tree.lua',
-        requires = 'kyazdani42/nvim-web-devicons',
-        config = function() require 'nvim-tree'.setup {} end
-    }
-
-    use {
         "junegunn/fzf.vim",
         requires = { { "junegunn/fzf", run = "./install --all" } }
     }
@@ -41,15 +35,34 @@ return require('packer').startup(function()
     }
 
     -- langs
-    use { 'Mofiqul/dracula.nvim' }
+    -- use { 'Mofiqul/dracula.nvim' }
+    use { 'projekt0n/github-nvim-theme',  }
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        },
+        after = 'github-nvim-theme',
+        config = function() require 'nvim-tree'.setup {} end,
+        tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    }
+
+
     use { 'sheerun/vim-polyglot' }
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ":TSUpdate",
         config = require("plugins.treesitter")
     }
+    use { 'andymass/vim-matchup',
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        'p00f/nvim-ts-rainbow',
+        "folke/twilight.nvim",
 
-    use { 'andymass/vim-matchup', requires = { 'nvim-treesitter/nvim-treesitter' } }
+        config = function()
+            require("twilight").setup {}
+        end,
+        requires = { 'nvim-treesitter/nvim-treesitter' } }
     use { 'Olical/conjure' }
 
     -- lsp
@@ -71,11 +84,10 @@ return require('packer').startup(function()
 
     use {
         'hoob3rt/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = require("plugins.lualine")
     }
     use {
-        'lewis6991/gitsigns.nvim',
+        'lewis6991/gitsigns.nvim', tag = 'release',
         requires = { 'nvim-lua/plenary.nvim' },
         config = require("plugins.gitsigns")
     }
@@ -83,23 +95,33 @@ return require('packer').startup(function()
         'nvim-telescope/telescope.nvim',
         requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } }
     }
-    use {
-        "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
-        config = function()
-            require("trouble").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
-    }
+    -- use {
+    --     "folke/trouble.nvim",
+    --     requires = "kyazdani42/nvim-web-devicons",
+    --     config = function()
+    --         require("trouble").setup {
+    --             -- your configuration comes here
+    --             -- or leave it empty to use the default settings
+    --             -- refer to the configuration section below
+    --         }
+    --     end
+    -- }
     use {
         'phaazon/mind.nvim',
         branch = 'v2.2',
         requires = { 'nvim-lua/plenary.nvim' },
         config = function()
             require 'mind'.setup()
+        end
+    }
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            require("which-key").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
         end
     }
     -- use 'mfussenegger/nvim-dap'
