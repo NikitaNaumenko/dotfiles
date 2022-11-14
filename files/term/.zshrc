@@ -3,7 +3,7 @@ export EDITOR=nvim
 
 NPM_PACKAGES="${HOME}/.npm"
 ZSH_THEME="spaceship"
-BAT_THEME="GitHub"
+BAT_THEME="Dracula"
 
 export PATH="$PATH:$NPM_PACKAGES/bin"
 export PATH="$HOME/go/bin:$PATH"

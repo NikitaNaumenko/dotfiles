@@ -15,6 +15,7 @@ return require('packer').startup(function()
     -- Packer can manage itself as an optional plugin
     -- ?
     use { 'wbthomason/packer.nvim', opt = true }
+    use { 'ap/vim-css-color'}
 
     use { 'tpope/vim-commentary' }
     use { 'windwp/nvim-autopairs' }
@@ -35,14 +36,12 @@ return require('packer').startup(function()
     }
 
     -- langs
-    -- use { 'Mofiqul/dracula.nvim' }
-    use { 'projekt0n/github-nvim-theme',  }
+    use { 'Mofiqul/dracula.nvim' }
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {
             'nvim-tree/nvim-web-devicons', -- optional, for file icons
         },
-        after = 'github-nvim-theme',
         config = function() require 'nvim-tree'.setup {} end,
         tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
