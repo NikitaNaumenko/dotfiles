@@ -17,7 +17,7 @@ vim.bo.matchpairs = "(:),{:},[:],<:>"
 -- more info :h vim.o
 local editor_options = {
     compatible = false,
-    background = "light",
+    background = "dark",
 
     encoding = "UTF-8",
     fileencoding = "UTF-8",
@@ -54,48 +54,7 @@ local window_options = {
     list = true
 }
 for key, val in pairs(window_options) do vim.wo[key] = val end
-
--- require("mason-nvim-dap").setup({
---     ensure_installed = { "elixir-ls" }
--- })
--- dap = require("dap")
--- dap.set_log_level('TRACE')
--- require 'mason-nvim-dap'.setup_handlers {
---     function(source_name)
---         -- all sources with no handler get passed here
-
-
---         -- Keep original functionality of `automatic_setup = true`
---         require('mason-nvim-dap.automatic_setup')(source_name)
---     end,
---     elixir = function(source_name)
---         dap.adapters.mix_task = {
---             type = 'executable',
---             command = vim.fn.stdpath("data") .. "/mason/packages/elixir-ls/debugger.sh",
---             args = {}
---         }
---         dap.configurations.elixir = {
---             {
---                 type = "mix_task",
---                 name = "mix test",
---                 task = 'test',
---                 taskArgs = { "--trace" },
---                 request = "launch",
---                 startApps = true, -- for Phoenix projects
---                 projectDir = "${workspaceFolder}",
---                 -- requireFiles = {
---                 --     "test/**/test_helper.exs",
---                 --     "test/**/*_test.exs"
---                 -- }
---             },
---         }
---     end,
--- }
-vim.api.nvim_set_hl(0, "@symbol", { link = "Identifier" })
 require'nvim-web-devicons'.setup {
- -- your personnal icons can go here (to override)
- -- you can specify color or cterm_color instead of specifying both of them
- -- DevIcon will be appended to `name`
  override = {
   md = {
     icon = "",
@@ -104,11 +63,5 @@ require'nvim-web-devicons'.setup {
     name = "Md",
   }
  };
- -- globally enable different highlight colors per icon (default to true)
- -- if set to false all icons will have the default icon's color
- color_icons = true;
- -- globally enable default icons (default to false)
- -- will get overriden by `get_icons` option
- default = true;
 }
 

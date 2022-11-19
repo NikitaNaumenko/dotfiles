@@ -1,7 +1,6 @@
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {silent = true})
 -- Close the current buffer and move to the previous one
 vim.api.nvim_set_keymap('n', '<leader>bq', ':bp <BAR> bd #<CR>', {})
-
 vim.api.nvim_set_keymap('n', '<leader><tab>', '<plug>(fzf-maps-n)', {})
 -- Insert mode competition should be more usefull keybinding
 
@@ -31,6 +30,4 @@ vim.api.nvim_set_keymap('n', '<leader>W', "<cmd>lua require'hop'.hint_words({ di
 
 vim.api.nvim_set_keymap('n', '<leader>l', "<cmd>lua require'hop'.hint_lines({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR})<cr>", {})
 vim.api.nvim_set_keymap('n', '<leader>L', "<cmd>lua require'hop'.hint_lines({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = false })<cr>", {})
-
-vim.api.nvim_set_keymap('n', '<leader>et', "<cmd>Twilight<CR>", {})
 

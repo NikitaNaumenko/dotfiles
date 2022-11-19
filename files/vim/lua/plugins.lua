@@ -15,7 +15,6 @@ return require('packer').startup(function()
     -- Packer can manage itself as an optional plugin
     -- ?
     use { 'wbthomason/packer.nvim', opt = true }
-    use { 'ap/vim-css-color'}
 
     use { 'tpope/vim-commentary' }
     use { 'windwp/nvim-autopairs' }
@@ -56,27 +55,29 @@ return require('packer').startup(function()
     use { 'andymass/vim-matchup',
         'nvim-treesitter/nvim-treesitter-textobjects',
         'p00f/nvim-ts-rainbow',
-        "folke/twilight.nvim",
 
-        config = function()
-            require("twilight").setup {}
-        end,
         requires = { 'nvim-treesitter/nvim-treesitter' } }
-    use { 'Olical/conjure' }
 
     -- lsp
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
             -- LSP Support
-            { 'neovim/nvim-lspconfig' }, { 'williamboman/mason.nvim' },
-            { 'williamboman/mason-lspconfig.nvim' }, -- Autocompletion
-            { 'hrsh7th/nvim-cmp' }, { 'hrsh7th/cmp-buffer' }, { 'hrsh7th/cmp-path' },
-            { 'saadparwaiz1/cmp_luasnip' }, { 'hrsh7th/cmp-nvim-lsp' },
-            { 'hrsh7th/cmp-nvim-lua' }, -- Snippets
-            { 'L3MON4D3/LuaSnip' }, { 'rafamadriz/friendly-snippets' },
-            { "mfussenegger/nvim-dap" },
-            { "jayp0521/mason-nvim-dap.nvim" }
+            { 'neovim/nvim-lspconfig' },
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-path' },
+            { 'saadparwaiz1/cmp_luasnip' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-nvim-lua' },
+            -- Snippets
+            { 'L3MON4D3/LuaSnip' },
+            { 'rafamadriz/friendly-snippets' },
+            -- { "mfussenegger/nvim-dap" },
+            -- { "jayp0521/mason-nvim-dap.nvim" }
         }
     }
     use { "jose-elias-alvarez/null-ls.nvim" }
@@ -94,17 +95,13 @@ return require('packer').startup(function()
         'nvim-telescope/telescope.nvim',
         requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } }
     }
-    -- use {
-    --     "folke/trouble.nvim",
-    --     requires = "kyazdani42/nvim-web-devicons",
-    --     config = function()
-    --         require("trouble").setup {
-    --             -- your configuration comes here
-    --             -- or leave it empty to use the default settings
-    --             -- refer to the configuration section below
-    --         }
-    --     end
-    -- }
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("trouble").setup {}
+        end
+    }
     use {
         'phaazon/mind.nvim',
         branch = 'v2.2',
@@ -113,15 +110,4 @@ return require('packer').startup(function()
             require 'mind'.setup()
         end
     }
-    use {
-        "folke/which-key.nvim",
-        config = function()
-            require("which-key").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
-    }
-    -- use 'mfussenegger/nvim-dap'
 end)
