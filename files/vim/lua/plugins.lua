@@ -76,7 +76,6 @@ return require('packer').startup(function()
             -- Snippets
             { 'L3MON4D3/LuaSnip' },
             { 'rafamadriz/friendly-snippets' },
-            -- { "mfussenegger/nvim-dap" },
             -- { "jayp0521/mason-nvim-dap.nvim" }
         }
     }
@@ -110,4 +109,6 @@ return require('packer').startup(function()
             require 'mind'.setup()
         end
     }
+
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 end)

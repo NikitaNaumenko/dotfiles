@@ -54,14 +54,54 @@ local window_options = {
     list = true
 }
 for key, val in pairs(window_options) do vim.wo[key] = val end
-require'nvim-web-devicons'.setup {
- override = {
-  md = {
-    icon = "",
-    color = "#519aba",
-    cterm_color = "74",
-    name = "Md",
-  }
- };
+require 'nvim-web-devicons'.setup {
+    override = {
+        md = { icon = "", color = "#519aba", cterm_color = "74", name = "Md" }
+    }
 }
 
+local dap = require('dap')
+dap.adapters.mix_task = {
+    type = 'executable',
+    command = vim.fn.stdpath("data") .. "/mason/packages/elixir-ls/debugger.sh",
+    -- command = '~/.local/share/nvim/lsp_servers/elixir/elixir-ls/debugger.sh', -- debugger.bat for windows
+    args = {}
+}
+
+dap.set_log_level('TRACE')
+
+print("${file}")
+dap.configurations.elixir = {
+    {
+        type = "mix_task",
+        name = "mix test",
+        task = 'test',
+        taskArgs = { "--trace" },
+        request = "launch",
+        startApps = true, -- for Phoenix projects
+        projectDir = "${workspaceFolder}",
+        requireFiles = { "test/**/test_helper.exs", "test/**/*_test.exs" },
+        env = { MIX_ENV = "test" }
+    }, {
+        type = "mix_task",
+        name = "phx_server",
+        request = "launch",
+        task = "phx.server",
+        projectDir = "${workspaceFolder}"
+    }, {
+        type = "mix_task",
+        name = "mix test",
+        task = 'test',
+        taskArgs = { "${file}" },
+        request = "launch",
+        startApps = true, -- for Phoenix projects
+        projectDir = "${workspaceFolder}",
+        requireFiles = {
+            "test/**/test_helper.exs",
+            "${file}"
+        },
+        env = { MIX_ENV = "test" }
+    }
+}
+
+require("dapui").setup()
