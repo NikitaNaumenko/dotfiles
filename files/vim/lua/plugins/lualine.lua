@@ -1,7 +1,7 @@
 return function()
     require('lualine').setup {
         options = {
-            theme = 'dracula-nvim',
+            theme = 'auto',
             section_separators = { left = '', right = ''},
             component_separators = { left = '⎰', right = '⎱' },
             icons_enabled = true

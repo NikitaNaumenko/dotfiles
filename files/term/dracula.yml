@@ -1,61 +1,120 @@
-# Dracula theme for Alacritty
- # https://draculatheme.com/alacritty
- #
- # Color palette
- # https://spec.draculatheme.com
- #
- # Template
- # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
+# ## Dracula theme for Alacritty
+# # # https://draculatheme.com/alacritty
+# # #
+# # # Color palette
+# # # https://spec.draculatheme.com
+# # #
+# # # Template
+# # # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
 
- colors:
-   primary:
-     background: '#282a36'
-     foreground: '#f8f8f2'
-     bright_foreground: '#ffffff'
-   cursor:
-     text: CellBackground
-     cursor: CellForeground
-   vi_mode_cursor:
-     text: CellBackground
-     cursor: CellForeground
-   search:
-     matches:
-       foreground: '#44475a'
-       background: '#50fa7b'
-     focused_match:
-       foreground: '#44475a'
-       background: '#ffb86c'
-     footer_bar:
-       background: '#282a36'
-       foreground: '#f8f8f2'
-   hints:
-     start:
-       foreground: '#282a36'
-       background: '#f1fa8c'
-     end:
-       foreground: '#f1fa8c'
-       background: '#282a36'
-   line_indicator:
-     foreground: None
-     background: None
-   selection:
-     text: CellForeground
-     background: '#44475a'
-   normal:
-     black: '#21222c'
-     red: '#ff5555'
-     green: '#50fa7b'
-     yellow: '#f1fa8c'
-     blue: '#bd93f9'
-     magenta: '#ff79c6'
-     cyan: '#8be9fd'
-     white: '#f8f8f2'
-   bright:
-     black: '#6272a4'
-     red: '#ff6e6e'
-     green: '#69ff94'
-     yellow: '#ffffa5'
-     blue: '#d6acff'
-     magenta: '#ff92df'
-     cyan: '#a4ffff'
-     white: '#ffffff'
+# colors:
+#   primary:
+#     background: '#282a36'
+#     foreground: '#f8f8f2'
+#     bright_foreground: '#ffffff'
+#   cursor:
+#     text: CellBackground
+#     cursor: CellForeground
+#   vi_mode_cursor:
+#     text: CellBackground
+#     cursor: CellForeground
+#   search:
+#     matches:
+#       foreground: '#44475a'
+#       background: '#50fa7b'
+#     focused_match:
+#       foreground: '#44475a'
+#       background: '#ffb86c'
+#     footer_bar:
+#       background: '#282a36'
+#       foreground: '#f8f8f2'
+#   hints:
+#     start:
+#       foreground: '#282a36'
+#       background: '#f1fa8c'
+#     end:
+#       foreground: '#f1fa8c'
+#       background: '#282a36'
+#   line_indicator:
+#     foreground: None
+#     background: None
+#   selection:
+#     text: CellForeground
+#     background: '#44475a'
+#   normal:
+#     black: '#21222c'
+#     red: '#ff5555'
+#     green: '#50fa7b'
+#     yellow: '#f1fa8c'
+#     blue: '#bd93f9'
+#     magenta: '#ff79c6'
+#     cyan: '#8be9fd'
+#     white: '#f8f8f2'
+#   bright:
+#     black: '#6272a4'
+#     red: '#ff6e6e'
+#     green: '#69ff94'
+#     yellow: '#ffffa5'
+#     blue: '#d6acff'
+#     magenta: '#ff92df'
+#     cyan: '#a4ffff'
+#     white: '#ffffff'
+# # github Alacritty Colors
+# # colors:
+# #   # Default colors
+# #   primary:
+# #     background: '0xffffff'
+# #     foreground: '0x24292f'
+
+# #   # Normal colors
+# #   normal:
+# #     black:   '0x24292e'
+# #     red:     '0xd73a49'
+# #     green:   '0x28a745'
+# #     yellow:  '0xdbab09'
+# #     blue:    '0x0366d6'
+# #     magenta: '0x5a32a3'
+# #     cyan:    '0x0598bc'
+# #     white:   '0x6a737d'
+
+# #   # Bright colors
+# #   bright:
+# #     black:   '0x959da5'
+# #     red:     '0xcb2431'
+# #     green:   '0x22863a'
+# #     yellow:  '0xb08800'
+# #     blue:    '0x005cc5'
+# #     magenta: '0x5a32a3'
+# #     cyan:    '0x3192aa'
+# #     white:   '0xd1d5da'
+
+# #   indexed_colors:
+# #     - { index: 16, color: '0xd18616' }
+# #     - { index: 17, color: '0xcb2431' }
+colors:
+  name: Alabaster
+  author: tonsky
+  primary:
+    background: "#F7F7F7"
+    foreground: "#000000"
+  cursor:
+    text: "#448C27"
+    cursor: "#000000"
+  normal:
+    black: "#000000"
+    red: "#AA3731"
+    green: "#448C27"
+    yellow: "#CB9000"
+    blue: "#325CC0"
+    magenta: "#7A3E9D"
+    cyan: "#0083B2"
+    white: "#BBBBBB"
+  bright:
+    black: "#777777"
+    red: "#F05050"
+    green: "#60CB00"
+    yellow: "#FFBC5D"
+    blue: "#007ACC"
+    magenta: "#E64CE6"
+    cyan: "#00AACB"
+    white: "#FFFFFF"

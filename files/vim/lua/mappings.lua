@@ -31,3 +31,11 @@ vim.api.nvim_set_keymap('n', '<leader>W', "<cmd>lua require'hop'.hint_words({ di
 vim.api.nvim_set_keymap('n', '<leader>l', "<cmd>lua require'hop'.hint_lines({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR})<cr>", {})
 vim.api.nvim_set_keymap('n', '<leader>L', "<cmd>lua require'hop'.hint_lines({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = false })<cr>", {})
 
+
+-- nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
+
+-- "search current word
+-- nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
+-- vnoremap <leader>s <esc>:lua require('spectre').open_visual()<CR>
+-- "  search in current file
+-- nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
