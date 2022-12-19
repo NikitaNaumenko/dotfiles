@@ -1,19 +1,17 @@
 return function()
     require "nvim-treesitter.configs".setup {
-        ensure_installed = { "lua", "ruby", "javascript", "json", "html", "dockerfile", "elixir", "cmake", "yaml",
-            "erlang" },
+        ensure_installed = {
+            "lua", "ruby", "javascript", "json", "html", "dockerfile", "elixir",
+            "cmake", "yaml", "erlang"
+        },
         highlight = {
             enable = true, -- false will disable the whole extension
-            use_languagetree = true,
+            use_languagetree = true
         },
-        indent = {
-            enable = true,
-        },
-        matchup = {
-            enable = true
-        },
+        indent = { enable = true },
+        matchup = { enable = true },
         rainbow = {
-            enable = true,
+            enable = true
             -- extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
             -- max_file_lines = nil, -- Do not enable for files with more than n lines, int
         },
@@ -24,9 +22,9 @@ return function()
                 init_selection = 'gnn',
                 node_incremental = 'grn',
                 scope_incremental = 'grc',
-                node_decremental = 'grm',
-            },
-        },
+                node_decremental = 'grm'
+            }
+        }
         -- textobjects = {
         --     swap = {
         --         enable = true,

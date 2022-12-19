@@ -2,7 +2,7 @@ return function()
     require('lualine').setup {
         options = {
             theme = 'auto',
-            section_separators = { left = '', right = ''},
+            section_separators = { left = '', right = '' },
             component_separators = { left = '⎰', right = '⎱' },
             icons_enabled = true
         },
@@ -24,6 +24,6 @@ return function()
             lualine_y = {},
             lualine_z = {}
         },
-        extensions = {'fzf', 'nvim-tree', 'fugitive'}
+        extensions = { 'fzf', 'nvim-tree', 'fugitive' }
     }
 end

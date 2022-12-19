@@ -35,7 +35,6 @@ return require('packer').startup(function()
     }
 
     -- langs
-    use { 'Mofiqul/dracula.nvim' }
     use {
         'nvim-tree/nvim-tree.lua',
 
@@ -101,6 +100,5 @@ return require('packer').startup(function()
 
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
     use { 'windwp/nvim-spectre', requires = { 'nvim-lua/plenary.nvim' } }
-    -- use({ 'p00f/alabaster.nvim' })
-
+    use({ 'p00f/alabaster.nvim' })
 end)

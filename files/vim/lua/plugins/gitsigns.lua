@@ -1,11 +1,36 @@
 return function()
    require('gitsigns').setup({
       signs = {
-         add          = { hl = 'GitSignsAdd', text = '+', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
-         change       = { hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
-         delete       = { hl = 'GitSignsDelete', text = '-', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
-         topdelete    = { hl = 'GitSignsDelete', text = '-', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
-         changedelete = { hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+         add = {
+            hl = 'GitSignsAdd',
+            text = '+',
+            numhl = 'GitSignsAddNr',
+            linehl = 'GitSignsAddLn'
+         },
+         change = {
+            hl = 'GitSignsChange',
+            text = '~',
+            numhl = 'GitSignsChangeNr',
+            linehl = 'GitSignsChangeLn'
+         },
+         delete = {
+            hl = 'GitSignsDelete',
+            text = '-',
+            numhl = 'GitSignsDeleteNr',
+            linehl = 'GitSignsDeleteLn'
+         },
+         topdelete = {
+            hl = 'GitSignsDelete',
+            text = '-',
+            numhl = 'GitSignsDeleteNr',
+            linehl = 'GitSignsDeleteLn'
+         },
+         changedelete = {
+            hl = 'GitSignsChange',
+            text = '~',
+            numhl = 'GitSignsChangeNr',
+            linehl = 'GitSignsChangeLn'
+         }
       },
       on_attach = function(bufnr)
          local gs = package.loaded.gitsigns
@@ -36,7 +61,9 @@ return function()
          map('n', '<leader>hu', gs.undo_stage_hunk)
          map('n', '<leader>hR', gs.reset_buffer)
          map('n', '<leader>hp', gs.preview_hunk)
-         map('n', '<leader>hb', function() gs.blame_line { full = true } end)
+         map('n', '<leader>hb', function()
+            gs.blame_line { full = true }
+         end)
          map('n', '<leader>tb', gs.toggle_current_line_blame)
          map('n', '<leader>hd', gs.diffthis)
          map('n', '<leader>hD', function() gs.diffthis('~') end)
