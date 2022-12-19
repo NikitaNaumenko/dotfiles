@@ -9,9 +9,8 @@ export ZSH=~/.oh-my-zsh
 export EDITOR=nvim
 
 NPM_PACKAGES="${HOME}/.npm"
-# ZSH_THEME="spaceship"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-BAT_THEME="GitHub"
+BAT_THEME="ansi"
 
 export PATH="$PATH:$NPM_PACKAGES/bin"
 export PATH="$HOME/go/bin:$PATH"

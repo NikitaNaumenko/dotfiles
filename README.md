@@ -17,10 +17,10 @@
 * [tmux](https://github.com/tmux/tmux/wiki)
 * [tpm](https://github.com/tmux-plugins/tpm)
 ### UI
-* [Dracula](https://draculatheme.com)
-* [iA Writer Mono](https://github.com/iaolo/iA-Fonts)
+* [Alabaster](https://github.com/p00f/alabaster.nvim)
+* [Meslo NF](https://github.com/romkatv/powerlevel10k#fonts)
 # Other
 * [FZF](https://github.com/junegunn/fzf)
 * [Bat](https://github.com/sharkdp/bat)
 * [delta](https://github.com/dandavison/delta)
-* Spaceship(zsh theme)
+* [powerlevel10k](https://github.com/romkatv/powerlevel10k)

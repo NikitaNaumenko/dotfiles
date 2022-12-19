@@ -9,11 +9,11 @@
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
 import:
-  - ~/.config/alacritty/dracula.yml
+  - ~/.config/alacritty/alacritty_theme.yml
 #  - /path/to/alacritty.yml
 env:
-  TERM: xterm-256color
-  # TERM: alacritty
+  # TERM: xterm-256color
+  TERM: alacritty
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
