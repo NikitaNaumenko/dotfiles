@@ -70,7 +70,6 @@ return require('packer').startup(function()
             { 'saadparwaiz1/cmp_luasnip' }, { 'hrsh7th/cmp-nvim-lsp' },
             { 'hrsh7th/cmp-nvim-lua' }, -- Snippets
             { 'L3MON4D3/LuaSnip' }, { 'rafamadriz/friendly-snippets' }
-            -- { "jayp0521/mason-nvim-dap.nvim" }
         }
     }
     use { "jose-elias-alvarez/null-ls.nvim" }
@@ -100,5 +99,5 @@ return require('packer').startup(function()
 
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
     use { 'windwp/nvim-spectre', requires = { 'nvim-lua/plenary.nvim' } }
-    use({ 'p00f/alabaster.nvim' })
+    use { 'p00f/alabaster.nvim' }
 end)

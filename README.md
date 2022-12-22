@@ -24,3 +24,10 @@
 * [Bat](https://github.com/sharkdp/bat)
 * [delta](https://github.com/dandavison/delta)
 * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+### NOTES:
+If you Mac user, please disable apple font smoothing
+
+```sh
+defaults -currentHost write -g AppleFontSmoothing -int 0
+```
+
