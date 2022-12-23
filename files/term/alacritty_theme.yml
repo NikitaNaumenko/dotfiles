@@ -5,8 +5,8 @@ colors:
     background: "#F7F7F7"
     foreground: "#000000"
   cursor:
-    text: "#448C27"
-    cursor: "#000000"
+   text: CellBackground
+   cursor: CellForeground
   normal:
     black: "#000000"
     red: "#AA3731"
