@@ -100,4 +100,6 @@ return require('packer').startup(function()
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
     use { 'windwp/nvim-spectre', requires = { 'nvim-lua/plenary.nvim' } }
     use { 'p00f/alabaster.nvim' }
+    use { 'hkupty/iron.nvim' }
+
 end)
