@@ -1,4 +1,4 @@
-local servers = { 'sumneko_lua', 'tsserver', 'solargraph', 'elixirls' }
+local servers = { 'sumneko_lua', 'tsserver', 'solargraph', 'elixirls', 'erlangls' }
 
 local lsp = require('lsp-zero')
 lsp.preset('recommended')

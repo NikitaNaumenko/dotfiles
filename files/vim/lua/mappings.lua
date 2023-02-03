@@ -52,6 +52,10 @@ vim.api.nvim_set_keymap('n', '<leader>L',
     ,
     {})
 
+vim.keymap.set('n', '<space>rs', '<cmd>IronRepl<cr>')
+vim.keymap.set('n', '<space>rr', '<cmd>IronRestart<cr>')
+vim.keymap.set('n', '<space>rf', '<cmd>IronFocus<cr>')
+vim.keymap.set('n', '<space>rh', '<cmd>IronHide<cr>')
 -- nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
 
 -- "search current word

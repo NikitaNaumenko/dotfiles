@@ -3,7 +3,7 @@ import:
 env:
   TERM: alacritty
 window:
-  startup_mode: SimpleFullScreen
+  # startup_mode: SimpleFullScreen
   title: Alacritty
   dynamic_title: true
 scrolling:
@@ -31,7 +31,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 15.0
+  size: 18.0
 
 # Bell
 #
