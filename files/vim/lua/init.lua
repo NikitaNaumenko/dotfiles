@@ -1,6 +1,6 @@
 -- ORDER IMPORTANT --
+require("settings")
 require("plugins")
 require("plugins.init")
-require("settings")
 require("mappings")
 require("lsp")

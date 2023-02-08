@@ -19,38 +19,7 @@ vim.api.nvim_set_keymap('n', '<leader>gf', '<cmd>Telescope git_files<CR>',
 vim.api.nvim_set_keymap('n', '<leader>aa', '<cmd>Telescope live_grep<CR>',
                         {noremap = true})
 
-vim.api.nvim_set_keymap('n', '<leader>s',
-                        "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = false })<cr>",
-                        {})
-vim.api.nvim_set_keymap('n', 'S',
-                        "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = false })<cr>",
-                        {})
 
-vim.api.nvim_set_keymap('', '<leader>t',
-                        "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>",
-                        {})
-vim.api.nvim_set_keymap('', '<leader>T',
-                        "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>",
-                        {})
-
-vim.api.nvim_set_keymap('n', '<leader>w',
-                        "<cmd>lua require'hop'.hint_words({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR})<cr>",
-                        {})
-vim.api.nvim_set_keymap('n', '<leader>W',
-                        "<cmd>lua require'hop'.hint_words({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR })<cr>",
-                        {})
-
-vim.api.nvim_set_keymap('n', '<leader>l',
-                        "<cmd>lua require'hop'.hint_lines({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR})<cr>",
-                        {})
-vim.api.nvim_set_keymap('n', '<leader>L',
-                        "<cmd>lua require'hop'.hint_lines({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = false })<cr>",
-                        {})
-
-vim.keymap.set('n', '<space>rs', '<cmd>IronRepl<cr>')
-vim.keymap.set('n', '<space>rr', '<cmd>IronRestart<cr>')
-vim.keymap.set('n', '<space>rf', '<cmd>IronFocus<cr>')
-vim.keymap.set('n', '<space>rh', '<cmd>IronHide<cr>')
 vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>:TestNearest<cr>',
                         {silent = true})
 vim.api.nvim_set_keymap('n', '<leader>T', '<cmd>:TestFile<cr>', {silent = true})
@@ -60,8 +29,17 @@ vim.api.nvim_set_keymap('n', '<leader>l', '<cmd>:TestLast<cr>', {silent = true})
 vim.api
     .nvim_set_keymap('n', '<leader>g', '<cmd>:TestVisit<cr>', {silent = true})
 
+vim.keymap.set('n', '<leader>of', function()
+    hop.hint_char1({
+        direction = directions.BEFORE_CURSOR,
+        current_line_only = true
+    })
+end, {remap = true})
+
 -- "search current word
 -- nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
 -- vnoremap <leader>s <esc>:lua require('spectre').open_visual()<CR>
 -- "  search in current file
 -- nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
+--
+--
