@@ -38,9 +38,8 @@ end, {})
 
 vim.keymap.set('', '<leader>S', function()
     hop.hint_char1({
-        direction = directions.AFTER_CURSOR,
+        direction = directions.BEFORE_CURSOR,
         current_line_only = false
-
     })
 end, {})
 

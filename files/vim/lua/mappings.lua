@@ -28,18 +28,3 @@ vim.api
 vim.api.nvim_set_keymap('n', '<leader>l', '<cmd>:TestLast<cr>', {silent = true})
 vim.api
     .nvim_set_keymap('n', '<leader>g', '<cmd>:TestVisit<cr>', {silent = true})
-
-vim.keymap.set('n', '<leader>of', function()
-    hop.hint_char1({
-        direction = directions.BEFORE_CURSOR,
-        current_line_only = true
-    })
-end, {remap = true})
-
--- "search current word
--- nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
--- vnoremap <leader>s <esc>:lua require('spectre').open_visual()<CR>
--- "  search in current file
--- nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
---
---
