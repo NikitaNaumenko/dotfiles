@@ -1,7 +1,7 @@
 require"nvim-treesitter.configs".setup {
     ensure_installed = {
         "lua", "ruby", "javascript", "json", "html", "dockerfile", "elixir",
-        "cmake", "yaml", "erlang"
+        "cmake", "yaml", "erlang", "heex"
     },
     highlight = {
         enable = true, -- false will disable the whole extension

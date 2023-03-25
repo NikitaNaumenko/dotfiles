@@ -3,7 +3,6 @@ local fn = vim.fn
 
 local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
 
-
 if fn.empty(fn.glob(install_path)) > 0 then
     execute('!git clone https://github.com/wbthomason/packer.nvim ' ..
                 install_path)
@@ -104,11 +103,5 @@ return require('packer').startup(function()
     }
 
     -- Others --
-    use {
-        'phaazon/mind.nvim',
-        branch = 'v2.2',
-        requires = {'nvim-lua/plenary.nvim'},
-        config = function() require'mind'.setup() end
-    }
     use {'mrjones2014/legendary.nvim'}
 end)
