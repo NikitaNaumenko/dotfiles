@@ -15,7 +15,7 @@
 	navigate = true
 	line-numbers = true
 	side-by-side = true
-	syntax-theme = Nord
+	syntax-theme = Dracula
 [merge]
     conflictstyle = diff3
 [diff]

@@ -10,7 +10,7 @@ export EDITOR=nvim
 
 NPM_PACKAGES="${HOME}/.npm"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-BAT_THEME="Nord"
+BAT_THEME="Dracula"
 
 export PATH="$PATH:$NPM_PACKAGES/bin"
 export PATH="$HOME/go/bin:$PATH"

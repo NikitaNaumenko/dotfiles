@@ -65,7 +65,7 @@ return require('packer').startup(function()
     }
 
     -- Colorscheme --
-    use 'shaunsingh/nord.nvim'
+    use {'Mofiqul/dracula.nvim'}
 
     -- Treesitter --
     use {'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"}
