@@ -12,17 +12,12 @@ echo -e "\n--------------Setup Utils--------------\n"
 brew install \
   coreutils automake autoconf openssl \
   libyaml readline libxslt libtool unixodbc \
-  unzip curl gpg git bat htop fzf diff-so-fancy tmux
+  unzip curl gpg git bat htop fzf git-delta tmux \
+  gnu-sed
 
 echo -e "\n--------------Configure Tmux--------------\n"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-echo -e "\n--------------Configure Git--------------\n"
-git config --global user.name "Nikita Naumenko"
-git config --global user.email naumenkoniki@gmail.com
-git config --global core.editor nvim
-
-git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 $(brew --prefix)/opt/fzf/install
 
 echo -e "\n--------------Create SSH--------------\n"

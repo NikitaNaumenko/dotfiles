@@ -1,12 +1,12 @@
-local servers = { 'sumneko_lua', 'tsserver', 'solargraph', 'elixirls', 'erlangls' }
+-- local servers = { 'lua_ls', 'tsserver', 'solargraph', 'elixirls', 'erlangls' }
+local servers = {'elixirls'}
 
-local lsp = require('lsp-zero')
-lsp.preset('recommended')
+local lsp = require('lsp-zero').preset('recommended')
 
 lsp.ensure_installed(servers)
 lsp.nvim_workspace()
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_client, bufnr)
   local opts = { noremap = true, silent = true }
   local function buf_set_keymap(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -17,19 +17,11 @@ lsp.on_attach(function(client, bufnr)
   buf_set_keymap('n', '<space>f', '<cmd>LspZeroFormat<CR>', opts)
 end)
 
-lsp.configure('elixirls', { flags = { debounce_text_changes = 150 } })
-lsp.configure('sumneko_lua', {
-  settings = {
-    Lua = {
-      runtime = { version = "LuaJIT" },
-      diagnostics = { globals = { "vim", "use" } },
-      workspace = {
-        library = { library = vim.api.nvim_get_runtime_file("", true) }
-      },
-      telemetry = { enable = false }
-    }
-  }
-})
+for _, server in pairs(servers) do
+  local config  = require("lsp.servers.".. server)
+  lsp.configure(server, config)
+end
+
 
 local null_ls = require('null-ls')
 local null_opts = lsp.build_options('null-ls', {})
