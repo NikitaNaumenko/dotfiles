@@ -31,7 +31,6 @@ return require('packer').startup(function()
     requires = { 'nvim-lua/plenary.nvim' }
   }
   use { 'windwp/nvim-spectre', requires = { 'nvim-lua/plenary.nvim' } }
-  use { 'vim-test/vim-test' }
   use { 'hkupty/iron.nvim' }
   use {
     "akinsho/toggleterm.nvim",
@@ -100,13 +99,9 @@ return require('packer').startup(function()
       { -- Optional
         'williamboman/mason.nvim',
         run = function() pcall(vim.cmd, 'MasonUpdate') end
-      },
-      { 'williamboman/mason-lspconfig.nvim' },
-      { 'hrsh7th/cmp-buffer' },
-      { 'hrsh7th/cmp-path' },
-      { 'hrsh7th/cmp-nvim-lua' },
-      { 'saadparwaiz1/cmp_luasnip' },
-      { 'rafamadriz/friendly-snippets' }
+      }, { 'williamboman/mason-lspconfig.nvim' }, { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' }, { 'hrsh7th/cmp-nvim-lua' },
+      { 'saadparwaiz1/cmp_luasnip' }, { 'rafamadriz/friendly-snippets' }
     }
   }
 
@@ -126,4 +121,12 @@ return require('packer').startup(function()
 
   -- Others --
   use { 'mrjones2014/legendary.nvim' }
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim", "jfpedroza/neotest-elixir"
+
+    }
+  }
 end)
