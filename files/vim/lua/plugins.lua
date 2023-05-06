@@ -64,6 +64,7 @@ return require('packer').startup(function()
 
   -- Colorscheme --
   use { 'Mofiqul/dracula.nvim' }
+  use {'p00f/alabaster.nvim'}
 
   -- Treesitter --
   use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate" }
@@ -111,6 +112,7 @@ return require('packer').startup(function()
     requires = "kyazdani42/nvim-web-devicons",
     config = function() require("trouble").setup {} end
   }
+  use { "zbirenbaum/copilot.lua" }
 
   -- UI --
   use { 'hoob3rt/lualine.nvim' }

@@ -1,13 +1,13 @@
 require('lualine').setup {
     options = {
         theme = 'auto',
-        section_separators = {left = '', right = ''},
+        section_separators = {left = ' ', right = ' '},
         component_separators = {left = '⎰', right = '⎱'},
         icons_enabled = true
     },
     sections = {
         lualine_a = {{'mode', upper = true, icon = 'ﲵ'}},
-        lualine_b = {{'branch', icon = ''}},
+        lualine_b = {{'branch', icon = ''}},
         lualine_c = {{'filename', file_status = true, path = 1}},
         lualine_x = {'encoding', 'fileformat', {'filetype', colored = false}},
         lualine_y = {{'diagnostics', sources = {'nvim_lsp'}}},
