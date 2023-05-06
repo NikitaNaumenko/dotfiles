@@ -68,6 +68,7 @@ return require('packer').startup(function()
 
   -- Treesitter --
   use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate" }
+  use {'nvim-treesitter/playground'}
   use {
     'andymass/vim-matchup',
     'nvim-treesitter/nvim-treesitter-textobjects',
