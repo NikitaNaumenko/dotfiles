@@ -1,5 +1,5 @@
 -- local servers = { 'lua_ls', 'tsserver', 'solargraph', 'elixirls', 'erlangls' }
-local servers = {'elixirls'}
+local servers = {'elixirls', 'gopls'}
 
 local lsp = require('lsp-zero').preset('recommended')
 
