@@ -64,11 +64,11 @@ return require('packer').startup(function()
 
   -- Colorscheme --
   use { 'Mofiqul/dracula.nvim' }
-  use {'p00f/alabaster.nvim'}
+  use { 'p00f/alabaster.nvim' }
 
   -- Treesitter --
   use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate" }
-  use {'nvim-treesitter/playground'}
+  use { 'nvim-treesitter/playground' }
   use {
     'andymass/vim-matchup',
     'nvim-treesitter/nvim-treesitter-textobjects',
@@ -113,7 +113,28 @@ return require('packer').startup(function()
     requires = "kyazdani42/nvim-web-devicons",
     config = function() require("trouble").setup {} end
   }
-  use { "zbirenbaum/copilot.lua" }
+  use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          debounce = 75,
+          keymap = {
+            accept = "<C-l>",
+            accept_word = false,
+            accept_line = false,
+            next = "<C-}>",
+            prev = "<C-{>",
+            dismiss = "<C-d>"
+          }
+        }
+      })
+    end
+  }
 
   -- UI --
   use { 'hoob3rt/lualine.nvim' }
