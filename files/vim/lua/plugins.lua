@@ -135,7 +135,6 @@ return require('packer').startup(function()
       })
     end
   }
-
   -- UI --
   use { 'hoob3rt/lualine.nvim' }
   use {
@@ -143,6 +142,7 @@ return require('packer').startup(function()
     requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } }
   }
 
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   -- Others --
   use { 'mrjones2014/legendary.nvim' }
   use {
