@@ -1,5 +1,4 @@
--- local servers = { 'lua_ls', 'tsserver', 'solargraph', 'elixirls', 'erlangls' }
-local servers = {'elixirls', 'gopls'}
+local servers = { 'elixirls' }
 
 local lsp = require('lsp-zero').preset('recommended')
 
@@ -12,16 +11,16 @@ lsp.on_attach(function(_client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
 
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.execute_command(spec)<CR>', opts)
   buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>',
     opts)
   buf_set_keymap('n', '<space>f', '<cmd>LspZeroFormat<CR>', opts)
 end)
 
 for _, server in pairs(servers) do
-  local config  = require("lsp.servers.".. server)
+  local config = require("lsp.servers." .. server)
   lsp.configure(server, config)
 end
-
 
 local null_ls = require('null-ls')
 local null_opts = lsp.build_options('null-ls', {})

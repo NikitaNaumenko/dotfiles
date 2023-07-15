@@ -12,8 +12,12 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: "iMWritingMonoS Nerd Font"
+    family: "MesloLGS Nerd Font"
     style: Regular
+  # normal:
+  #   family: "iMWritingMonoS Nerd Font"
+  #   style: Regular
+
 
   # # Bold font face
   # bold:
