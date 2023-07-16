@@ -1,101 +1,64 @@
 local wezterm = require 'wezterm'
-
--- local format_title = function(title, is_active, max_width)
---     local background = {Background = {Color = '#1f1f28'}}
---     local title_len = #title
---     local pad_len = math.floor((max_width - title_len) / 2)
-
---     local formatted_title = {
---         Text = string.rep(' ', pad_len) .. title .. string.rep(' ', pad_len)
---     }
---     if is_active then
---         return {background, {Foreground = {Color = '#957fb8'}}, formatted_title}
---     else
---         return {background, {Foreground = {Color = '#cad3f5'}}, formatted_title}
---     end
--- end
+local SOLID_LEFT_ARROW = wezterm.nerdfonts.ple_left_half_circle_thick
+-- The filled in variant of the > symbol
+local SOLID_RIGHT_ARROW = wezterm.nerdfonts.ple_right_half_circle_thick
+function tab_title(tab_info)
+  local title = tab_info.tab_title
+  -- if the tab title is explicitly set, take that
+  if title and #title > 0 then return title end
+  -- Otherwise, use the title from the active pane
+  -- in that tab
+  return tab_info.active_pane.title
+end
 
 -- local user_var_tab_title_key = 'tab_title';
--- wezterm.on('format-tab-title',
---            function(tab, tabs, panes, config, hover, max_width)
---     -- if there is title already set, proceed with it
---     if type(tab.tab_title) == 'string' and #tab.tab_title > 0 then
---         return format_title(tab.tab_title, tab.is_active, max_width)
---     end
---     return format_title('temp', tab.is_active, max_width)
--- end)
+wezterm.on('format-tab-title',
+  function(tab, tabs, panes, config, hover, max_width)
+    local edge_background = '#f7f7f7'
+    local background = '#f7f7f7'
+    local foreground = '#000000'
 
--- wezterm.on('update-right-status', function(window)
---     local date = wezterm.strftime '%Y-%m-%d %H:%M:%S'
---     window:set_right_status({Foreground = {Color = '#cad3f5'}},
---                             wezterm.format {{Text = ' ' .. date .. ' '}})
--- end)
+    if tab.is_active then
+      background = '#000000'
+      foreground = '#f7f7f7'
+    elseif hover then
+      background = '#5c5c5c'
+      foreground = '#f7f7f7'
+    end
 
--- wezterm.on('user-var-changed', function(window, pane, name, value)
---     wezterm.log_info('user-var-changed', name, value)
---     if name == user_var_tab_title_key then pane:tab():set_title(value) end
--- end)
+    local edge_foreground = background
+
+    local title = tab_title(tab)
+
+    -- ensure that the titles fit in the available space,
+    -- and that we have room for the edges.
+    title = wezterm.truncate_right(title, max_width - 2)
+
+    return {
+      { Background = { Color = edge_background } },
+      { Foreground = { Color = edge_foreground } }, { Text = SOLID_LEFT_ARROW },
+      { Background = { Color = background } },
+      { Foreground = { Color = foreground } }, { Text = title },
+      { Background = { Color = edge_background } },
+      { Foreground = { Color = edge_foreground } }, { Text = SOLID_RIGHT_ARROW }
+    }
+  end)
 
 return {
   font = wezterm.font 'JetBrains Mono',
   font_size = 18,
   -- dpi = 144.0,
-  tab_max_width = 14,
+  tab_max_width = 8,
   color_scheme = 'Alabaster',
-  -- colors = {
-  --     tab_bar = {
-  --         -- The color of the inactive tab bar edge/divider
-  --         background = '#1f1f28',
-  --         new_tab = {bg_color = '#1f1f28', fg_color = '#dcd7ba'}
-  --     },
-  --     foreground = '#dcd7ba',
-  --     background = '#1f1f28',
+  colors = {
+    tab_bar = {
+      -- The color of the inactive tab bar edge/divider
+      background = '#f7f7f7',
+      new_tab = { bg_color = '#f7f7f7', fg_color = '#000000' }
+    }
 
-  --     cursor_bg = '#c8c093',
-  --     cursor_fg = '#c8c093',
-  --     cursor_border = '#c8c093',
-
-  --     selection_fg = '#c8c093',
-  --     selection_bg = '#2d4f67',
-
-  --     scrollbar_thumb = '#16161d',
-  --     split = '#16161d',
-
-  --     ansi = {
-  --         '#090618',
-  --         '#c34043',
-  --         '#76946a',
-  --         '#c0a36e',
-  --         '#7e9cd8',
-  --         '#957fb8',
-  --         '#6a9589',
-  --         '#c8c093'
-  --     },
-  --     brights = {
-  --         '#727169',
-  --         '#e82424',
-  --         '#98bb6c',
-  --         '#e6c384',
-  --         '#7fb4ca',
-  --         '#938aa9',
-  --         '#7aa89f',
-  --         '#dcd7ba'
-  --     },
-  --     indexed = {[16] = '#ffa066', [17] = '#ff5d62'}
-  -- },
-  -- window_decorations = 'RESIZE',
-  -- window_background_opacity = 0.9,
+  },
   window_padding = { left = 2, right = 0, top = 0, bottom = 0 },
-  -- window_frame = {
-  --   border_left_width = '0.5cell',
-  --   border_right_width = '0.5cell',
-  --   border_bottom_height = '0.25cell',
-  --   border_top_height = '0.25cell',
-  --   border_left_color = 'purple',
-  --   border_right_color = 'purple',
-  --   border_bottom_color = 'purple',
-  --   border_top_color = 'purple'
-  -- },
   tab_bar_at_bottom = true,
   use_fancy_tab_bar = false
 }
