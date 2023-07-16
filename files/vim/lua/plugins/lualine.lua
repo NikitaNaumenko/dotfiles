@@ -1,29 +1,3 @@
-require('lualine').setup {
-  -- options = {
-  --     theme = 'auto',
-  --     section_separators = {left = ' ', right = ' '},
-  --     component_separators = {left = '⎰', right = '⎱'},
-  --     icons_enabled = true
-  -- },
-  -- sections = {
-  --     lualine_a = {{'mode', upper = true, icon = 'ﲵ'}},
-  --     lualine_b = {{'branch', icon = ''}},
-  --     lualine_c = {{'filename', file_status = true, path = 1}},
-  --     lualine_x = {'encoding', 'fileformat', {'filetype', colored = false}},
-  --     lualine_y = {{'diagnostics', sources = {'nvim_lsp'}}},
-  --     lualine_z = {'location'}
-  -- },
-  -- inactive_sections = {
-  --     lualine_a = {},
-  --     lualine_b = {},
-  --     lualine_c = {'filename'},
-  --     lualine_x = {'location'},
-  --     lualine_y = {},
-  --     lualine_z = {}
-  -- },
-  -- extensions = {'fzf', 'nvim-tree', 'fugitive'}
-}
-
 local colors = {
   red = '#aa3731',
   grey = '#a0a1a7',
@@ -106,18 +80,6 @@ require('lualine').setup {
     lualine_a = { 'mode' },
     lualine_b = {
       'branch', {
-        'diff',
-        colored = true, -- Displays a colored diff status if set to true
-        diff_color = {
-          -- Same color values as the general color option can be used here.
-          -- added = 'DiffAdd', -- Changes the diff's added color
-          -- modified = 'DiffChange', -- Changes the diff's modified color
-          -- removed = 'DiffDelete' -- Changes the diff's removed color you
-          added = { bg = colors.white, fg = colors.green},
-          modified = {bg = colors.white, fg = colors.orange},
-          removed = { bg = colors.white, fg = colors.red}
-        }
-      }, {
         'diagnostics',
         source = { 'nvim' },
         sections = { 'error' },
@@ -140,8 +102,19 @@ require('lualine').setup {
       end }
     },
     lualine_c = {},
-    lualine_x = {},
-    lualine_y = { search_result, 'filetype' },
+    lualine_x = {
+      search_result, 'filetype', {
+        'diff',
+        colored = true, -- Displays a colored diff status if set to true
+        diff_color = {
+          added = { bg = colors.white, fg = colors.green },
+          modified = { bg = colors.white, fg = colors.orange },
+          removed = { bg = colors.white, fg = colors.red }
+        }
+      }
+    },
+    lualine_y = {},
+
     lualine_z = { '%l:%c', '%p%%/%L' }
   },
   inactive_sections = { lualine_c = { '%f %y %m' }, lualine_x = {} }
