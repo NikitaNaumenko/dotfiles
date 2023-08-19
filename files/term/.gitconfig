@@ -15,10 +15,8 @@
 	navigate = true
 	line-numbers = true
 	side-by-side = true
-	syntax-theme = GitHub
+	syntax-theme = Nord
 [merge]
     conflictstyle = diff3
 [diff]
     colorMoved = default
-[url "https://n.naumenko:GwQRSUv1JKPak_9_PzWW@git.uzum.io/"]
-	insteadOf = https://git.uzum.io
