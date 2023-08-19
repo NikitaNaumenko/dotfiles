@@ -63,8 +63,7 @@ return require('packer').startup(function()
   }
 
   -- Colorscheme --
-  use { 'Mofiqul/dracula.nvim' }
-  use { 'p00f/alabaster.nvim' }
+  use { 'arcticicestudio/nord-vim' }
 
   -- Treesitter --
   use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate" }

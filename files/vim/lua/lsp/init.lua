@@ -7,6 +7,7 @@ local elixir_tools = require('lsp.tools.elixir')
 lsp.ensure_installed(servers)
 lsp.nvim_workspace()
 
+vim.diagnostic.config({ virtual_text = false })
 lsp.on_attach(function(client, bufnr)
   elixir_tools.on_attach(client, bufnr)
 

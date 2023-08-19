@@ -1,7 +1,8 @@
 local wezterm = require 'wezterm'
-local SOLID_LEFT_ARROW = wezterm.nerdfonts.ple_left_half_circle_thick
+-- local SOLID_LEFT_ARROW = wezterm.nerdfonts.ple_upper_right_triangle
+
+-- local SOLID_RIGHT_ARROW = wezterm.nerdfonts.ple_lower_left_triangle
 -- The filled in variant of the > symbol
-local SOLID_RIGHT_ARROW = wezterm.nerdfonts.ple_right_half_circle_thick
 function tab_title(tab_info)
   local title = tab_info.tab_title
   -- if the tab title is explicitly set, take that
@@ -14,33 +15,38 @@ end
 -- local user_var_tab_title_key = 'tab_title';
 wezterm.on('format-tab-title',
   function(tab, tabs, panes, config, hover, max_width)
-    local edge_background = '#f7f7f7'
-    local background = '#f7f7f7'
-    local foreground = '#000000'
+    local edge_background = '#222436'
+    local background = '#2E3440'
+    local foreground = '#ECEFF4'
 
     if tab.is_active then
-      background = '#000000'
-      foreground = '#f7f7f7'
+      background = '#434C5E'
+      foreground = '#ECEFF4'
     elseif hover then
-      background = '#5c5c5c'
-      foreground = '#f7f7f7'
+      background = '#3B4252'
+      foreground = '#ECEFF4'
     end
 
     local edge_foreground = background
 
     local title = tab_title(tab)
 
+    local title_len = #title
+    local pad_len = math.floor((max_width - title_len) / 2)
+
+    local formatted_title = {
+      Text = string.rep(' ', pad_len) .. title .. string.rep(' ', pad_len)
+    }
     -- ensure that the titles fit in the available space,
     -- and that we have room for the edges.
-    title = wezterm.truncate_right(title, max_width - 2)
 
     return {
       { Background = { Color = edge_background } },
-      { Foreground = { Color = edge_foreground } }, { Text = SOLID_LEFT_ARROW },
+      { Foreground = { Color = edge_foreground } },
       { Background = { Color = background } },
-      { Foreground = { Color = foreground } }, { Text = title },
+      { Foreground = { Color = foreground } }, formatted_title,
       { Background = { Color = edge_background } },
-      { Foreground = { Color = edge_foreground } }, { Text = SOLID_RIGHT_ARROW }
+      { Foreground = { Color = edge_foreground } }
     }
   end)
 
@@ -48,17 +54,17 @@ return {
   font = wezterm.font 'JetBrains Mono',
   font_size = 18,
   -- dpi = 144.0,
-  tab_max_width = 8,
-  color_scheme = 'Alabaster',
+  tab_max_width = 20,
+  color_scheme = 'nord',
   colors = {
     tab_bar = {
       -- The color of the inactive tab bar edge/divider
-      background = '#f7f7f7',
-      new_tab = { bg_color = '#f7f7f7', fg_color = '#000000' }
+      background = '#2E3440',
+      new_tab = { bg_color = '#2E3440', fg_color = '#ECEFF4' }
     }
 
   },
-  window_padding = { left = 2, right = 0, top = 0, bottom = 0 },
+  window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
   tab_bar_at_bottom = true,
   use_fancy_tab_bar = false
 }
