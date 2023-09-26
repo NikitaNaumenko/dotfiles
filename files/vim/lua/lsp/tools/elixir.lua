@@ -64,10 +64,10 @@ end
 
 M.on_attach = function(client, bufnr)
   local add_user_cmd = vim.api.nvim_buf_create_user_command
-  vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-    buffer = bufnr,
-    callback = vim.lsp.codelens.refresh
-  })
+  -- vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+  --   buffer = bufnr,
+  --   callback = vim.lsp.codelens.refresh
+  -- })
   -- vim.lsp.codelens.refresh()
   add_user_cmd(bufnr, "ElixirFromPipe", M.from_pipe(client), {})
   add_user_cmd(bufnr, "ElixirToPipe", M.to_pipe(client), {})

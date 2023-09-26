@@ -1,7 +1,5 @@
 local wezterm = require 'wezterm'
--- local SOLID_LEFT_ARROW = wezterm.nerdfonts.ple_upper_right_triangle
 
--- local SOLID_RIGHT_ARROW = wezterm.nerdfonts.ple_lower_left_triangle
 -- The filled in variant of the > symbol
 function tab_title(tab_info)
   local title = tab_info.tab_title
@@ -51,7 +49,7 @@ wezterm.on('format-tab-title',
   end)
 
 return {
-  font = wezterm.font 'JetBrains Mono',
+  font = wezterm.font 'iMWritingMonoS Nerd Font',
   font_size = 18,
   -- dpi = 144.0,
   tab_max_width = 20,

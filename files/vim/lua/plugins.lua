@@ -1,155 +1,92 @@
-local execute = vim.api.nvim_command
-local fn = vim.fn
-
-local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
-
-if fn.empty(fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim ' ..
-    install_path)
-  execute 'packadd packer.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath
+    })
 end
+vim.opt.rtp:prepend(lazypath)
 
-execute('packadd packer.nvim')
-
-return require('packer').startup(function()
-  -- Packer can manage itself as an optional plugin
-  -- ?
-  use { 'wbthomason/packer.nvim', opt = true }
-
-  -- Utilities
-  use { 'tpope/vim-commentary' }
-  use { 'tpope/vim-surround' }
-  use { 'tpope/vim-repeat' }
-  use { 'tpope/vim-unimpaired' }
-  use {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  }
-  use {
-    'lewis6991/gitsigns.nvim',
-    tag = 'release',
-    requires = { 'nvim-lua/plenary.nvim' }
-  }
-  use { 'windwp/nvim-spectre', requires = { 'nvim-lua/plenary.nvim' } }
-  use { 'hkupty/iron.nvim' }
-  use {
-    "akinsho/toggleterm.nvim",
-    tag = '*',
-    config = function()
-      require("toggleterm").setup({ direction = "float" })
-    end
-  }
-
-  -- Navigation --
-  use {
-    "junegunn/fzf.vim",
-    requires = { { "junegunn/fzf", run = "./install --all" } }
-  }
-  use {
-    'phaazon/hop.nvim',
-    branch = 'v1',
-    config = function()
-      require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-    end
-  }
-  use {
-    'nvim-tree/nvim-tree.lua',
-
-    requires = {
-      'nvim-tree/nvim-web-devicons' -- optional, for file icons
+require("lazy").setup({
+    -- Utilities
+    {"tpope/vim-commentary"},
+    {"tpope/vim-surround"},
+    {"tpope/vim-repeat"},
+    {"tpope/vim-unimpaired"},
+    {"windwp/nvim-autopairs", event = "InsertEnter", opts = {}},
+    {"lewis6991/gitsigns.nvim", event = {"BufReadPre", "BufNewFile"}},
+    {'arcticicestudio/nord-vim'},
+    {"hkupty/iron.nvim"},
+    {'windwp/nvim-spectre'},
+    {"junegunn/fzf.vim", dependencies = {{"junegunn/fzf", build = "./install --all"}}},
+    {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {"nvim-tree/nvim-web-devicons"},
+        config = function() require("nvim-tree").setup {} end
     },
-    config = function() require 'nvim-tree'.setup {} end,
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
-  }
+    {'nvim-treesitter/nvim-treesitter', build = ":TSUpdate", event = {"BufReadPost", "BufNewFile"}},
+    {'nvim-treesitter/playground'},
+    {'andymass/vim-matchup'},
+    {'nvim-treesitter/nvim-treesitter-textobjects'},
+    {'hoob3rt/lualine.nvim'},
+    {'nvim-telescope/telescope.nvim'},
+    {'mrjones2014/legendary.nvim'},
+    {"nvim-neotest/neotest", dependencies = {"antoinemadec/FixCursorHold.nvim", "jfpedroza/neotest-elixir"}},
+    {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+            require("copilot").setup({
+                suggestion = {
+                    enabled = true,
+                    auto_trigger = true,
+                    debounce = 75,
+                    keymap = {
+                        accept = "<C-l>",
+                        accept_word = false,
+                        accept_line = false,
+                        next = "<C-}>",
+                        prev = "<C-{>",
+                        dismiss = "<C-d>"
+                    }
+                }
+            })
+        end
+    },
+    {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
 
-  -- Colorscheme --
-  use { 'arcticicestudio/nord-vim' }
+    --- Uncomment these if you want to manage LSP servers from neovim
+    {'williamboman/mason.nvim'},
+    {'williamboman/mason-lspconfig.nvim'},
 
-  -- Treesitter --
-  use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate" }
-  use { 'nvim-treesitter/playground' }
-  use {
-    'andymass/vim-matchup',
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    requires = { 'nvim-treesitter/nvim-treesitter' }
-  }
+    -- LSP Support
+    {'neovim/nvim-lspconfig', dependencies = {{'hrsh7th/cmp-nvim-lsp'}}},
 
-  -- LSP --
-  -- use {
-  --   'VonHeikemen/lsp-zero.nvim',
-  --   requires = {
-  --     -- LSP Support
-  --     { 'neovim/nvim-lspconfig' }, { 'williamboman/mason.nvim' },
-  --     { 'williamboman/mason-lspconfig.nvim' }, -- Autocompletion
-  --     { 'hrsh7th/nvim-cmp' }, { 'hrsh7th/cmp-buffer' }, { 'hrsh7th/cmp-path' },
-  --     { 'saadparwaiz1/cmp_luasnip' }, { 'hrsh7th/cmp-nvim-lsp' },
-  --     { 'hrsh7th/cmp-nvim-lua' }, -- Snippets
-  --     { 'L3MON4D3/LuaSnip' },
-  --   }
-  -- }
+    -- Autocompletion
+    {'hrsh7th/nvim-cmp'},
+    {
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!).
+        build = "make install_jsregexp",
+        dependencies = {"rafamadriz/friendly-snippets"}
+    },
+    {'hrsh7th/cmp-buffer'},
+    {'hrsh7th/cmp-path'},
+    {'hrsh7th/cmp-nvim-lua'},
 
-  use {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
-    requires = {
-      -- LSP Support
-      { 'neovim/nvim-lspconfig' }, -- Required
-      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      { 'hrsh7th/nvim-cmp' }, -- Required
-      { 'L3MON4D3/LuaSnip' }, -- Required
-      { -- Optional
-        'williamboman/mason.nvim',
-        run = function() pcall(vim.cmd, 'MasonUpdate') end
-      }, { 'williamboman/mason-lspconfig.nvim' }, { 'hrsh7th/cmp-buffer' },
-      { 'hrsh7th/cmp-path' }, { 'hrsh7th/cmp-nvim-lua' },
-      { 'saadparwaiz1/cmp_luasnip' }, { 'rafamadriz/friendly-snippets' }
-    }
-  }
+    {"jose-elias-alvarez/null-ls.nvim"},
+    {"folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons", config = function() require("trouble").setup {} end},
+    {"nvim-lua/plenary.nvim", lazy = true},
+    {"nvim-lua/popup.nvim", lazy = true},
+    {"ggandor/leap.nvim", config = function() require('leap').add_default_mappings() end}
 
-  use { "jose-elias-alvarez/null-ls.nvim" }
-  use {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function() require("trouble").setup {} end
-  }
-  use {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup({
-        suggestion = {
-          enabled = true,
-          auto_trigger = true,
-          debounce = 75,
-          keymap = {
-            accept = "<C-l>",
-            accept_word = false,
-            accept_line = false,
-            next = "<C-}>",
-            prev = "<C-{>",
-            dismiss = "<C-d>"
-          }
-        }
-      })
-    end
-  }
-  -- UI --
-  use { 'hoob3rt/lualine.nvim' }
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } }
-  }
-
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-  -- Others --
-  use { 'mrjones2014/legendary.nvim' }
-  use {
-    "nvim-neotest/neotest",
-    requires = {
-      "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim", "jfpedroza/neotest-elixir"
-
-    }
-  }
-end)
+})

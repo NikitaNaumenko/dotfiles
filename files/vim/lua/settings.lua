@@ -4,11 +4,11 @@ vim.o.shortmess = vim.o.shortmess .. "c"
 vim.o.completeopt = "menuone,noselect"
 vim.bo.matchpairs = "(:),{:},[:],<:>"
 
-vim.api.nvim_command('colorscheme nord')
+vim.cmd.colorscheme('nord')
 -- more info :h vim.o
 local editor_options = {
   compatible = false,
-  background = "light",
+  background = "dark",
 
   encoding = "UTF-8",
   fileencoding = "UTF-8",
@@ -30,9 +30,9 @@ local editor_options = {
   incsearch = true,
   ignorecase = true,
   showmode = false,
-  linespace = 2,
+  linespace = 0,
   termguicolors = true,
-  cmdheight = 2,
+  cmdheight = 1,
   updatetime = 100,
   timeoutlen = 500
 }
