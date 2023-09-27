@@ -49,7 +49,7 @@ wezterm.on('format-tab-title',
   end)
 
 return {
-  font = wezterm.font 'iMWritingMonoS Nerd Font',
+  font = wezterm.font 'Zed Mono',
   font_size = 18,
   -- dpi = 144.0,
   tab_max_width = 20,
