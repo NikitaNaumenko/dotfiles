@@ -4,7 +4,7 @@ vim.o.shortmess = vim.o.shortmess .. "c"
 vim.o.completeopt = "menuone,noselect"
 vim.bo.matchpairs = "(:),{:},[:],<:>"
 
-vim.cmd.colorscheme('nord')
+vim.cmd.colorscheme('kanagawa')
 -- more info :h vim.o
 local editor_options = {
   compatible = false,
