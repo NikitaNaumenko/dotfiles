@@ -1,8 +1,0 @@
-require("plugins.lualine")
-require("plugins.treesitter")
-require("plugins.gitsigns")
-require("plugins.iron")
-require("plugins.devicons")
--- require("plugins.hop")
-require("plugins.spectre")
-require("plugins.neotest")
