@@ -9,8 +9,9 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
 	change_detection = { notify = false },
 	spec = {
+		{ "tpope/vim-surround" },
 		-- add LazyVim and import its plugins
-		{ "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "kanagawa" } },
+		{ "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "github_light_default" } },
 		-- import any extras modules here
 		{ import = "lazyvim.plugins.extras.editor.leap" },
 		{ import = "lazyvim.plugins.extras.lang.typescript" },
@@ -23,7 +24,8 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.lang.ruby" },
 		{ import = "lazyvim.plugins.extras.lang.yaml" },
 		{ import = "lazyvim.plugins.extras.linting.eslint" },
-    { import = "lazyvim.plugins.extras.coding.copilot" },
+		{ import = "lazyvim.plugins.extras.coding.copilot" },
+		{ import = "lazyvim.plugins.extras.lang.tailwind" },
 
 		-- import/override with your plugins
 		{ import = "plugins" },
