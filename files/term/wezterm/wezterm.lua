@@ -53,7 +53,7 @@ return {
 	font_size = 18,
 	-- dpi = 144.0,
 	tab_max_width = 20,
-	force_reverse_video_cursor = true,
+	-- force_reverse_video_cursor = true,
 
 	colors = {
 		background = "#ffffff",
