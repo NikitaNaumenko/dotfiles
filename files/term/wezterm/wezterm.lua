@@ -14,9 +14,9 @@ end
 
 -- local user_var_tab_title_key = 'tab_title';
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	local edge_background = "#ffffff"
-	local background = "#ffffff"
-	local foreground = "#000000"
+	local edge_background = "#151515"
+	local foreground = "#ffffff"
+	local background = "#151515"
 
 	if tab.is_active then
 		background = "#bbdfff"
@@ -51,45 +51,46 @@ end)
 return {
 	font = wezterm.font("Zed Mono"),
 	font_size = 18,
-	-- dpi = 144.0,
+	dpi = 144.0,
 	tab_max_width = 20,
-	-- force_reverse_video_cursor = true,
+	force_reverse_video_cursor = true,
 
+	color_scheme = "Jellybeans",
 	colors = {
-		background = "#ffffff",
-		foreground = "#1F2328",
-
-		cursor_bg = "#1F2328",
-		cursor_border = "#1F2328",
-		cursor_fg = "#ffffff",
-
-		selection_bg = "#bbdfff",
-		selection_fg = "#1F2328",
-
-		ansi = {
-			"#24292f",
-			"#cf222e",
-			"#116329",
-			"#4d2d00",
-			"#0969da",
-			"#8250df",
-			"#1b7c83",
-			"#6e7781",
-		},
-		brights = {
-			"#57606a",
-			"#a40e26",
-			"#1a7f37",
-			"#633c01",
-			"#218bff",
-			"#a475f9",
-			"#3192aa",
-			"#8c959f",
-		},
+		-- 	background = "#ffffff",
+		-- 	foreground = "#1F2328",
+		--
+		-- 	cursor_bg = "#1F2328",
+		-- 	cursor_border = "#1F2328",
+		-- 	cursor_fg = "#ffffff",
+		--
+		-- 	selection_bg = "#bbdfff",
+		-- 	selection_fg = "#1F2328",
+		--
+		-- 	ansi = {
+		-- 		"#24292f",
+		-- 		"#cf222e",
+		-- 		"#116329",
+		-- 		"#4d2d00",
+		-- 		"#0969da",
+		-- 		"#8250df",
+		-- 		"#1b7c83",
+		-- 		"#6e7781",
+		-- 	},
+		-- 	brights = {
+		-- 		"#57606a",
+		-- 		"#a40e26",
+		-- 		"#1a7f37",
+		-- 		"#633c01",
+		-- 		"#218bff",
+		-- 		"#a475f9",
+		-- 		"#3192aa",
+		-- 		"#8c959f",
+		-- 	},
 		tab_bar = {
 			-- The color of the inactive tab bar edge/divider
-			background = "#ffffff",
-			new_tab = { bg_color = "#ffffff", fg_color = "#000000" },
+			background = "#151515",
+			new_tab = { bg_color = "#151515", fg_color = "#ffffff" },
 		},
 	},
 
