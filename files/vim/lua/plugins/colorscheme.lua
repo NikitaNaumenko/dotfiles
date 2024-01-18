@@ -1,5 +1,5 @@
 return {
 	{ "rktjmp/lush.nvim" },
-	{ "metalelf0/jellybeans-nvim" },
+	{ "NikitaNaumenko/jellybeans.nvim" },
 	-- { "projekt0n/github-nvim-theme" },
 }

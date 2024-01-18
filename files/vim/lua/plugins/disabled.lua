@@ -8,4 +8,5 @@ return {
 	{ "dstein64/vim-startuptime", enabled = false },
 	-- {"MunifTanjim/nui.nvim", enabled = false},
 	{ "goolord/alpha-nvim", enabled = false },
+	{ "ahmedkhalf/project.nvim", enabled = false },
 }
