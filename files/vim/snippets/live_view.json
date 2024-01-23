@@ -1,0 +1,153 @@
+{
+  "lv_module": {
+    "prefix": "lv",
+    "body": [
+      "defmodule ${WORKSPACE_NAME/(.*)/${1:/pascalcase}/g}Web.${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} do",
+      "  use ${WORKSPACE_NAME/(.*)/${1:/pascalcase}/g}Web, :live_view",
+      "  $0",
+      "end"
+    ],
+    "description": "LiveView module"
+  },
+  "lc_module": {
+    "prefix": "lc",
+    "body": [
+      "defmodule ${WORKSPACE_NAME/(.*)/${1:/pascalcase}/g}Web.${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} do",
+      "  use ${WORKSPACE_NAME/(.*)/${1:/pascalcase}/g}Web, :live_component",
+      "  $0",
+      "end"
+    ],
+    "description": "LiveComponent module"
+  },
+  "lv_mount": {
+    "prefix": "mount",
+    "body": [
+      "def mount(_params, _session, socket) do",
+      "  socket =",
+      "    assign(socket,",
+      "      ${1:key}: ${2:value}",
+      "    )",
+      "",
+      "  {:ok, socket}",
+      "end"
+    ],
+    "description": "LiveView mount function"
+  },
+  "lv_render": {
+    "prefix": "rend",
+    "body": [
+      "def render(assigns) do",
+      "  ~H\"\"\"",
+      "  ${0}",
+      "  \"\"\"",
+      "end"
+    ],
+    "description": "LiveView render function"
+  },
+  "lv_function_component": {
+    "prefix": "fc",
+    "body": [
+      "def ${1:name}(assigns) do",
+      "  ~H\"\"\"",
+      "  ${2}",
+      "  \"\"\"",
+      "end"
+    ],
+    "description": "LiveView function component"
+  },
+  "lv_handle_event": {
+    "prefix": "he",
+    "body": [
+      "def handle_event(${1:event}, _, socket) do",
+      "  {:noreply, socket}",
+      "end"
+    ],
+    "description": "LiveView handle_event function"
+  },
+  "lv_handle_event1": {
+    "prefix": "he1",
+    "body": [
+      "def handle_event(${1:event}, _, socket) do",
+      "  socket = assign(socket, ${2:key}: ${3:value})",
+      "  {:noreply, socket}",
+      "end"
+    ],
+    "description": "LiveView handle_event function"
+  },
+  "lv_handle_event2": {
+    "prefix": "he2",
+    "body": [
+      "def handle_event(${1:event}, _, socket) do",
+      "  socket =",
+      "    assign(socket,",
+      "      ${2:key}: ${3:value}",
+      "    )",
+      "",
+      "  {:noreply, socket}",
+      "end"
+    ],
+    "description": "LiveView handle_event function"
+  },
+  "lv_handle_info": {
+    "prefix": "hi",
+    "body": [
+      "def handle_info(${1:message}, socket) do",
+      "  {:noreply, socket}",
+      "end"
+    ],
+    "description": "LiveView handle_info function"
+  },
+  "lv_handle_info1": {
+    "prefix": "hi1",
+    "body": [
+      "def handle_info(${1:message}, socket) do",
+      "  socket = assign(socket, ${2:key}: ${3:value})",
+      "  {:noreply, socket}",
+      "end"
+    ],
+    "description": "LiveView handle_info function"
+  },
+  "lv_handle_info2": {
+    "prefix": "hi2",
+    "body": [
+      "def handle_info(${1:message}, socket) do",
+      "  socket =",
+      "    assign(socket,",
+      "      ${2:key}: ${3:value}",
+      "    )",
+      "",
+      "  {:noreply, socket}",
+      "end"
+    ],
+    "description": "LiveView handle_info function"
+  },
+  "lv_handle_params": {
+    "prefix": "hp",
+    "body": [
+      "def handle_params(${1:params}, _uri, socket) do",
+      "  {:noreply, socket}",
+      "end"
+    ],
+    "description": "LiveView handle_params function"
+  },
+  "lv_heex": {
+    "prefix": "h",
+    "body": ["~H\"\"\"", "${0}", "\"\"\""],
+    "description": "LiveView HEEx template"
+  },
+  "lv_assign": {
+    "prefix": "assign",
+    "body": ["socket =", "  assign(socket,", "    ${1:key}: ${2:value}", "  )"],
+    "description": "LiveView assign"
+  },
+  "insp": {
+    "prefix": "insp",
+    "body": "IO.inspect(self(), label: \"${0:label}\")",
+    "description": "Inspect process with a label"
+  },
+  "map": {
+    "prefix": "m",
+    "body": "%{\"${1}\" => ${2}}",
+    "description": "Elixir map"
+  }
+}

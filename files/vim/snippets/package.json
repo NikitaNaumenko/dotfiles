@@ -1,0 +1,10 @@
+{
+  "contributes": {
+    "snippets": [
+      {
+        "language": "elixir",
+        "path": "./live_view.json"
+      }
+    ]
+  }
+}

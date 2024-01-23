@@ -55,7 +55,7 @@ return {
 	tab_max_width = 20,
 	force_reverse_video_cursor = true,
 
-	color_scheme = "Jellybeans",
+	color_scheme = "Catppuccin Mocha",
 	colors = {
 		-- 	background = "#ffffff",
 		-- 	foreground = "#1F2328",
