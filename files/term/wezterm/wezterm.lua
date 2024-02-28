@@ -50,12 +50,12 @@ end)
 
 return {
 	font = wezterm.font("Zed Mono"),
-	font_size = 18,
-	dpi = 144.0,
+	font_size = 16,
+	-- dpi = 144.0,
 	tab_max_width = 20,
 	force_reverse_video_cursor = true,
 
-	color_scheme = "tokyonight_night",
+	color_scheme = "Solarized (light) (terminal.sexy)",
 	colors = {
 		tab_bar = {
 			background = "#1a1b26",

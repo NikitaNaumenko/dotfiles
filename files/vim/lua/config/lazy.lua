@@ -11,8 +11,21 @@ require("lazy").setup({
 	spec = {
 		{ "tpope/vim-surround" },
 		-- add LazyVim and import its plugins
-		{ "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "tokyonight-night" } },
+		{ "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "tokyonight-day" } },
+		{ "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "solarized" } },
 		-- import any extras modules here
+		{
+			import = "lazyvim.plugins.extras.test.core",
+			optional = true,
+			dependencies = {
+				"jfpedroza/neotest-elixir",
+			},
+			opts = {
+				adapters = {
+					["neotest-elixir"] = {},
+				},
+			},
+		},
 		{ import = "lazyvim.plugins.extras.editor.leap" },
 		{ import = "lazyvim.plugins.extras.lang.typescript" },
 		{ import = "lazyvim.plugins.extras.lang.json" },
