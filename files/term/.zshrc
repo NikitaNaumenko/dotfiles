@@ -10,7 +10,7 @@ export EDITOR=nvim
 
 NPM_PACKAGES="${HOME}/.npm"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-BAT_THEME="ansi"
+BAT_THEME="Solarized (light)"
 
 export PATH="$PATH:$NPM_PACKAGES/bin"
 export PATH="$HOME/go/bin:$PATH"
@@ -22,16 +22,6 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 # plugins=(git)
 plugins=(asdf git)
 source $ZSH/oh-my-zsh.sh
-
-# =========== #
-#   Aliases   #
-# =========== #
-alias bi='bundle install'
-alias be='bundle exec ' # note the trailing space to trigger chaining
-alias bu='bundle update'
-alias bo='bundle open'
-alias rs='rails server'
-alias rc='rails console'
 
 alias vim="nvim"
 alias v="nvim"
