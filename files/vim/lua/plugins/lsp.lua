@@ -9,7 +9,6 @@ return {
 					border = "rounded",
 				},
 			},
-			-- autoformat = true,
 		},
 	},
 }

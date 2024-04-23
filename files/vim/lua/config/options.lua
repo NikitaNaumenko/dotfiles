@@ -4,3 +4,4 @@ vim.o.linebreak = true
 vim.o.showbreak = "↪| "
 vim.o.swapfile = false
 vim.wo.wrap = true
+vim.g.autoformat = false
