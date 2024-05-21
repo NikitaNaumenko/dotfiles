@@ -13,7 +13,7 @@ brew install \
   coreutils automake autoconf openssl \
   libyaml readline libxslt libtool unixodbc \
   unzip curl gpg git bat htop fzf git-delta tmux \
-  gnu-sed wxwidgets fop
+  gnu-sed wxwidgets fop fd rigrep
 
 echo -e "\n--------------Configure Tmux--------------\n"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

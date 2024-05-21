@@ -14,15 +14,15 @@ end
 
 -- local user_var_tab_title_key = 'tab_title';
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	local edge_background = "#fdf6e3"
+	local edge_background = "#FFFFFF"
 	local foreground = "#000000"
-	local background = "#fdf6e3"
+	local background = "#FFFFFF"
 
 	if tab.is_active then
-		background = "#eee8d5"
+		background = "#FFFFFF"
 		foreground = "#000000"
 	elseif hover then
-		background = "#eee8d5"
+		background = "#FFFFFF"
 		foreground = "#000000"
 	end
 
@@ -55,11 +55,11 @@ return {
 	tab_max_width = 20,
 	force_reverse_video_cursor = true,
 
-	color_scheme = "Solarized (light) (terminal.sexy)",
+	color_scheme = "Alabaster",
 	colors = {
 		tab_bar = {
-			background = "#fdf6e3",
-			new_tab = { bg_color = "#fdf6e3", fg_color = "#000000" },
+			background = "#FFFFFF",
+			new_tab = { bg_color = "#FFFFFF", fg_color = "#000000" },
 		},
 	},
 
