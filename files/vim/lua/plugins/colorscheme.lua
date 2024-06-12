@@ -1,7 +1,7 @@
 return {
 	{
 		-- "maxmx03/solarized.nvim",
-    "p00f/alabaster.nvim",
+    "NikitaNaumenko/alabaster.nvim",
 		lazy = false,
 		-- priority = 1000,
 		-- config = function()
@@ -16,3 +16,4 @@ return {
 		-- end,
 	},
 }
+

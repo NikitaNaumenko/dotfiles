@@ -1,4 +1,6 @@
 return {
+	{ "folke/tokyonight.nvim", enabled = false },
+	{ "catppuccin/nvim", enabled = false },
 	{ "echasnovski/mini.indentscope", enabled = false },
 	{ "echasnovski/mini.surround", enabled = false },
 	{ "akinsho/bufferline.nvim", enabled = false },

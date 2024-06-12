@@ -49,7 +49,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 end)
 
 return {
-	font = wezterm.font("Zed Mono"),
+	-- font = wezterm.font("Zed Mono"),
+	font = wezterm.font("Rec Mono Linear"),
 	font_size = 16,
 	-- dpi = 144.0,
 	tab_max_width = 20,

@@ -5,3 +5,4 @@ vim.o.showbreak = "↪| "
 vim.o.swapfile = false
 vim.wo.wrap = true
 vim.g.autoformat = false
+vim.api.nvim_set_hl(0, "@symbol", {link = "Identifier"})
