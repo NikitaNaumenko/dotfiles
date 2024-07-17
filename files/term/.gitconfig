@@ -15,7 +15,7 @@
 	navigate = true
 	line-numbers = true
 	side-by-side = true
-	syntax-theme = Solarized (light)
+  syntax-theme = base16-256
 [merge]
     conflictstyle = diff3
 [diff]

@@ -10,7 +10,7 @@ export EDITOR=nvim
 
 NPM_PACKAGES="${HOME}/.npm"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-BAT_THEME="Solarized (light)"
+BAT_THEME="base16-256"
 
 export PATH="$PATH:$NPM_PACKAGES/bin"
 export PATH="$HOME/go/bin:$PATH"
@@ -27,6 +27,7 @@ alias vim="nvim"
 alias v="nvim"
 alias top="htop"
 
+[ -f ~/.config/zshrc/aliases.zsh ] && source ~/.config/zshrc/aliases.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
