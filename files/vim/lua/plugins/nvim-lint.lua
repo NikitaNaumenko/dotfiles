@@ -3,20 +3,22 @@ return {
   opts = {
     -- Event to trigger linters
     linters_by_ft = {
-      java = { "checkstyle" },
-      -- Use the "*" filetype to run linters on all filetypes.
-      -- ['*'] = { 'global linter' },
-      -- Use the "_" filetype to run linters on filetypes that don't have other linters configured.
-      -- ['_'] = { 'fallback linter' },
-      -- ["*"] = { "typos" },
+    java = { "checkstyle" },
+    --   -- Use the "*" filetype to run linters on all filetypes.
+    --   -- ['*'] = { 'global linter' },
+    --   -- Use the "_" filetype to run linters on filetypes that don't have other linters configured.
+    --   -- ['_'] = { 'fallback linter' },
+    --   -- ["*"] = { "typos" },
     },
-    -- LazyVim extension to easily override linter options
+    -- -- LazyVim extension to easily override linter options
     -- or add custom linters.
     ---@type table<string,table>
     linters = {
       checkstyle = {
-        -- cmd = "gradle checkstyleMain",
-        -- config_file = "/Users/nikitanaumenko/Workspace/java-project-61/config/checkstyle/checkstyle.xml"
+        -- cmd = .. "gradlew checkstyleMain",
+        -- config_file = 
+        args = { '-c', LazyVim.root.get({normalize = true}) .. "/config/checkstyle/checkstyle.xml" }
+        -- config_file = nil
       }
       -- -- Example of using selene only when a selene.toml file is present
       -- selene = {
