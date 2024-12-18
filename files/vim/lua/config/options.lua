@@ -1,4 +1,5 @@
 vim.o.relativenumber = false
+vim.o.background = "light"
 vim.o.spelllang = "ru_ru,en_us"
 vim.o.linebreak = true
 vim.o.showbreak = "↪| "
