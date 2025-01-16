@@ -6,4 +6,4 @@ term-setup:
 	ln -s $(PWD)/files/term/.tmux.conf ~/.tmux.conf | true
 	ln -s $(PWD)/files/term/.gitconfig ~/.gitconfig | true
 	ln -s $(PWD)/files/term/.zshrc ~/.zshrc | true
-	ln -s $(PWD)/files/term/wezterm/* ~/.config/wezterm/ | true
+	ln -s $(PWD)/files/term/ghostty/* ~/.config/ghostty/ | true

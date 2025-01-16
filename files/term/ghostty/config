@@ -1,0 +1,5 @@
+font-family = "Zed Mono"
+font-size = 18
+adjust-font-baseline = 1
+theme = Kanagawa Wave
+macos-titlebar-style = "transparent"

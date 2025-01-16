@@ -11,7 +11,7 @@ require("lazy").setup({
 	spec = {
 		{ "tpope/vim-surround" },
 		-- add LazyVim and import its plugins
-		{ "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "alabaster" } },
+		{ "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "kanagawa" } },
 		-- import any extras modules here
 		{
 			import = "lazyvim.plugins.extras.test.core",
